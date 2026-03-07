@@ -1,0 +1,16 @@
+[
+  { "title": "Introduction", "path": "introduction.md" },
+  { "title": "Quick Start", "path": "quick-start.md" },
+  {
+    "title": "Dive Deep",
+    "subs": [
+      { "title": "Basics", "path": "dive-deep/basics.md" },
+      { "title": "Basic Shapes", "path": "dive-deep/shapes.md" },
+      { "title": "Get Point", "path": "dive-deep/get-point.md" },
+      { "title": "Series", "path": "dive-deep/point-series.md" },
+      { "title": "Intersection Points", "path": "dive-deep/x-points.md" },
+      { "title": "Shape Series", "path": "dive-deep/shape-series.md" },
+      { "title": "Shape Transform", "path": "dive-deep/shape-transform.md" }
+    ]
+  }
+]

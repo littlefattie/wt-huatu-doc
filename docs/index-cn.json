@@ -1,0 +1,22 @@
+[
+  { "title": "介绍", "path": "introduction.md" },
+  { "title": "快速上手", "path": "quick-start.md" },
+  {
+    "title": "深入了解",
+    "subs": [
+      { "title": "基本知识", "path": "dive-deep/basics.md" },
+      { "title": "基本图形", "path": "dive-deep/shapes.md" },
+      { "title": "获取点", "path": "dive-deep/get-point.md" },
+      { "title": "序列", "path": "dive-deep/point-series.md" },
+      { "title": "交点", "path": "dive-deep/x-points.md" },
+      { "title": "图形序列", "path": "dive-deep/shape-series.md" },
+      { "title": "图形变换", "path": "dive-deep/shape-transform.md" },
+      { "title": "角度标记", "path": "dive-deep/angle-mark.md" },
+      { "title": "长度标记", "path": "dive-deep/dim-mark.md" },
+      { "title": "文本标签", "path": "dive-deep/label.md" },
+      { "title": "复合图形", "path": "dive-deep/complex-path.md" },
+      { "title": "组件", "path": "dive-deep/component.md" },
+      { "title": "连线", "path": "dive-deep/wire.md" }
+    ]
+  }
+]
