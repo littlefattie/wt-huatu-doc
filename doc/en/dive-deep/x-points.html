@@ -1,0 +1,554 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="msvalidate.01" content="0FD15710100E02F18E35B3D3908A133F">
+    <link rel="icon" href="/wt-huatu-doc/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wt-huatu</title>
+    <link rel="stylesheet" crossorigin="" href="/wt-huatu-doc/assets/index-CnPvVuaR.css">
+  <style></style></head>
+  <body>
+    <div id="app" data-v-app=""><div class="main"><main data-v-9ee0c63b=""><div data-v-9ee0c63b="" class="index-tree"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-88a02bb8="" data-v-9ee0c63b=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/introduction.html" class="">Introduction</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/quick-start.html" class="">Quick Start</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><span data-v-88a02bb8="" class="tree-dir">Dive Deep</span></div><div data-v-88a02bb8="" class="ctn-tree-sub"><div data-v-88a02bb8=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/basics.html" class="">Basics</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shapes.html" class="">Basic Shapes</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/get-point.html" class="">Get Point</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/point-series.html" class="">Series</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" aria-current="page" href="/wt-huatu-doc/doc/en/dive-deep/x-points.html" class="router-link-active router-link-exact-active is-current">Intersection Points</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shape-series.html" class="">Shape Series</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shape-transform.html" class="">Shape Transform</a></div><!----></div></div></div></div></div></div></div><!----><!----><div data-v-9ee0c63b="" class="doc-page"><div data-v-9ee0c63b="" class="doc-body"><div data-v-9ee0c63b="" class="wtmd"><div data-v-9ee0c63b=""><h1>Intersection Points</h1>
+<p>Having the basic shapes we have defined, we can define the intersection points of two shapes. We can define a single intersection point under the <code>xpoints</code> root tag, or we can define a point series which contains all the intersection points of two shapes under the <code>pointSeries</code> root tag.</p>
+<p>Consider that there might be two or more intersection points for two given shapes, we need some <strong>directional</strong> indicator to tell which point should be picked when there are multiple intersections resolved when defining a named point under <code>xpoints</code>.</p>
+<p>When define point series of intersections, no directional indicator is required, all the intersections will be included in the series.</p>
+<p>Following sample will demonstrate how the xpoint or point series is defined.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">shape1:</span> what ever you want to define...
+  <span class="hljs-wtht-id">shape2:</span> what ever you want to define...
+<span class="hljs-wtht-tag">xpoints:</span>
+  <span class="hljs-wtht-id">xp1:</span> shape1<span class="hljs-wtht-emphasis">;</span> shape2<span class="hljs-wtht-emphasis">;</span>          <span class="hljs-wtht-comment"># when no directional indicator specified,
+</span>                                <span class="hljs-wtht-comment"># a 'dummy first' point will be returned
+</span>                                <span class="hljs-wtht-comment"># it is uncertain, so it is better to present the indicator
+</span>  <span class="hljs-wtht-id">xp2:</span> shape1<span class="hljs-wtht-emphasis">;</span> shape2<span class="hljs-wtht-emphasis">;</span> n<span class="hljs-wtht-emphasis">;</span>       <span class="hljs-wtht-comment"># north, the top-most/northern-most one
+</span>  <span class="hljs-wtht-id">xp3:</span> shape1<span class="hljs-wtht-emphasis">;</span> shape2<span class="hljs-wtht-emphasis">;</span> se<span class="hljs-wtht-emphasis">;</span>      <span class="hljs-wtht-comment"># southeast, the right-bottom/south-eastern-most one
+</span><span class="hljs-wtht-tag">pointSeries:</span>
+  <span class="hljs-wtht-id">ps1:</span> shape1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> shape2<span class="hljs-wtht-emphasis">;</span>       <span class="hljs-wtht-comment"># put an 'x' as the second parameter when defining
+</span>                                <span class="hljs-wtht-comment"># point series will get a point series of intersections
+</span></code></pre>
+<p>All the possible directional indicators are:</p>
+<ul>
+<li><code>n</code>: the northern-most or top-most</li>
+<li><code>s</code>: the southern-most or bottom-most</li>
+<li><code>w</code>: the western-most or left-most</li>
+<li><code>e</code>: the eastern-most or right-most</li>
+<li><code>ne</code>: the north-eastern or most top-right</li>
+<li><code>nw</code>: the north-western or most top-left</li>
+<li><code>se</code>: the south-eastern or most bottom-right</li>
+<li><code>sw</code>: the south-western or most bottom-left</li>
+<li><code>xmiddle</code>: the point having <code>x</code> coordinate in the middle when sorted</li>
+<li><code>ymiddle</code>: the point having ‘y’ coordinate in the middle when sorted</li>
+<li><code>xymiddle</code> or <code>center</code>: the point relatively at center of all the points</li>
+</ul>
+<div class="info-box">
+<p>Note: the directional indicator will be translated into some condition to sort the resolved intersection points, and pick the first one or middle one after sorted. So it is possible that the indicator you gave doesn’t pick the point you expected, and as the base shapes are changing as of parameter changed, the picked point might vary. So please use appropriate indicator to pick the point you want and try multiple times. And try to make the point relatively fixed to make a sound design. One example to explain this is this: the two shapes have multiple intersection points, one is quite far from others, say, stays at right, then when you specify the point at <code>ne</code> might return this “eastern-most” point, not the one which is more northern. In this case, there is no significantly “north-eastern” point, so you can just use <code>e</code> to pick the “easter-most” one and <code>n</code> to pick the northern one. For <code>xmiddle</code>, <code>ymiddle</code>, and <code>xymiddle</code>, after sorted, the point in middle will be picked when count is odd, and the point having smaller value of middle two will be picked if count is even. i.e. point 3 will be picked if count 5, and point 4 will picked if count is 8.</p>
+
+</div><p>Following is a simple example, we can define <code>xpoint</code> or point series accordingly.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">rx:</span> <span class="hljs-wtht-number">60</span>
+  <span class="hljs-wtht-id">ry:</span> rx * <span class="hljs-wtht-number">2.444</span>
+
+<span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">p0:</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>
+
+<span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">ell1:</span> <span class="hljs-wtht-marker">ell</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> rx<span class="hljs-wtht-emphasis">;</span> ry<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">ell2:</span> <span class="hljs-wtht-marker">ell</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> rx<span class="hljs-wtht-emphasis">;</span> ry<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">60</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">ell3:</span> <span class="hljs-wtht-marker">ell</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> rx<span class="hljs-wtht-emphasis">;</span> ry<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">120</span><span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">xpoints:</span>
+  <span class="hljs-wtht-id">xp12NE:</span> ell1<span class="hljs-wtht-emphasis">;</span> ell2<span class="hljs-wtht-emphasis">;</span> ne<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp12E:</span>  ell1<span class="hljs-wtht-emphasis">;</span> ell2<span class="hljs-wtht-emphasis">;</span> e<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp23E:</span>  ell2<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span> e<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp13SE:</span> ell1<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span> se<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp12SW:</span> ell1<span class="hljs-wtht-emphasis">;</span> ell2<span class="hljs-wtht-emphasis">;</span> sw<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp23W:</span>  ell2<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span> w<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp13NW:</span> ell1<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span> nw<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp13NE:</span> ell1<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span> ne<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp12SE:</span> ell1<span class="hljs-wtht-emphasis">;</span> ell2<span class="hljs-wtht-emphasis">;</span> se<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp23S:</span>  ell2<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span> s<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp13SW:</span> ell1<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span> sw<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp12NW:</span> ell1<span class="hljs-wtht-emphasis">;</span> ell2<span class="hljs-wtht-emphasis">;</span> nw<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">xp23N:</span>  ell2<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span> n<span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">pointSeries:</span>
+  <span class="hljs-wtht-comment"># Define Point Series by intersection points
+</span>  <span class="hljs-wtht-id">ps12:</span> ell1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> ell2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">ps13:</span> ell1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">ps23:</span> ell2<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> ell3<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># Pick defined points to make Point Series
+</span>  <span class="hljs-wtht-id">psOuter:</span> xp12NE<span class="hljs-wtht-emphasis">;</span> xp23E<span class="hljs-wtht-emphasis">;</span> xp13SE<span class="hljs-wtht-emphasis">;</span> xp12SW<span class="hljs-wtht-emphasis">;</span> xp23W<span class="hljs-wtht-emphasis">;</span> xp13NW<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psInner:</span> xp13NE<span class="hljs-wtht-emphasis">;</span> xp12SE<span class="hljs-wtht-emphasis">;</span> xp23S<span class="hljs-wtht-emphasis">;</span> xp13SW<span class="hljs-wtht-emphasis">;</span> xp12NW<span class="hljs-wtht-emphasis">;</span> xp23N<span class="hljs-wtht-emphasis">;</span>
+<span class="hljs-wtht-tag">blocks:</span>
+  <span class="hljs-wtht-id">ells:</span>
+    <span class="hljs-wtht-id">-</span> ell1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">#000</span><span class="hljs-wtht-emphasis">;</span> 
+    <span class="hljs-wtht-id">-</span> ell2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">#666</span><span class="hljs-wtht-emphasis">;</span> 
+    <span class="hljs-wtht-id">-</span> ell3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">#aaa</span><span class="hljs-wtht-emphasis">;</span> 
+  <span class="hljs-wtht-id">blk1:</span>
+    <span class="hljs-wtht-id">-</span> ells<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> xp12NE<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cyan</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> xp12E<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">magenta</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> ps12<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">royalblue</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">blk2:</span>
+    <span class="hljs-wtht-id">-</span> ells<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psOuter<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psInner<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">blue</span><span class="hljs-wtht-emphasis">;</span>
+<span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> blk1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">-</span> blk2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span> ry * <span class="hljs-wtht-number">2.2</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="585.9866749908889" height="297" viewBox="-131.28933749544444 -148.24 585.9866749908889 296.48">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-7960b403 { fill: none; }
+.huatu-label-container-7960b403 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-7960b403 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<g>
+<g fill="none">
+<ellipse rx="60.000000" ry="146.640000" stroke="#000" stroke-width="1.000000"></ellipse>
+<ellipse rx="60.000000" ry="146.640000" transform="rotate(60.000)" stroke="#666" stroke-width="1.000000"></ellipse>
+<ellipse rx="60.000000" ry="146.640000" transform="rotate(120.000)" stroke="#aaa" stroke-width="1.000000"></ellipse>
+</g>
+<circle cx="48.953114" cy="-84.789281" r="8.000000" fill="cyan"></circle>
+<circle cx="58.392801" cy="33.713099" r="8.000000" fill="magenta"></circle>
+<g fill="royalblue">
+<circle cx="-58.392801" cy="-33.713099" r="4.000000"></circle>
+<circle cx="-48.953114" cy="84.789281" r="4.000000"></circle>
+<circle cx="58.392801" cy="33.713099" r="4.000000"></circle>
+<circle cx="48.953114" cy="-84.789281" r="4.000000"></circle>
+</g>
+<g transform="translate(0.000000,-40.000000)">
+
+<foreignObject x="48.95311440399797" y="-84.78928133645636" width="60" height="40">
+
+<div class="huatu-label-container-7960b403">
+<div class="huatu-label-text-7960b403">
+<span>NE</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+
+<foreignObject x="58.39280096676856" y="33.713099356900344" width="60" height="30">
+
+<div class="huatu-label-container-7960b403">
+<div class="huatu-label-text-7960b403">
+<span>E</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<g transform="translate(322.608000,0.000000)">
+<g fill="none" stroke="currentColor" stroke-width="1.000000">
+<ellipse rx="60.000000" ry="146.640000" stroke="#000" stroke-width="1.000000"></ellipse>
+<ellipse rx="60.000000" ry="146.640000" transform="rotate(60.000)" stroke="#666" stroke-width="1.000000"></ellipse>
+<ellipse rx="60.000000" ry="146.640000" transform="rotate(120.000)" stroke="#aaa" stroke-width="1.000000"></ellipse>
+</g>
+<g fill="red">
+<circle cx="48.953114" cy="-84.789281" r="4.000000"></circle>
+<circle cx="97.906229" cy="-0.000000" r="4.000000"></circle>
+<circle cx="48.953114" cy="84.789281" r="4.000000"></circle>
+<circle cx="-48.953114" cy="84.789281" r="4.000000"></circle>
+<circle cx="-97.906229" cy="0.000000" r="4.000000"></circle>
+<circle cx="-48.953114" cy="-84.789281" r="4.000000"></circle>
+</g>
+<g fill="blue">
+<circle cx="58.392801" cy="-33.713099" r="4.000000"></circle>
+<circle cx="58.392801" cy="33.713099" r="4.000000"></circle>
+<circle cx="-0.000000" cy="67.426199" r="4.000000"></circle>
+<circle cx="-58.392801" cy="33.713099" r="4.000000"></circle>
+<circle cx="-58.392801" cy="-33.713099" r="4.000000"></circle>
+<circle cx="-0.000000" cy="-67.426199" r="4.000000"></circle>
+</g>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<p>Following is another complex example, you can resolve intersection points between different shapes.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">p0:</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>
+
+<span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">line1:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">85</span>
+  <span class="hljs-wtht-id">ls1:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> line1<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">160</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">rect1:</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">bycenter</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">450</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">300</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">tri1:</span>  <span class="hljs-wtht-marker">tri</span><span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">330</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">60</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">270</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">60</span><span class="hljs-wtht-emphasis">,</span> -<span class="hljs-wtht-number">390</span>
+  <span class="hljs-wtht-id">c1:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">tri1.cin</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">tri1.rIn</span> * <span class="hljs-wtht-number">1.333</span>
+  <span class="hljs-wtht-id">ell1:</span> <span class="hljs-wtht-marker">ell</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">375</span><span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">43</span>
+  <span class="hljs-wtht-id">bc2:</span> <span class="hljs-wtht-marker">b2</span><span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">270</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">90</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">160</span><span class="hljs-wtht-emphasis">,</span> -<span class="hljs-wtht-number">600</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">198</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">180</span> 
+  <span class="hljs-wtht-id">bc3:</span> <span class="hljs-wtht-marker">b3</span><span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">300</span><span class="hljs-wtht-emphasis">,</span> -<span class="hljs-wtht-number">300</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">150</span><span class="hljs-wtht-emphasis">,</span> -<span class="hljs-wtht-number">240</span><span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">240</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">300</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">360</span><span class="hljs-wtht-emphasis">,</span> -<span class="hljs-wtht-number">120</span><span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">pointSeries:</span>
+  <span class="hljs-wtht-id">psxLn1Bc3:</span>   ls1<span class="hljs-wtht-emphasis">;</span>  x<span class="hljs-wtht-emphasis">;</span> bc3<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxRec1Ell1:</span> rect1<span class="hljs-wtht-emphasis">;</span>x<span class="hljs-wtht-emphasis">;</span> ell1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxTri1C1:</span>   tri1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> c1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxtri1Ell1:</span> tri1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> ell1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxtri1BC2:</span>  tri1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> bc2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxtri1BC3:</span>  tri1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> bc3<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxC1Ell1:</span>   c1<span class="hljs-wtht-emphasis">;</span>   x<span class="hljs-wtht-emphasis">;</span> ell1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxC1Bc2:</span>    c1<span class="hljs-wtht-emphasis">;</span>   x<span class="hljs-wtht-emphasis">;</span> bc2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxC1Bc3:</span>    c1<span class="hljs-wtht-emphasis">;</span>   x<span class="hljs-wtht-emphasis">;</span> bc3<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxEll1Bc2:</span>  ell1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> bc2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxEll1Bc3:</span>  ell1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> bc3<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psxBc2Bc3:</span>   bc2<span class="hljs-wtht-emphasis">;</span>  x<span class="hljs-wtht-emphasis">;</span> bc3<span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">jobs:</span>
+  <span class="hljs-wtht-id">ln1Bc3:</span>
+    <span class="hljs-wtht-id">-</span> ls1<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> bc3<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxLn1Bc3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">rectEll1:</span>
+    <span class="hljs-wtht-id">-</span> rect1<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> ell1<span class="hljs-wtht-emphasis">;</span>   <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxRec1Ell1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">tri1C1:</span>
+    <span class="hljs-wtht-id">-</span> tri1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> c1<span class="hljs-wtht-emphasis">;</span>   <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxTri1C1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">tri1Bc2:</span>
+    <span class="hljs-wtht-id">-</span> tri1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> bc2<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxtri1BC2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">tri1Bc3:</span>
+    <span class="hljs-wtht-id">-</span> tri1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> bc3<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxtri1BC3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">tri1ELl1:</span>
+    <span class="hljs-wtht-id">-</span> tri1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> ell1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxtri1Ell1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">c1ELl1:</span>
+    <span class="hljs-wtht-id">-</span> c1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> ell1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxC1Ell1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">c1Bc2:</span>
+    <span class="hljs-wtht-id">-</span> c1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> bc2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxC1Bc2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">c1Bc3:</span>
+    <span class="hljs-wtht-id">-</span> c1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> bc3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxC1Bc3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">ellB2:</span>
+    <span class="hljs-wtht-id">-</span> ell1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> bc2<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxEll1Bc2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">ellB3:</span>
+    <span class="hljs-wtht-id">-</span> ell1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> bc3<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxEll1Bc3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+  <span class="hljs-wtht-id">b2B3:</span>
+    <span class="hljs-wtht-id">-</span> bc2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> bc3<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psxBc2Bc3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.6</span>
+</code></pre>
+<p>When drawn out:</p>
+
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="664.8" height="405" viewBox="-302.4 -302.4 664.8 404.41946980917453">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-5591e990 { fill: none; }
+.huatu-label-container-5591e990 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-5591e990 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<line x1="-8.715574" y1="99.619470" x2="13.944919" y2="-159.391152" fill="none" stroke="currentColor" stroke-width="3.000000"></line>
+<path d="M-300.000000,-300.000000 C150.000000,-240.000000 -240.000000,300.000000 360.000000,-120.000000" fill="none" stroke="currentColor" stroke-width="3.000000"></path>
+<g fill="red" fill-opacity="0.60">
+<circle cx="-1.396704" cy="15.964395" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Line x Bezier3</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="536.8019936375681" height="571" viewBox="-268.4009968187841 -285.0101018920116 536.8019936375681 570.0202037840234">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-e8c6153b { fill: none; }
+.huatu-label-container-e8c6153b { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-e8c6153b { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<rect x="-225.000000" y="-150.000000" width="450.000000" height="300.000000" fill="none" stroke="currentColor" stroke-width="3.000000"></rect>
+<ellipse rx="100.000000" ry="375.000000" transform="rotate(317.000)" fill="none" stroke="currentColor" stroke-width="3.000000"></ellipse>
+<g fill="red" fill-opacity="0.60">
+<circle cx="-9.905246" cy="-150.000000" r="8.000000"></circle>
+<circle cx="-225.000000" cy="-131.985055" r="8.000000"></circle>
+<circle cx="9.905246" cy="150.000000" r="8.000000"></circle>
+<circle cx="225.000000" cy="131.985055" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Rectangle x Ellipse</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="604.8" height="477" viewBox="-332.4 -392.4 604.8 476.45282752647216">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-f8839174 { fill: none; }
+.huatu-label-container-f8839174 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-f8839174 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<path d="M-330.000000,60.000000 L270.000000,0.000000 L-60.000000,-390.000000 z" fill="none" stroke="currentColor" stroke-width="3.000000"></path>
+<circle cx="-38.493863" cy="-124.805768" r="206.458595" fill="none" stroke="currentColor" stroke-width="3.000000"></circle>
+<g fill="red" fill-opacity="0.60">
+<circle cx="-158.920568" cy="42.892057" r="8.000000"></circle>
+<circle cx="112.755644" cy="15.724436" r="8.000000"></circle>
+<circle cx="167.922638" cy="-120.636883" r="8.000000"></circle>
+<circle cx="-8.439757" cy="-329.065167" r="8.000000"></circle>
+<circle cx="-101.067954" cy="-321.553410" r="8.000000"></circle>
+<circle cx="-241.541355" cy="-87.431075" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Triangle x Circle</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="536.8019936375681" height="619" viewBox="-268.4009968187841 -333.66436279167414 536.8019936375681 618.6744646836859">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-cc61ad41 { fill: none; }
+.huatu-label-container-cc61ad41 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-cc61ad41 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="-38.493863" cy="-124.805768" r="206.458595" fill="none" stroke="currentColor" stroke-width="3.000000"></circle>
+<ellipse rx="100.000000" ry="375.000000" transform="rotate(317.000)" fill="none" stroke="currentColor" stroke-width="3.000000"></ellipse>
+<g fill="red" fill-opacity="0.60">
+<circle cx="-61.671612" cy="80.347696" r="8.000000"></circle>
+<circle cx="129.157119" cy="-4.313860" r="8.000000"></circle>
+<circle cx="-184.026687" cy="-271.248073" r="8.000000"></circle>
+<circle cx="-241.382324" cy="-163.034342" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Circle x Ellipse</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="472.8" height="517" viewBox="-272.4 -333.66436279167414 472.8 516.0643627916742">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-67ac9b4d { fill: none; }
+.huatu-label-container-67ac9b4d { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-67ac9b4d { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="-38.493863" cy="-124.805768" r="206.458595" fill="none" stroke="currentColor" stroke-width="3.000000"></circle>
+<path d="M-270.000000,90.000000 Q160.000000,-600.000000 198.000000,180.000000" fill="none" stroke="currentColor" stroke-width="3.000000"></path>
+<g fill="red" fill-opacity="0.60">
+<circle cx="164.129559" cy="-85.196420" r="8.000000"></circle>
+<circle cx="-207.257966" cy="-5.877936" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Circle x Bezier2</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="664.8" height="418" viewBox="-302.4 -333.66436279167414 664.8 417.7171903181463">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-fbe69648 { fill: none; }
+.huatu-label-container-fbe69648 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-fbe69648 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="-38.493863" cy="-124.805768" r="206.458595" fill="none" stroke="currentColor" stroke-width="3.000000"></circle>
+<path d="M-300.000000,-300.000000 C150.000000,-240.000000 -240.000000,300.000000 360.000000,-120.000000" fill="none" stroke="currentColor" stroke-width="3.000000"></path>
+<g fill="red" fill-opacity="0.60">
+<circle cx="97.603488" cy="30.444555" r="8.000000"></circle>
+<circle cx="-186.896263" cy="-268.339315" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Circle x Bezier3</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="540.8009968187839" height="571" viewBox="-272.4 -285.0101018920116 540.8009968187839 570.0202037840234">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-5cf54a81 { fill: none; }
+.huatu-label-container-5cf54a81 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-5cf54a81 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<ellipse rx="100.000000" ry="375.000000" transform="rotate(317.000)" fill="none" stroke="currentColor" stroke-width="3.000000"></ellipse>
+<path d="M-270.000000,90.000000 Q160.000000,-600.000000 198.000000,180.000000" fill="none" stroke="currentColor" stroke-width="3.000000"></path>
+<g fill="red" fill-opacity="0.60">
+<circle cx="190.690719" cy="77.301477" r="8.000000"></circle>
+<circle cx="-173.541937" cy="-52.957814" r="8.000000"></circle>
+<circle cx="-53.056152" cy="-186.998861" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Ellipse x Bezier2</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="664.8" height="588" viewBox="-302.4 -302.4 664.8 587.4101018920117">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-abec871c { fill: none; }
+.huatu-label-container-abec871c { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-abec871c { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<ellipse rx="100.000000" ry="375.000000" transform="rotate(317.000)" fill="none" stroke="currentColor" stroke-width="3.000000"></ellipse>
+<path d="M-300.000000,-300.000000 C150.000000,-240.000000 -240.000000,300.000000 360.000000,-120.000000" fill="none" stroke="currentColor" stroke-width="3.000000"></path>
+<g fill="red" fill-opacity="0.60">
+<circle cx="142.907721" cy="12.687399" r="8.000000"></circle>
+<circle cx="-220.102781" cy="-281.836987" r="8.000000"></circle>
+<circle cx="-220.097053" cy="-281.836186" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Ellipse x Bezier3</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="664.8" height="485" viewBox="-302.4 -302.4 664.8 484.8">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-a77c5efe { fill: none; }
+.huatu-label-container-a77c5efe { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-a77c5efe { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<path d="M-270.000000,90.000000 Q160.000000,-600.000000 198.000000,180.000000" fill="none" stroke="currentColor" stroke-width="3.000000"></path>
+<path d="M-300.000000,-300.000000 C150.000000,-240.000000 -240.000000,300.000000 360.000000,-120.000000" fill="none" stroke="currentColor" stroke-width="3.000000"></path>
+<g fill="red" fill-opacity="0.60">
+<circle cx="-77.543594" cy="-165.015936" r="8.000000"></circle>
+<circle cx="180.254259" cy="-5.979921" r="8.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">Bezier2 x Bezier3</span>
+    </span>
+  </div>
+</div></div></div>
+<div class="info-box">
+<p>Note: because we use some iterative algorithm to calculate intersection of complex curves, e.g. Arcs and Bezier3 Curves, it might need a lot of time to get the result, especially when the parameters of two shapes are quite critical, e.g. get the intersection of two nearly-parallel portions of two curves. And there is some possibility (though very low) that no intersection can be resolved. So when you encounter some slow-down when previewing or rendering when designing very large and complicated graph that has a lot of intersection involved, please be patient and give the program a little time, or optimize your design to avoid using unnecessary intersection points.</p>
+
+</div></div></div></div></div><div data-v-9ee0c63b="" class="toc"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-9ee0c63b="" class="lang-list"><span data-v-9ee0c63b="" class="lang-link">中文</span><!----></div><div data-v-9ee0c63b="" class="clickable go-top"><a data-v-9ee0c63b="" style="display: block;"><i data-v-9ee0c63b="" class="f7-icons" style="font-size: 1rem;">arrow_up_to_line_alt</i> GO TOP</a></div></div></div><!----><!----></main></div><header><div class="header-content no-select"><div class="flex"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-5.45 -5.6 10.9 11.2" width="32.7" height="33.599999999999994"><polyline points="-2.250,5.0 -4.850,5.0 -4.850,-5.0 -2.250,-5.0 -2.250,-1.180 2.250,-1.180 2.250,-5.0 4.850,-5.0 4.850,5.0 2.250,5.0 2.250,1.180 -2.250,1.180 -2.250,3.180" fill="#0b4d4233" stroke="currentColor" stroke-width="0.4"></polyline><circle cx="-2.250" cy="5.0" r="0.40" fill="black"></circle><circle cx="-2.250" cy="1.180" r="0.40" fill="black"></circle><circle cx="-2.250" cy="3.180" r="0.40" fill="red"></circle></svg></div><div class="title">wt-huatu</div><div class="flex-filler"><nav><div><a href="/wt-huatu-doc/" class="">Home</a><a href="/wt-huatu-doc/doc" class="rl-exact-active">Docs</a><a class="clickable">Editor</a></div><div class="flex-filler"></div><div><span class="wtht-ver">V1.4.1</span><a href="https://github.com/littlefattie/wt-huatu" class="social-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" height="24" width="24"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" fill="currentColor"></path></svg></a><a href="https://www.npmjs.com/package/wt-huatu" class="social-link" target="_blank"><svg viewBox="0 0 27.23 27.23" aria-hidden="true" width="24" height="24"><rect width="27.23" height="27.23" rx="2" fill="currentColor" stroke-width="0"></rect><polygon fill="#0b4d42" points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"></polygon></svg></a></div></nav></div></div><!----></header><footer><div><strong>wt-huatu:</strong> A library to draw something mathematically, logically, hierarchically and programmatically. </div><div> contact: <a href="mailto:little-fattie@outlook.com">little-fattie@outlook.com</a></div></footer><!----><!----></div>
+
+  
+
+</body></html>

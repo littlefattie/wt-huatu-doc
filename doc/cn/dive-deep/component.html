@@ -1,0 +1,704 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="msvalidate.01" content="0FD15710100E02F18E35B3D3908A133F">
+    <link rel="icon" href="/wt-huatu-doc/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wt-huatu</title>
+    <link rel="stylesheet" crossorigin="" href="/wt-huatu-doc/assets/index-CnPvVuaR.css">
+  <style></style></head>
+  <body>
+    <div id="app" data-v-app=""><div class="main"><main data-v-9ee0c63b=""><div data-v-9ee0c63b="" class="index-tree"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-88a02bb8="" data-v-9ee0c63b=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/introduction.html" class="">介绍</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/quick-start.html" class="">快速上手</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><span data-v-88a02bb8="" class="tree-dir">深入了解</span></div><div data-v-88a02bb8="" class="ctn-tree-sub"><div data-v-88a02bb8=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/basics.html" class="">基本知识</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/shapes.html" class="">基本图形</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/get-point.html" class="">获取点</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/point-series.html" class="">序列</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/x-points.html" class="">交点</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/shape-series.html" class="">图形序列</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/shape-transform.html" class="">图形变换</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/angle-mark.html" class="">角度标记</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/dim-mark.html" class="">长度标记</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/label.html" class="">文本标签</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/complex-path.html" class="">复合图形</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" aria-current="page" href="/wt-huatu-doc/doc/cn/dive-deep/component.html" class="router-link-active router-link-exact-active is-current">组件</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/wire.html" class="">连线</a></div><!----></div></div></div></div></div></div></div><!----><!----><div data-v-9ee0c63b="" class="doc-page"><div data-v-9ee0c63b="" class="doc-body"><div data-v-9ee0c63b="" class="wtmd"><div data-v-9ee0c63b=""><h1>组件</h1>
+<h2 id="h1-1">概念</h2>
+<p>为了复用我们的设计，我们可以将一些可能重复性使用的画图元素组合起来，成为一个组件，这样以来，当我们在画图中需要画很多这些画图元素时，我们可以通过<strong>放置</strong>若干个组件来实现。</p>
+<p>一个很实用的场景是当我们需要绘制一幅图用来解释电路工作原理时，我们可能需要放置许多个电阻，电容，三极管，门电路芯片等，我们可以将这些电子元器件都定义成组件，然后按照需要把各个组件放置到原理图中即可。</p>
+<p>比如，通过定义各个组件，我们可以绘制如下的电路原理图:</p>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600.8" height="577" viewBox="-2.4000000000000057 -98.4 600.8 576.8">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-39e02771 { fill: none; }
+.huatu-label-container-39e02771 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-39e02771 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<g>
+<g id="comp-24a42eca" transform="translate(0.000000,0.000000)">
+<g transform=" ">
+<line x1="70.000000" y1="0.000000" x2="86.000000" y2="0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+<path d="M0.000000,-18.000000 L0.000000,18.000000 L48.797329,18.000000 L70.000000,0.000000 L48.797329,-18.000000 z" fill="yellow" stroke="currentColor" stroke-width="3.000000"></path>
+
+</g><g transform="translate(-20.398664,-9.000000)">
+
+<foreignObject x="29.39866435379311" y="0" width="40.79732870758622" height="18">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="font-weight:bold;text-align:left;">
+<span>VIN</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-084eb750" transform="translate(0.000000,380.000000)">
+<g transform=" ">
+<line x1="70.000000" y1="0.000000" x2="86.000000" y2="0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+<path d="M0.000000,-18.000000 L0.000000,18.000000 L48.797329,18.000000 L70.000000,0.000000 L48.797329,-18.000000 z" fill="silver" stroke="currentColor" stroke-width="3.000000"></path>
+
+</g><g transform="translate(-20.398664,-9.000000)">
+
+<foreignObject x="29.39866435379311" y="0" width="40.79732870758622" height="18">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="font-weight:bold;text-align:left;">
+<span>GND</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-61995bf9" transform="translate(300.000000,0.000000)">
+<g transform="rotate(-90) ">
+<circle cx="-14.080000" cy="0.000000" r="44.840000" fill="red" stroke="currentColor" stroke-width="4.000000"></circle>
+<line x1="-32.000000" y1="0.000000" x2="-72.000000" y2="0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<polyline points="-32.000000,-7.552000 0.000000,-36.364929 0.000000,-56.364929" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<polyline points="-32.000000,7.552000 0.000000,36.364929 0.000000,56.364929" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<rect x="-36.400000" y="-23.600000" width="8.800000" height="47.200000" fill="currentColor"></rect>
+<path d="M-22.147892,28.084172 L0.000000,36.364929 L-10.550480,15.203940 z" fill="currentColor"></path>
+
+</g><g transform="translate(-32.000000,-16.000000)">
+
+<foreignObject x="-3.20000000000002" y="-38.440000000000005" width="64" height="16">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:center;">
+<span>Q1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+
+</g>
+<g id="comp-55ea39fc" transform="translate(300.000000,200.000000)">
+<g transform=" ">
+<path d="M0.000000,64.000000 L0.000000,16.000000 M0.000000,-64.000000 L0.000000,-16.000000 M64.000000,0.000000 L7.680000,0.000000 M-36.000000,-36.000000 L-36.000000,36.000000  L36.000000,36.000000  L36.000000,-36.000000  L-36.000000,-36.000000 z M-16.000000,-8.480000 L-14.720000,-16.000000  L14.720000,-16.000000  L16.000000,-23.520000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M-15.360000,16.000000 L15.360000,16.000000 L0.000000,-16.000000 z" fill="currentColor" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></path>
+
+</g><g transform="translate(-32.000000,-12.000000)">
+
+<foreignObject x="-41" y="0" width="32" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:right;">
+<span>TL1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+
+<foreignObject x="13.600000000000001" y="36" width="70.4" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:left;">
+<span>TL431</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-72767b04" transform="translate(510.000000,-10.000000)">
+<g transform=" ">
+<line x1="-20.000000" y1="-20.000000" x2="20.000000" y2="-20.000000" stroke="maroon" stroke-width="4.000000" stroke-linecap="round"></line>
+<line x1="0.000000" y1="0.000000" x2="0.000000" y2="-20.000000" stroke="maroon" stroke-width="4.000000" stroke-linecap="round"></line>
+
+</g><g transform="translate(-19.200000,-20.000000)">
+
+<foreignObject x="0" y="-22" width="38.4" height="20">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="font-family:Arial, 'Times New Roman', Times, Georgia, 'Source Han Serif', 'Source Han Serif SC', 'Source Han Serif CN', NSimsun, 宋体;">
+<span>+5V</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-bc5e3942" transform="translate(420.000000,120.000000)">
+<g transform="rotate(90) ">
+<path d="M-40.000000,0.000000 L-20.000000,0.000000 M40.000000,0.000000 L20.000000,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></path>
+<rect x="-20.000000" y="-8.000000" width="40.000000" height="16.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></rect>
+
+</g><g transform="translate(0.000000,-12.000000)">
+
+<foreignObject x="14" y="-3.429011037612589e-15" width="32" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:left;">
+<span>R1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-76.800000,-12.000000)">
+
+<foreignObject x="-14" y="1.7145055188062944e-15" width="76.8" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:right;">
+<span>33k</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-28264ee2" transform="translate(420.000000,280.000000)">
+<g transform="rotate(90) ">
+<path d="M-40.000000,0.000000 L-20.000000,0.000000 M40.000000,0.000000 L20.000000,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></path>
+<rect x="-20.000000" y="-8.000000" width="40.000000" height="16.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></rect>
+
+</g><g transform="translate(0.000000,-12.000000)">
+
+<foreignObject x="14" y="-3.429011037612589e-15" width="32" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:left;">
+<span>R2</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-76.800000,-12.000000)">
+
+<foreignObject x="-14" y="1.7145055188062944e-15" width="76.8" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:right;">
+<span>33k</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-fb28a69a" transform="translate(200.000000,100.000000)">
+<g transform=" ">
+<path d="M-40.000000,0.000000 L-32.000000,0.000000 M40.000000,0.000000 L32.000000,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></path>
+<polyline points="-32.000000,0.000000 -24.000000,0.000000 -20.000000,-8.000000 -12.000000,8.000000 -4.000000,-8.000000 4.000000,8.000000 12.000000,-8.000000 20.000000,8.000000 24.000000,0.000000 32.000000,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linejoin="round"></polyline>
+
+</g><g transform="translate(-16.000000,-24.000000)">
+
+<foreignObject x="0" y="-14" width="32" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771">
+<span>R3</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-38.400000,0.000000)">
+
+<foreignObject x="0" y="14" width="76.8" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771">
+<span>5k1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-7bbdc84a" transform="translate(510.000000,200.000000)">
+<g transform=" ">
+<path d="M0.000000,-32.000000 L0.000000,-6.000000 M0.000000,32.000000 L0.000000,2.400000 M-14.000000,-6.000000 L14.000000,-6.000000 M-14.000000,7.800000 Q0.000000,-3.000000 14.000000,7.800000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></path>
+
+</g><g transform="translate(-40.000000,-12.000000)">
+
+<foreignObject x="-20" y="0" width="40" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:right;">
+<span>Co</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-12.000000)">
+
+<foreignObject x="20" y="0" width="56" height="24">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771" style="text-align:left;">
+<span>220u</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-801e5afe" transform="translate(300.000000,390.000000)">
+<g transform=" ">
+<line x1="0.000000" y1="0.000000" x2="0.000000" y2="16.000000" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+<line x1="-22.000000" y1="16.000000" x2="22.000000" y2="16.000000" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+<line x1="-16.000000" y1="22.400000" x2="16.000000" y2="22.400000" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+<line x1="-10.000000" y1="28.800000" x2="10.000000" y2="28.800000" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+
+</g><g transform="translate(-44.000000,0.000000)">
+
+<foreignObject x="0" y="32.8" width="88" height="20">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771">
+<span>GND</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-22c38798" transform="translate(510.000000,390.000000)">
+<g transform=" ">
+<line x1="0.000000" y1="0.000000" x2="0.000000" y2="16.000000" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+<line x1="-22.000000" y1="16.000000" x2="22.000000" y2="16.000000" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+<line x1="-16.000000" y1="22.400000" x2="16.000000" y2="22.400000" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+<line x1="-10.000000" y1="28.800000" x2="10.000000" y2="28.800000" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round"></line>
+
+</g><g transform="translate(-44.000000,0.000000)">
+
+<foreignObject x="0" y="32.8" width="88" height="20">
+
+<div class="huatu-label-container-39e02771">
+<div class="huatu-label-text-39e02771">
+<span>GND</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<polyline points="86.000000,0.000000 86.000000,0.000000 123.000000,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<polyline points="123.000000,100.000000 160.000000,100.000000 160.000000,100.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<line x1="123.000000" y1="0.000000" x2="123.000000" y2="100.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<polyline points="243.635071,0.000000 223.635071,0.000000 123.000000,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="123.000000" cy="0.000000" r="5.000000" fill="currentColor"></circle>
+<polyline points="240.000000,100.000000 240.000000,100.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<polyline points="300.000000,136.000000 300.000000,136.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<line x1="240.000000" y1="100.000000" x2="300.000000" y2="100.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<line x1="300.000000" y1="100.000000" x2="300.000000" y2="136.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<polyline points="300.000000,72.000000 300.000000,92.000000 300.000000,100.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="300.000000" cy="100.000000" r="5.000000" fill="currentColor"></circle>
+<polyline points="364.000000,200.000000 364.000000,200.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<polyline points="420.000000,240.000000 420.000000,240.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<line x1="364.000000" y1="200.000000" x2="420.000000" y2="200.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<line x1="420.000000" y1="200.000000" x2="420.000000" y2="240.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<polyline points="420.000000,160.000000 420.000000,160.000000 420.000000,200.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="420.000000" cy="200.000000" r="5.000000" fill="currentColor"></circle>
+<polyline points="356.364929,0.000000 376.364929,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<polyline points="420.000000,80.000000 420.000000,80.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<line x1="376.364929" y1="0.000000" x2="510.000000" y2="0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<line x1="420.000000" y1="0.000000" x2="420.000000" y2="80.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<circle cx="420.000000" cy="0.000000" r="5.000000" fill="currentColor"></circle>
+<polyline points="510.000000,-10.000000 510.000000,-10.000000 510.000000,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<polyline points="510.000000,390.000000 510.000000,390.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<polyline points="86.000000,380.000000 86.000000,380.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<line x1="510.000000" y1="380.000000" x2="510.000000" y2="390.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<line x1="86.000000" y1="380.000000" x2="510.000000" y2="380.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></line>
+<polyline points="300.000000,390.000000 300.000000,390.000000 300.000000,380.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="300.000000" cy="380.000000" r="5.000000" fill="currentColor"></circle>
+<polyline points="300.000000,264.000000 300.000000,264.000000 300.000000,380.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="300.000000" cy="380.000000" r="5.000000" fill="currentColor"></circle>
+<polyline points="420.000000,320.000000 420.000000,320.000000 420.000000,380.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="420.000000" cy="380.000000" r="5.000000" fill="currentColor"></circle>
+<polyline points="510.000000,168.000000 510.000000,168.000000 510.000000,0.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="510.000000" cy="0.000000" r="5.000000" fill="currentColor"></circle>
+<polyline points="510.000000,232.000000 510.000000,232.000000 510.000000,380.000000" fill="none" stroke="currentColor" stroke-width="4.000000" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="510.000000" cy="380.000000" r="5.000000" fill="currentColor"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<p>对于使用了组件的的画图，其设计文件(代码)大概如下：</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-comment"># 定义组件
+</span><span class="hljs-wtht-tag">components:</span>
+  <span class="hljs-wtht-comment"># 现场定义的组件
+</span>  <span class="hljs-wtht-id">comp1:</span>
+    ...
+    <span class="hljs-wtht-tag">draw:</span>
+      <span class="hljs-wtht-id">-</span> item1
+      <span class="hljs-wtht-id">-</span> item2
+      ...
+  <span class="hljs-wtht-comment"># 引用的在线组件
+</span>  <span class="hljs-wtht-id">comp2:</span> <span class="hljs-wtht-url">http://...someurl.yml</span>
+<span class="hljs-wtht-comment"># 放置组件
+</span><span class="hljs-wtht-tag">placements:</span>
+  <span class="hljs-wtht-id">plc11:</span> comp1<span class="hljs-wtht-emphasis">;</span> x11<span class="hljs-wtht-emphasis">,</span>y11<span class="hljs-wtht-emphasis">;</span> ...
+  <span class="hljs-wtht-id">plc12:</span> comp1<span class="hljs-wtht-emphasis">;</span> x12<span class="hljs-wtht-emphasis">,</span>y12<span class="hljs-wtht-emphasis">;</span> ...
+  <span class="hljs-wtht-id">plc2:</span> comp2<span class="hljs-wtht-emphasis">;</span> x2<span class="hljs-wtht-emphasis">,</span> y2<span class="hljs-wtht-emphasis">;</span> ...
+<span class="hljs-wtht-comment"># 按需要将一个个放置画出来
+</span><span class="hljs-wtht-tag">blocks:</span>
+  <span class="hljs-wtht-id">blk1:</span>
+    <span class="hljs-wtht-id">-</span> plc11
+    <span class="hljs-wtht-id">-</span> plc2
+    ...
+<span class="hljs-wtht-comment"># 绘制
+</span><span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> plc12
+  <span class="hljs-wtht-id">-</span> plc2
+  ...
+<span class="hljs-wtht-tag">jobs:</span>
+  <span class="hljs-wtht-id">exmaple2:</span>
+    <span class="hljs-wtht-id">-</span> plc11
+    <span class="hljs-wtht-id">-</span> blk1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span>
+    ...
+</code></pre>
+<h2 id="h1-2">组件定义</h2>
+<p>参照<a href="../quick-start.html#%E7%BB%84%E4%BB%B6">快速上手</a>章节所讲述的内容，定义组件和通常设计一个画图类似，只是所绘制的内容要简单和稀少很多，同时不支持复杂的层级关系。定义组件的设计文件需要在最高层级（根级）指定类型为<code>component</code>，即添加<code>type: component</code>的键值对。或者当根级有名为<code>inputVars</code>的键名(key)时，将自动解析为组件。</p>
+<p>组件的设计文件中不支持如下的定义，不支持意为<strong>不解析</strong>，即便你在设计时添加了这些内容，在解析时也会被忽略。</p>
+<ul>
+<li><strong>jobs</strong>, 组件不可以定义输出任务，它将有且只有一个任务，必须都写在<code>draw</code>下面</li>
+<li><strong>clips</strong>, 组件不可以定义蒙版/遮罩</li>
+<li><strong>components</strong> 和 <strong>placements</strong>, 组件不可以再包含另一个组件，即组件不支持嵌套，因此，组件中也不可以定义组件的放置/实例</li>
+<li><strong>symbols</strong> 和 <strong>arrays</strong>, 组件不支持定义及使用符号，因此也不支持符号阵列</li>
+<li><strong>blocks</strong>, 组件不支持模块</li>
+<li><strong>layers</strong>, 组件也不支持使用图层</li>
+</ul>
+<p>当一个普通画图文件需要使用组件时，需要将现场定义的组件或者在线引用的组件都放在根级的<code>components</code>下面。</p>
+<h2 id="h1-3">组件参数</h2>
+<p>为了更方便地复用已设计好的组件，我们为组件定义了输入参数，在放置组件时，我们可以给这些参数进行重新赋值，以得到不同外在表现的组件，比如大小，颜色，文本内容等。</p>
+<p>组件参数共有三种类型，分别为<strong>数字</strong>，<strong>颜色</strong>，<strong>文本</strong>，需要在定义时指定（分别使用<code>number</code>,<code>color</code>,<code>text</code>关键字）。具体方式如下：</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">type:</span> component
+<span class="hljs-wtht-tag">inputVars:</span>
+  <span class="hljs-wtht-comment"># 定义一个 颜色 型参数
+</span>  <span class="hljs-wtht-id">color1:</span> <span class="hljs-wtht-marker">color</span>; <span class="hljs-wtht-color">red</span>;
+  <span class="hljs-wtht-comment"># 定义一个 数字 型参数
+</span>  <span class="hljs-wtht-id">width:</span> <span class="hljs-wtht-marker">number</span>; <span class="hljs-wtht-number">35</span>
+  <span class="hljs-wtht-comment"># 定义一个 文本 型参数
+</span>  <span class="hljs-wtht-id">someText:</span> <span class="hljs-wtht-marker">text</span>; yes!good!
+</code></pre>
+<p>这里的类型关键字(<code>number</code>,<code>color</code>,<code>text</code>)可以忽略，此时的类型将根据具体的值自动判断，比如例子中，各个输入变量将自动被解析为相应类型：</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">inputVars:</span>
+  <span class="hljs-wtht-comment"># 值'red'是一种颜色，故此类型为 color
+</span>  <span class="hljs-wtht-id">color1:</span> <span class="hljs-wtht-color">red</span>;
+  <span class="hljs-wtht-comment"># 值35是一个数字，故其类型为 number
+</span>  <span class="hljs-wtht-id">width:</span> <span class="hljs-wtht-number">35</span>
+  <span class="hljs-wtht-comment"># 值既不是颜色，也不是数字，那么他就是文本 text
+</span>  <span class="hljs-wtht-id">someText:</span> yes!good!
+</code></pre>
+<p>当定义了组件参数之后，在余下的组件定义中，就可以引用这些参数，引用方式是在参数名字前面添加一个美元符号<code>$</code>, 比如下面的例子中，组件有宽，高，圆角三个数字型参数，一个填充颜色的参数，一个内部文本参数。最后只画了一个矩形和一个文本标签，分别将上面的参数按需要填进去即可。</p>
+<p>请注意，组件参数使用的是<strong>替换</strong>的方式，也就是说，组件在解析之前会把各个参数的值替换成新的值，然后进行解析，没有指定新值时，将使用组件定义时给定的值（即默认值）。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">inputVars:</span>
+  <span class="hljs-wtht-comment"># 这里给出的值是组件参数的默认值
+</span>  <span class="hljs-wtht-id">width:</span> <span class="hljs-wtht-number">200</span>
+  <span class="hljs-wtht-id">height:</span> <span class="hljs-wtht-number">100</span>
+  <span class="hljs-wtht-id">radius:</span> <span class="hljs-wtht-number">20</span>
+  <span class="hljs-wtht-id">fillColor:</span> <span class="hljs-wtht-color">yellow</span>
+  <span class="hljs-wtht-id">text:</span> yes!good!
+<span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">bycenter</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$width</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$height</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fillColor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">radius</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$radius</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">center</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">width</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$width</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">height</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$height</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-ivref">$text</span>
+</code></pre>
+<p>现在，我们可以将上面的组件取名为<code>examRect</code>然后给定不同的参数，画两个简单的示例：</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">components:</span>
+  <span class="hljs-wtht-id">examRect:</span>
+    <span class="hljs-wtht-tag">inputVars:</span>
+      <span class="hljs-wtht-id">width:</span> <span class="hljs-wtht-number">200</span>
+      <span class="hljs-wtht-id">height:</span> <span class="hljs-wtht-number">100</span>
+      <span class="hljs-wtht-id">radius:</span> <span class="hljs-wtht-number">20</span>
+      <span class="hljs-wtht-id">fillColor:</span> <span class="hljs-wtht-color">yellow</span>
+      <span class="hljs-wtht-id">text:</span> yes!good!
+    <span class="hljs-wtht-tag">draw:</span>
+      <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">bycenter</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$width</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$height</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fillColor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">radius</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$radius</span>
+      <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">center</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">width</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$width</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">height</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$height</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-ivref">$text</span>
+<span class="hljs-wtht-tag">placements:</span>
+  <span class="hljs-wtht-id">rect1:</span> examRect<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fillColor</span><span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span><span class="hljs-wtht-ivref">$text</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">no</span>!bad!
+  <span class="hljs-wtht-id">rect2:</span> examRect<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">300</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$width</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$height</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">120</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$radius</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span>
+
+<span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> rect1
+  <span class="hljs-wtht-id">-</span> rect2
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="453.20000000000005" height="124" viewBox="-101.6 -61.6 453.20000000000005 123.2">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-fe4d0a7b { fill: none; }
+.huatu-label-container-fe4d0a7b { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-fe4d0a7b { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<g id="comp-badae951" transform="translate(0.000000,0.000000)">
+<g transform=" ">
+<path d="M-80.000000,-50.000000 A 20.000000,20.000000 0.000 0,0 -100.000000,-30.000000 L-100.000000,30.000000 A 20.000000,20.000000 0.000 0,0 -80.000000,50.000000 L80.000000,50.000000 A 20.000000,20.000000 0.000 0,0 100.000000,30.000000 L100.000000,-30.000000 A 20.000000,20.000000 0.000 0,0 80.000000,-50.000000 z" fill="red" stroke="black" stroke-width="2.000000"></path>
+
+</g><g transform="translate(-100.000000,-50.000000)">
+
+<foreignObject x="0" y="0" width="200" height="100">
+
+<div class="huatu-label-container-fe4d0a7b">
+<div class="huatu-label-text-fe4d0a7b">
+<span>no!bad!</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g id="comp-b9673924" transform="translate(300.000000,0.000000)">
+<g transform=" ">
+<path d="M-42.000000,-60.000000 A 8.000000,8.000000 0.000 0,0 -50.000000,-52.000000 L-50.000000,52.000000 A 8.000000,8.000000 0.000 0,0 -42.000000,60.000000 L42.000000,60.000000 A 8.000000,8.000000 0.000 0,0 50.000000,52.000000 L50.000000,-52.000000 A 8.000000,8.000000 0.000 0,0 42.000000,-60.000000 z" fill="yellow" stroke="black" stroke-width="2.000000"></path>
+
+</g><g transform="translate(-50.000000,-60.000000)">
+
+<foreignObject x="0" y="0" width="100" height="120">
+
+<div class="huatu-label-container-fe4d0a7b">
+<div class="huatu-label-text-fe4d0a7b">
+<span>yes!good!</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h2 id="h1-4">组件放置</h2>
+<p>组件定义好之后，实例化的过程，我们叫做<strong>放置</strong>，(placement), 比如上面的例子中，我们分别放置了两个实例<code>rect1</code>, <code>rect2</code>。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">placements:</span>
+  <span class="hljs-wtht-id">rect1:</span> examRect<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fillColor</span><span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span><span class="hljs-wtht-ivref">$text</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">no</span>!bad!
+  <span class="hljs-wtht-id">rect2:</span> examRect<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">300</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$width</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$height</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">120</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$radius</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span>
+</code></pre>
+<p>放置实例时需要指定一些参数，这些参数有两类，一类是组件的种类（定义），位置等普遍性参数，一类是前面描述的<a href="#%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0"><strong>组件参数</strong></a>。</p>
+<p><strong>普遍性参数</strong>有如下一些：</p>
+<ul>
+<li><code>component</code> (或<code>comp</code>, <code>def</code>): 放置哪个组件，取值为定义组件时给定的名称，即在<code>components</code>下面列出来的名字</li>
+<li><code>location</code> (或<code>at</code>): 放置组件的位置（坐标），取值为一个点，或可解析为点表达式</li>
+<li><code>rotDeg</code> (或<code>rotate</code>， <code>rotateDeg</code>): 放置组件时的旋转角(单位为角度），虽然通常情况下，旋转用的不多，但还是可以指定旋转角度的，取值为一个数字，或者可解析为数字的表达式</li>
+<li><code>mirror</code>: 是否翻转，取值为<code>x</code>(表示沿垂直方向镜像， 即沿Y轴旋转180<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">°</span></span></span></span>),<code>y</code>（表示沿水平方向镜像， 即沿X轴旋转180<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">°</span></span></span></span>)，或<code>xy</code>(表示沿垂直和水平方向均进行镜像)，请注意，组件中定义的文本元素（label）将不会被镜像。</li>
+<li><code>refPoint</code> (或<code>ref</code>): 参考点，放置组件的位置对应组件上的坐标点，取值为<code>origin</code>或<code>center</code>, <code>origin</code>为默认值，表示组件放置的位置对应组件的坐标零点(0,0), <code>center</code>表示组件放置的位置对应于组件的几何中心。请注意，如果组件本身的几何中心就在（0，0），那么这两个取值将等价。</li>
+<li><code>rotateLabel</code>: 一个开关，不需要给定值。考虑到组件中定义的文本标签如果旋转的话可能影响阅读，所以默认情况下，文本将不会被旋转，如果你需要旋转文本，请添加此开关。</li>
+</ul>
+<div class="info-box">
+<p>像我们的例子一样，给定这些普遍性参数时，可以省略部分前面的参数名，第一个没指定参数名的值将赋给<code>component</code>, 第二个没指定参数名的值将赋给<code>location</code>, 省下的没指定参数的值，如果时<code>x</code>,<code>y</code>,<code>xy</code>中的一个，那么将自动指定给<code>mirror</code>, 如果是<code>origin</code>,或<code>center</code>,则自动指定给<code>refPoint</code>。其他参数都需要指定参数名。</p>
+
+</div><pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">placements:</span>
+  <span class="hljs-wtht-comment">#下面的 rect1a 和 rect1b 实际上是一样的
+</span>  <span class="hljs-wtht-id">rect1a:</span> <span class="hljs-wtht-kw">comp</span><span class="hljs-wtht-emphasis">;</span> examRect<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">location</span><span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fillColor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$text</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">no</span>!bad!
+  <span class="hljs-wtht-id">rect1b:</span> examRect<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fillColor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$text</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">no</span>!bad!
+</code></pre>
+<p><strong>组件参数</strong>只需要像上面例子中那样依次列出即可，请注意，给组件参数赋新值时组件参数的名字前面需要添加<code>$</code>符号，就像组件定义时引用参数一样。</p>
+<p>这些参数可以以<code>key1;value1; key2; value2;</code>的方式写成一行，也可以写成如下<code>rect1c</code>一般的层级结构：</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">placements:</span>
+  <span class="hljs-wtht-id">rect1a:</span> <span class="hljs-wtht-kw">comp</span><span class="hljs-wtht-emphasis">;</span> examRect<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">location</span><span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fillColor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$text</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">no</span>!bad!
+  <span class="hljs-wtht-id">rect1b:</span> examRect<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fillColor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$text</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">no</span>!bad!
+  <span class="hljs-wtht-id">rect1c:</span>
+    <span class="hljs-wtht-id">comp:</span> examRect
+    <span class="hljs-wtht-id">location:</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>
+    <span class="hljs-wtht-id">$fillColor:</span> <span class="hljs-wtht-color">red</span>
+    <span class="hljs-wtht-id">$text:</span> <span class="hljs-wtht-kv">no</span>!bad!
+</code></pre>
+<div class="info-box">
+<p>请注意，组件放置后，并不会自动地被画出来，放置只相当于定义了一个新的<code>block</code>, 而你需要将此<code>block</code>直接或间接地添加到某一个输出任务(job)中才会被最终画出来。</p>
+
+</div><h2 id="h1-5">组件端口</h2>
+<p>回到一开始的问题，我们为了复用一些画图元素，比如电阻，用来画电路图，但是一个电路图可能需要很多个电阻，各个电阻之间需要一些线连起来，表达连接关系。基于此，我们为组件引入了<strong>端口</strong>的概念，这样以来，我们可以在组件中画图元素的特定位置定义一个端口，待组件放置好以后，我们引用<strong>这个放置的这个端口</strong>，和<strong>那个放置的那个端口</strong>，然后再定义一条连接这两个端口的连线，就可以把组件连起来。如果组件的位置需要调整，那我们只需要调整一下组件放置的坐标即可，连线会自己找到新的位置，并重新连接。</p>
+<p>定义组件端口的参数有如下一些：</p>
+<ul>
+<li><code>name</code>: 端口的名称，可以是用纯数字，或者像通常变量名一样定义，请尽量简洁</li>
+<li><code>anchor</code>(或<code>at</code>): 端口的挂载点，即坐标</li>
+<li><code>rayDeg</code>(或<code>ray</code>,<code>deg</code>): 端口的发射角，我们可以定义这样一个角度，端口从挂载点出发需要像特定的方向行走一段距离</li>
+<li><code>minHoldLen</code>(或<code>holdLen</code>,<code>hold</code>): 保持长度，端口沿着发射角需要保持如此长的距离，然后才可以拐弯或者往其他端口或离散的点进行连接</li>
+<li><code>attr</code>(或<code>dir</code>,<code>type</code>): 端口的属性，比如是输出还是输入，高阻态等，此属性主要针对电路图，<strong>暂未启用</strong>。</li>
+</ul>
+<p>关于端口的发射角和最小保持长度的含义，可以参考下图：</p>
+<div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="854.4" height="515" viewBox="-61.6 -87.06423150924803 213.6 128.66423150924803">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-e33d2ddd { fill: none; }
+.huatu-label-container-e33d2ddd { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-e33d2ddd { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-976ed7b8" viewBox="-6 -2.3031842102124944 6 4.606368420424989" refX="-1.302544532346901" refY="0" markerWidth="6" markerHeight="4.606368420424989" orient="auto-start-reverse">
+<path d="M-6.000000,2.303184 L0.000000,0.000000 L-6.000000,-2.303184 z" fill="context-stroke"></path>
+</marker>
+<marker id="mkr-252a49f8" viewBox="-10 -3.443276132896652 10 6.886552265793304" refX="-1.4521054388379115" refY="0" markerWidth="10" markerHeight="6.886552265793304" orient="auto-start-reverse">
+<path d="M-10.000000,3.443276 L0.000000,0.000000 L-10.000000,-3.443276 z" fill="context-stroke"></path>
+</marker>
+</defs>
+<g id="comp-6d3e3806" transform="translate(0.000000,0.000000)">
+<g transform=" ">
+<path d="M-40.000000,-40.000000 A 20.000000,20.000000 0.000 0,0 -60.000000,-20.000000 L-60.000000,20.000000 A 20.000000,20.000000 0.000 0,0 -40.000000,40.000000 L40.000000,40.000000 A 20.000000,20.000000 0.000 0,0 60.000000,20.000000 L60.000000,-20.000000 A 20.000000,20.000000 0.000 0,0 40.000000,-40.000000 z" fill="yellow" stroke="black" stroke-width="2.000000"></path>
+<g>
+<line x1="52.575379" y1="-23.424621" x2="109.143921" y2="-79.993164" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<polyline points="56.229561,-25.051568 52.575379,-23.424621 54.202325,-27.078803" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<polyline points="105.489739,-78.366217 109.143921,-79.993164 107.516975,-76.338982" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<line x1="55.757359" y1="-20.242641" x2="48.686292" y2="-27.313708" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<line x1="112.325902" y1="-76.811183" x2="105.254834" y2="-83.882251" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<g transform="translate(60.246952,42.031223) rotate(315) translate(-30.000000,-20.000000)">
+
+<foreignObject x="80.85965004500315" y="-51.70889244992066" width="60" height="20">
+
+<div class="huatu-label-container-e33d2ddd">
+<div class="huatu-label-text-e33d2ddd" style="font-size:8px;">
+<span>最小保持长度(minHoldLen)</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<path d="M36.000000,8.000000 L65.698485,-21.698485 A 42.000000,42.000000 0.000 0,1 78.000000,8.000000  L36.000000,8.000000 z" fill="#ccc"></path>
+<path d="M65.698485,-21.698485 A 42.000000,42.000000 0.000 0,1 78.000000,8.000000" stroke="red" stroke-width="0.5" fill="none"></path>
+
+<g transform="translate(0.000000,-10.000000)">
+
+<foreignObject x="78.80294036547406" y="-8.072704159333796" width="62" height="10">
+
+<div class="huatu-label-container-e33d2ddd">
+<div class="huatu-label-text-e33d2ddd" style="color:red;font-size:8px;text-align:left;">
+<span>发射角(rayDeg)</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+
+</g>
+<circle cx="60.000000" cy="-16.000000" r="3.000000" fill="red" fill-opacity="1.00"></circle>
+<polyline points="60.000000,-16.000000 36.000000,8.000000 100.000000,8.000000" fill="none" stroke="red" stroke-width="0.500000" stroke-dasharray="1 1"></polyline>
+<line x1="60.000000" y1="-16.000000" x2="105.254834" y2="-61.254834" stroke="red" stroke-width="1.000000" marker-end="url(#mkr-976ed7b8)"></line>
+<polyline points="122.000000,28.000000 72.000000,28.000000 60.500000,-14.800000" fill="none" stroke="blue" stroke-width="0.500000" marker-end="url(#mkr-252a49f8)"></polyline>
+
+</g><g transform="translate(-60.000000,-40.000000)">
+
+<foreignObject x="0" y="0" width="120" height="80">
+
+<div class="huatu-label-container-e33d2ddd">
+<div class="huatu-label-text-e33d2ddd">
+<span>yes!good!</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-10.000000)">
+
+<foreignObject x="72" y="28" width="80" height="10">
+
+<div class="huatu-label-container-e33d2ddd">
+<div class="huatu-label-text-e33d2ddd" style="font-size:8px;text-align:left;">
+<span>端口挂载点(anchor)</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<line x1="60.000000" y1="-16.000000" x2="116.568542" y2="-72.568542" stroke="maroon" stroke-width="10.000000" stroke-opacity="0.5" stroke-linecap="round"></line>
+<circle cx="60.000000" cy="-16.000000" r="1.000000" fill="yellow"></circle>
+<path d="M44.601470,-17.732116 L34.601470,-27.732116 M34.601470,-17.732116 L44.601470,-27.732116" stroke="magenta" stroke-width="0.100000"></path>
+<path d="M-5.000000,0.000000 L5.000000,0.000000 M0.000000,-5.000000 L0.000000,5.000000" stroke="aqua" stroke-width="0.100000"></path>
+<g transform="translate(57.171573,49.455844) rotate(315) translate(-40.000000,-3.600000)">
+
+<foreignObject x="88.2842712474619" y="-44.28427124746191" width="80" height="7.199999999999999">
+
+<div class="huatu-label-container-e33d2ddd">
+<div class="huatu-label-text-e33d2ddd" style="color:yellow;font-size:6px;text-align:center;">
+<span>p</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</svg>
+    </div>
+  </div>
+</div>
+<p>组件端口的定义只有一种方式，即在组件定义的根级<code>ports</code>标签之下，采用列表的方式依次列出来。内容是<code>key1;value1;key2;value2;...</code>的方式。比如：</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">inputVars:</span>
+  <span class="hljs-wtht-id">holdLen:</span> <span class="hljs-wtht-number">10</span>
+  ...
+<span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">rayDeg1:</span> <span class="hljs-wtht-number">30</span>
+  ...
+<span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">pA:</span> <span class="hljs-wtht-number">5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">10</span>
+<span class="hljs-wtht-tag">draw:</span>
+  ...
+<span class="hljs-wtht-tag">ports:</span>
+  <span class="hljs-wtht-comment"># 端口名字可以是字母，数字，或字母数字的组合，取值亦可引用已定义的变量，或组件参数
+</span>  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kw">name</span><span class="hljs-wtht-emphasis">;</span> n<span class="hljs-wtht-emphasis">;</span>   <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">rayDeg</span><span class="hljs-wtht-emphasis">;</span> rayDeg1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">minHoldLen</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">5</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kw">name</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> pA<span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-kw">rayDeg</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">90</span><span class="hljs-wtht-emphasis">;</span>      <span class="hljs-wtht-kw">minHoldLen</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$holdLen</span>
+  <span class="hljs-wtht-comment"># 如果觉得有些繁琐，参数的名字 name, anchor, rayDeg, minHoldLen可依次省略,请注意给定合适且可解析的值，否则将会出错
+</span>  <span class="hljs-wtht-id">-</span> se<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">pA.x</span> + <span class="hljs-wtht-number">5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span>  -<span class="hljs-wtht-number">50</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">40</span>
+</code></pre>
+<div class="info-box">
+<p>请注意，如果你省略参数的名字，给定的值需要按照<code>name</code>,<code>anchor</code>, <code>rayDeg</code>, <code>minHoldLen</code>的顺序，这不包括那些已给定参数名字的变量，比如<code>se; rayDeg; 33; pA.x + 2, 10; 20</code> 将定义 <code>name</code>为<code>se</code>, <code>rayDeg</code> 为<code>33</code>, <code>anchor</code>为<code>(pA.x + 33, 10)</code>, <code>minHoldLen</code>为<code>20</code>的端口。</p>
+
+</div><h2 id="h1-6">连线</h2>
+<p>连线是将两个已定义的端口通过简单的线段连接起来，比如在本文开篇，我们将电阻的一端连接到三极管的一端。考虑到端口本身也是一个点，所以我们也可以将连线扩展为 <strong>点<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟷</span></span></span></span>点</strong>，<strong>端口<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟷</span></span></span></span>端口</strong>，<strong>点<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.522em;vertical-align:-0.011em;"></span><span class="mrel">⟷</span></span></span></span>端口</strong> 等情况。 因为连线本身已较为复杂，将在另外的文档(<a href="./wire.html">连线</a>)中专门叙述，本文到此为止。</p>
+<h2 id="h1-7">渲染逻辑</h2>
+<p>每个组件放置的渲染结果对应于画图中的一个<code>block</code>，尽管在画图中我们将每个组件放置像普通画图元素一样对待，他本质上是一个block, 因为block本身可以嵌套，且SVG语法中<code>&lt;g&gt;</code>也是可以嵌套的，所以这样做并没有什么问题，从逻辑上将也更直观简洁。但请注意，组件放置的渲染结果将仅包含组件本体部分，即<code>draw</code>下面定义的内容，端口部分将不包含，端口只有当对应端口有连线连接到它时才会有所体现，否则将不包含任何渲染结果。</p>
+<h2 id="h1-8">要点总结</h2>
+<p>关于组件的定义和应用，如下是一些要点</p>
+<ul>
+<li>组件本身也是一个画图，只不过它能包含和接受的画图元素较少</li>
+<li>组件在画图中可以现场定义，也可以通过URL在线引用资源</li>
+<li>组件可以接受输入参数来对组件的放置实例进行个性化</li>
+<li>组件可以定义端口，用来在组件之间快速连线</li>
+<li>组件被放置到画图中时，会创建一个此组件的实例，相当于定义了一个画图元素</li>
+<li>组件的放置并不表示它会出现在任何层级的画图中，我们需要显式地在<code>block/layer/job</code>等层级中来添加</li>
+<li>组件在最终渲染生成图片时，使用的是<code>block</code>，添加一个组件实例，相当于在对应位置添加了一个<code>block</code>，但此<code>block</code>是不可以被引用的</li>
+</ul>
+</div></div></div></div><div data-v-9ee0c63b="" class="toc"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-9ee0c63b="" class="lang-list"><!----><span data-v-9ee0c63b="" class="lang-link">EN</span></div><div data-v-9ee0c63b="" class="clickable go-top"><a data-v-9ee0c63b="" style="display: block;"><i data-v-9ee0c63b="" class="f7-icons" style="font-size: 1rem;">arrow_up_to_line_alt</i> GO TOP</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">概念</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">组件定义</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">组件参数</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">组件放置</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">组件端口</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">连线</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">渲染逻辑</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">要点总结</a></div></div></div><!----><!----></main></div><header><div class="header-content no-select"><div class="flex"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-5.45 -5.6 10.9 11.2" width="32.7" height="33.599999999999994"><polyline points="-2.250,5.0 -4.850,5.0 -4.850,-5.0 -2.250,-5.0 -2.250,-1.180 2.250,-1.180 2.250,-5.0 4.850,-5.0 4.850,5.0 2.250,5.0 2.250,1.180 -2.250,1.180 -2.250,3.180" fill="#0b4d4233" stroke="currentColor" stroke-width="0.4"></polyline><circle cx="-2.250" cy="5.0" r="0.40" fill="black"></circle><circle cx="-2.250" cy="1.180" r="0.40" fill="black"></circle><circle cx="-2.250" cy="3.180" r="0.40" fill="red"></circle></svg></div><div class="title">wt-huatu</div><div class="flex-filler"><nav><div><a href="/wt-huatu-doc/" class="">Home</a><a href="/wt-huatu-doc/doc" class="rl-exact-active">Docs</a><a class="clickable">Editor</a></div><div class="flex-filler"></div><div><span class="wtht-ver">V1.4.1</span><a href="https://github.com/littlefattie/wt-huatu" class="social-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" height="24" width="24"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" fill="currentColor"></path></svg></a><a href="https://www.npmjs.com/package/wt-huatu" class="social-link" target="_blank"><svg viewBox="0 0 27.23 27.23" aria-hidden="true" width="24" height="24"><rect width="27.23" height="27.23" rx="2" fill="currentColor" stroke-width="0"></rect><polygon fill="#0b4d42" points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"></polygon></svg></a></div></nav></div></div><!----></header><footer><div><strong>wt-huatu:</strong> A library to draw something mathematically, logically, hierarchically and programmatically. </div><div> contact: <a href="mailto:little-fattie@outlook.com">little-fattie@outlook.com</a></div></footer><!----><!----></div>
+
+  
+
+</body></html>

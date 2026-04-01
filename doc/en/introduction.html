@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="msvalidate.01" content="0FD15710100E02F18E35B3D3908A133F">
+    <link rel="icon" href="/wt-huatu-doc/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wt-huatu</title>
+    <link rel="stylesheet" crossorigin="" href="/wt-huatu-doc/assets/index-CnPvVuaR.css">
+  <style></style></head>
+  <body>
+    <div id="app" data-v-app=""><div class="main"><main data-v-9ee0c63b=""><div data-v-9ee0c63b="" class="index-tree"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-88a02bb8="" data-v-9ee0c63b=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" aria-current="page" href="/wt-huatu-doc/doc/en/introduction.html" class="router-link-active router-link-exact-active is-current">Introduction</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/quick-start.html" class="">Quick Start</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><span data-v-88a02bb8="" class="tree-dir">Dive Deep</span></div><div data-v-88a02bb8="" class="ctn-tree-sub"><div data-v-88a02bb8=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/basics.html" class="">Basics</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shapes.html" class="">Basic Shapes</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/get-point.html" class="">Get Point</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/point-series.html" class="">Series</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/x-points.html" class="">Intersection Points</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shape-series.html" class="">Shape Series</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shape-transform.html" class="">Shape Transform</a></div><!----></div></div></div></div></div></div></div><!----><!----><div data-v-9ee0c63b="" class="doc-page"><div data-v-9ee0c63b="" class="doc-body"><div data-v-9ee0c63b="" class="wtmd"><div data-v-9ee0c63b=""><h1>Introduction</h1>
+<p><code>wt-huatu</code> here what we define could be a software library aiming to draw some graph or chart, or some language describing how to draw a graph/chart, like the C programming language describing how the program is logically organized and executed, we can use this “language” to describe what we are going to draw and how to place them all together.</p>
+<p>Upon this “language”, we could make implementations using different languages, Javascript/Typescript, Python, Go, etc. Because we now have this only implementation using Typescript/Javascript, we could also use the name <code>wt-huatu</code> to refer the implementation.</p>
+<h2 id="h1-1">How it comes</h2>
+<p>When drawing something, we have a lot of tools. Giving me a pen and a paper, I can draw anything I could image, and after scanning or photographing, it is in the cyber world. Even in the native cyber world, we have a lot of software tools to draw, like <code>mspaint</code>, <code>Photoshop</code> which could draw directly bitmap images, and <code>InkScape</code>, <code>CoralDraw</code>, <code>Adobe Illustrator</code>, <code>Word/PPT</code>, <code>Asmpotote</code> etc. which could also be used to draw vector graphics. There seems no reason to re-invent the wheel.</p>
+<p>An ordinary round rubber-tyred-wheel is not needed to be invented anymore, but a rubber-tyred-wheel with teeth or texture on the tyre surface is maybe a little worthy to be invented. Here is the reason.</p>
+<p>When I am writing some tech passage, say, describing how and when two circles would intersect or touch each other, I need draw a graph with two intersecting circles, upon the intersection, I probably need to draw a line segment between the two intersection points, and then I might draw a triangle with the two points and some other point; with the triangle, I might need to draw some inner circle of it. All these circles, line segments, triangles are connected to each other, geometrically dependent and constraint. These geometry stuff is not difficult, we can solve all the shapes using <strong>several lines of code</strong> per the inputs, which are the circle radius and center locations. But it would be very good idea and convenient if I can get all the shapes <strong>automatically</strong> derived and resolved when I update the inputs. So I define some inputs and shapes, the final drawing is composed of the shapes defined, when some adjustment required, what I need to do is modify the values of the inputs, then I get a new graph.</p>
+<p>This idea is not new, like <code>PGF/TikZ</code>, or <code>Asymptote</code> both could serve the purpose of inputs/variables and geometry constraints, but they have more taste of programming, and even for programmers, they have steep learning curves. So this new language <code>wt-huatu</code> is invented. when I want a circle, I just write <code>c1: circle; pC1Center; rC1</code>, or <code>c2: circle; pC2Center; rC2</code>, to get intersection point we can just define a new <code>xpoint</code> and present as <code>pxC1C2n: c1; c2; n</code> (n means the norther one of the two points). It is intuitive and quite readable.</p>
+<p>To make a more fruitful impression, we can read some example here, we build a regular triangle with centers and one intersection point of the two same-radius circles, like this:</p>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="334.17420270727604" height="222" viewBox="-118.05806756909202 -120.4116135138184 334.17420270727604 221.2116135138184">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-6ae48b20 { fill: none; }
+.huatu-label-container-6ae48b20 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-6ae48b20 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="0.000000" cy="0.000000" r="100.000000" fill="none" stroke="currentColor" stroke-width="1.000000"></circle>
+<circle cx="98.058068" cy="-19.611614" r="100.000000" fill="none" stroke="currentColor" stroke-width="1.000000"></circle>
+<path d="M0.000000,0.000000 L98.058068,-19.611614 L32.044878,-94.726584 z" fill="yellow" stroke="currentColor" stroke-width="1.000000"></path>
+<circle cx="0.000000" cy="0.000000" r="4.000000" fill="grey"></circle>
+<circle cx="98.058068" cy="-19.611614" r="4.000000" fill="grey"></circle>
+<circle cx="32.044878" cy="-94.726584" r="4.000000" fill="grey"></circle>
+<circle cx="-98.058068" cy="19.611614" r="4.000000" fill="grey"></circle>
+<circle cx="196.116135" cy="-39.223227" r="4.000000" fill="grey"></circle>
+<g transform="translate(-20.000000,-11.000000)">
+
+<foreignObject x="0" y="0" width="20" height="22">
+
+<div class="huatu-label-container-6ae48b20">
+<div class="huatu-label-text-6ae48b20">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-11.000000)">
+
+<foreignObject x="98.05806756909202" y="-19.611613513818398" width="20" height="22">
+
+<div class="huatu-label-container-6ae48b20">
+<div class="huatu-label-text-6ae48b20">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-10.000000,-22.000000)">
+
+<foreignObject x="32.044878272377076" y="-94.72658431775389" width="20" height="22">
+
+<div class="huatu-label-container-6ae48b20">
+<div class="huatu-label-text-6ae48b20">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-20.000000,0.000000)">
+
+<foreignObject x="-98.05806756909202" y="19.611613513818384" width="20" height="22">
+
+<div class="huatu-label-container-6ae48b20">
+<div class="huatu-label-text-6ae48b20">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-22.000000)">
+
+<foreignObject x="196.11613513818403" y="-39.223227027636796" width="20" height="22">
+
+<div class="huatu-label-container-6ae48b20">
+<div class="huatu-label-text-6ae48b20">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<p>With <code>PGF/TikZ</code>(<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8988em;vertical-align:-0.2155em;"></span><span class="mord text"><span class="mord textrm">L</span><span class="mspace" style="margin-right:-0.36em;"></span><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6833em;"><span style="top:-2.905em;"><span class="pstrut" style="height:2.7em;"></span><span class="mord"><span class="mord textrm mtight sizing reset-size6 size3">A</span></span></span></span></span></span><span class="mspace" style="margin-right:-0.15em;"></span><span class="mord text"><span class="mord textrm">T</span><span class="mspace" style="margin-right:-0.1667em;"></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.4678em;"><span style="top:-2.7845em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord textrm">E</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2155em;"><span></span></span></span></span><span class="mspace" style="margin-right:-0.125em;"></span><span class="mord textrm">X</span></span></span></span></span></span>), we present like this:</p>
+<pre><code class="hljs language-tex"><span class="hljs-keyword">\usetikzlibrary</span> {backgrounds,calc,intersections,through}
+<span class="hljs-keyword">\begin</span>{tikzpicture}[thick,help lines/.style={thin,draw=black!50}]
+  <span class="hljs-keyword">\def</span><span class="hljs-keyword">\A</span>{<span class="hljs-keyword">\textcolor</span>{input}{<span class="hljs-built_in">$</span>A<span class="hljs-built_in">$</span>}}     <span class="hljs-keyword">\def</span><span class="hljs-keyword">\B</span>{<span class="hljs-keyword">\textcolor</span>{input}{<span class="hljs-built_in">$</span>B<span class="hljs-built_in">$</span>}}
+  <span class="hljs-keyword">\def</span><span class="hljs-keyword">\C</span>{<span class="hljs-keyword">\textcolor</span>{output}{<span class="hljs-built_in">$</span>C<span class="hljs-built_in">$</span>}}    <span class="hljs-keyword">\def</span><span class="hljs-keyword">\D</span>{<span class="hljs-built_in">$</span>D<span class="hljs-built_in">$</span>}
+  <span class="hljs-keyword">\def</span><span class="hljs-keyword">\E</span>{<span class="hljs-built_in">$</span>E<span class="hljs-built_in">$</span>}
+
+  <span class="hljs-keyword">\colorlet</span>{input}{blue!80!black}    <span class="hljs-keyword">\colorlet</span>{output}{red!70!black}
+  <span class="hljs-keyword">\colorlet</span>{triangle}{orange}
+
+  <span class="hljs-keyword">\coordinate</span> [label=left:<span class="hljs-keyword">\A</span>]  (A) at (<span class="hljs-built_in">$</span> (0,0) + .1*(rand,rand) <span class="hljs-built_in">$</span>);
+  <span class="hljs-keyword">\coordinate</span> [label=right:<span class="hljs-keyword">\B</span>] (B) at (<span class="hljs-built_in">$</span> (1.25,0.25) + .1*(rand,rand) <span class="hljs-built_in">$</span>);
+
+  <span class="hljs-keyword">\draw</span> [input] (A) -- (B);
+
+  <span class="hljs-keyword">\node</span> [name path=D,help lines,draw,label=left:<span class="hljs-keyword">\D</span>]   (D) at (A) [circle through=(B)] {};
+  <span class="hljs-keyword">\node</span> [name path=E,help lines,draw,label=right:<span class="hljs-keyword">\E</span>]  (E) at (B) [circle through=(A)] {};
+
+  <span class="hljs-keyword">\path</span> [name intersections={of=D and E,by={[label=above:<span class="hljs-keyword">\C</span>]C}}];
+
+  <span class="hljs-keyword">\draw</span> [output] (A) -- (C) -- (B);
+
+  <span class="hljs-keyword">\foreach</span> <span class="hljs-keyword">\point</span> in {A,B,C}
+    <span class="hljs-keyword">\fill</span> [black,opacity=.5] (<span class="hljs-keyword">\point</span>) circle (2pt);
+
+  <span class="hljs-keyword">\begin</span>{pgfonlayer}{background}
+    <span class="hljs-keyword">\fill</span>[triangle!80] (A) -- (C) -- (B) -- cycle;
+  <span class="hljs-keyword">\end</span>{pgfonlayer}
+
+  <span class="hljs-keyword">\node</span> [below right, text width=10cm,align=justify] at (4,3) {
+    <span class="hljs-keyword">\small</span><span class="hljs-keyword">\textbf</span>{Proposition I}<span class="hljs-keyword">\par</span>
+    <span class="hljs-keyword">\emph</span>{To construct an <span class="hljs-keyword">\textcolor</span>{triangle}{equilateral triangle}
+      on a given <span class="hljs-keyword">\textcolor</span>{input}{finite straight line}.}
+    <span class="hljs-keyword">\par</span><span class="hljs-keyword">\vskip</span>1em
+    Let <span class="hljs-keyword">\A</span><span class="hljs-keyword">\B</span><span class="hljs-keyword">\ </span>be the given <span class="hljs-keyword">\textcolor</span>{input}{finite straight line}.  <span class="hljs-keyword">\dots</span>
+  };
+<span class="hljs-keyword">\end</span>{tikzpicture}
+</code></pre>
+<p>with <code>wt-huatu</code> we write like this:</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-comment"># Example WT-HUATU design file
+</span><span class="hljs-wtht-comment"># --- Vars ------
+</span><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">r:</span> <span class="hljs-wtht-number">100</span>
+  <span class="hljs-wtht-id">degAB:</span> <span class="hljs-wtht-marker">datan</span>(<span class="hljs-wtht-number">0.25</span>/<span class="hljs-wtht-number">1.25</span>)
+
+<span class="hljs-wtht-comment"># --- Points ------
+</span><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">pA:</span> (<span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span>)
+
+<span class="hljs-wtht-comment"># --- Shapes ------
+</span><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">lnAB:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> pA<span class="hljs-wtht-emphasis">;</span> -degAB
+<span class="hljs-wtht-tag">cpoints:</span> 
+  <span class="hljs-wtht-id">pB:</span> lnAB<span class="hljs-wtht-emphasis">;</span> r
+
+<span class="hljs-wtht-tag">shapes2:</span>  
+  <span class="hljs-wtht-id">cA:</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pA<span class="hljs-wtht-emphasis">;</span> r
+  <span class="hljs-wtht-id">cB:</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pB<span class="hljs-wtht-emphasis">;</span> r
+ 
+<span class="hljs-wtht-tag">xpoints2:</span>
+  <span class="hljs-wtht-id">pC:</span> cA<span class="hljs-wtht-emphasis">;</span> cB<span class="hljs-wtht-emphasis">;</span> n<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">pD:</span> lnAB<span class="hljs-wtht-emphasis">;</span> cA<span class="hljs-wtht-emphasis">;</span> w<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">pE:</span> lnAB<span class="hljs-wtht-emphasis">;</span> cB<span class="hljs-wtht-emphasis">;</span> e<span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">shapes3:</span>
+  <span class="hljs-wtht-id">triABC:</span> <span class="hljs-wtht-marker">triangle</span><span class="hljs-wtht-emphasis">;</span> pA<span class="hljs-wtht-emphasis">;</span> pB<span class="hljs-wtht-emphasis">;</span> pC<span class="hljs-wtht-emphasis">;</span> 
+
+<span class="hljs-wtht-comment"># --- Draw --------
+</span><span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> cA<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span>
+  <span class="hljs-wtht-id">-</span> cB<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span>
+  <span class="hljs-wtht-id">-</span> triABC<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">yellow</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pA<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">grey</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pB<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">grey</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pC<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">grey</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pD<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">grey</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pE<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">grey</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> <span class="hljs-wtht-kw">at</span><span class="hljs-wtht-emphasis">;</span> pA<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">w</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">h</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">22</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">mr</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-marker">$</span>A<span class="hljs-wtht-marker">$</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> <span class="hljs-wtht-kw">at</span><span class="hljs-wtht-emphasis">;</span> pB<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">w</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">h</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">22</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">ml</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-marker">$</span>B<span class="hljs-wtht-marker">$</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> <span class="hljs-wtht-kw">at</span><span class="hljs-wtht-emphasis">;</span> pC<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">w</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">h</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">22</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">bm</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-marker">$</span>C<span class="hljs-wtht-marker">$</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> <span class="hljs-wtht-kw">at</span><span class="hljs-wtht-emphasis">;</span> pD<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">w</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">h</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">22</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">tr</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-marker">$</span>D<span class="hljs-wtht-marker">$</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> <span class="hljs-wtht-kw">at</span><span class="hljs-wtht-emphasis">;</span> pE<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">w</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">h</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">22</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">bl</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-marker">$</span>E<span class="hljs-wtht-marker">$</span>
+</code></pre>
+<h2 id="h1-2">Tech stack</h2>
+<ul>
+<li>Design input
+<ul>
+<li>Format: we use the file format of <strong>yaml</strong> but only limit features, only accept <code>key: value</code> form and item list like <code>- list item</code></li>
+<li>Content: the parameters and hierarchical defines of shapes and drawings</li>
+</ul>
+</li>
+<li>Output
+<ul>
+<li>Image in SVG format: The library depends on SVG (Scalable Vector Graphics, <a href="https://www.w3.org/Graphics/SVG/">https://www.w3.org/Graphics/SVG/</a>). The visual renderer of SVG image/graph is Web Browser or some other equivalent SVG viewers etc.</li>
+</ul>
+</li>
+</ul>
+</div></div></div></div><div data-v-9ee0c63b="" class="toc"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-9ee0c63b="" class="lang-list"><span data-v-9ee0c63b="" class="lang-link">中文</span><!----></div><div data-v-9ee0c63b="" class="clickable go-top"><a data-v-9ee0c63b="" style="display: block;"><i data-v-9ee0c63b="" class="f7-icons" style="font-size: 1rem;">arrow_up_to_line_alt</i> GO TOP</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">How it comes</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Tech stack</a></div></div></div><!----><!----></main></div><header><div class="header-content no-select"><div class="flex"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-5.45 -5.6 10.9 11.2" width="32.7" height="33.599999999999994"><polyline points="-2.250,5.0 -4.850,5.0 -4.850,-5.0 -2.250,-5.0 -2.250,-1.180 2.250,-1.180 2.250,-5.0 4.850,-5.0 4.850,5.0 2.250,5.0 2.250,1.180 -2.250,1.180 -2.250,3.180" fill="#0b4d4233" stroke="currentColor" stroke-width="0.4"></polyline><circle cx="-2.250" cy="5.0" r="0.40" fill="black"></circle><circle cx="-2.250" cy="1.180" r="0.40" fill="black"></circle><circle cx="-2.250" cy="3.180" r="0.40" fill="red"></circle></svg></div><div class="title">wt-huatu</div><div class="flex-filler"><nav><div><a href="/wt-huatu-doc/" class="">Home</a><a href="/wt-huatu-doc/doc" class="rl-exact-active">Docs</a><a class="clickable">Editor</a></div><div class="flex-filler"></div><div><span class="wtht-ver">V1.4.1</span><a href="https://github.com/littlefattie/wt-huatu" class="social-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" height="24" width="24"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" fill="currentColor"></path></svg></a><a href="https://www.npmjs.com/package/wt-huatu" class="social-link" target="_blank"><svg viewBox="0 0 27.23 27.23" aria-hidden="true" width="24" height="24"><rect width="27.23" height="27.23" rx="2" fill="currentColor" stroke-width="0"></rect><polygon fill="#0b4d42" points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"></polygon></svg></a></div></nav></div></div><!----></header><footer><div><strong>wt-huatu:</strong> A library to draw something mathematically, logically, hierarchically and programmatically. </div><div> contact: <a href="mailto:little-fattie@outlook.com">little-fattie@outlook.com</a></div></footer><!----><!----></div>
+
+  
+
+</body></html>

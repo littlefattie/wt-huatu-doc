@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="msvalidate.01" content="0FD15710100E02F18E35B3D3908A133F">
+    <link rel="icon" href="/wt-huatu-doc/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wt-huatu</title>
+    <link rel="stylesheet" crossorigin="" href="/wt-huatu-doc/assets/index-CnPvVuaR.css">
+  <style></style></head>
+  <body>
+    <div id="app" data-v-app=""><div class="main"><main data-v-9ee0c63b=""><div data-v-9ee0c63b="" class="index-tree"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-88a02bb8="" data-v-9ee0c63b=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/introduction.html" class="">Introduction</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" aria-current="page" href="/wt-huatu-doc/doc/en/quick-start.html" class="router-link-active router-link-exact-active is-current">Quick Start</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><span data-v-88a02bb8="" class="tree-dir">Dive Deep</span></div><div data-v-88a02bb8="" class="ctn-tree-sub"><div data-v-88a02bb8=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/basics.html" class="">Basics</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shapes.html" class="">Basic Shapes</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/get-point.html" class="">Get Point</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/point-series.html" class="">Series</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/x-points.html" class="">Intersection Points</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shape-series.html" class="">Shape Series</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shape-transform.html" class="">Shape Transform</a></div><!----></div></div></div></div></div></div></div><!----><!----><div data-v-9ee0c63b="" class="doc-page"><div data-v-9ee0c63b="" class="doc-body"><div data-v-9ee0c63b="" class="wtmd"><div data-v-9ee0c63b=""><h1>Quick Start</h1>
+<p>Since <code>wt-huatu</code> is a programming language, what we need to do first is to “speak” with it, or “write” in it, to accomplish some design of drawings.
+To instantly get feedback and the potential rendering result as per what we input in to the design, we need some editor. So before you make any move, please open our editor, and switch “preview” to ON to see the latest rendered result.</p>
+<h2 id="h1-1">Editor</h2>
+<p>We developed our dedicated editor based on Microsoft’s <code>Monaco Editor</code> (here thanks to Monaco Editor and Microsoft), you can design your own huatu input, save it locally or on the server (you need to register some account). The editor is hosted at: <a href="https://wt-huaut.org/editor/">https://wt-huaut.org/editor/</a></p>
+<h2 id="h1-2">Design input/source code</h2>
+<p>Considering that design drawings with <code>wt-huatu</code> is equivalent to some behavior of programming, we can treat the design input as source code. And we could also call this source code as <code>design file</code>, or <code>design doc</code>.</p>
+<h2 id="h1-3">Design file</h2>
+<h3 id="h1-3-1">File layout</h3>
+<p>We adopt the <code>yaml</code> file format (if you are a programmer, and have some interest about this format, please go to <a href="https://yaml.org">https://yaml.org</a>) as the format of our design files, but only use a subtracted set. The basic layout of our design file could be presented as this:</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-comment"># This is some comment
+</span>
+<span class="hljs-wtht-comment"># key:value pair at root
+</span><span class="hljs-wtht-tag">TAG0:</span> content under name TAG0
+
+<span class="hljs-wtht-comment"># A list named as TAG1
+</span><span class="hljs-wtht-tag">TAG1:</span>
+  <span class="hljs-wtht-id">-</span> item 1
+  <span class="hljs-wtht-id">-</span> item 2
+  <span class="hljs-wtht-id">-</span> ...
+
+<span class="hljs-wtht-comment"># complex/nesting defines under the name TAG2
+</span><span class="hljs-wtht-tag">TAG2:</span><span class="hljs-wtht-id">
+  sub_tag:</span><span class="hljs-wtht-id">
+    sub_sub_tag:</span> content of the tag<span class="hljs-wtht-id">
+    sub_sub_tag_of_list:</span>
+      <span class="hljs-wtht-id">-</span> item 1
+      <span class="hljs-wtht-id">-</span> item 2
+      <span class="hljs-wtht-id">-</span> ...<span class="hljs-wtht-id">
+  sub_tag_list:</span>
+    <span class="hljs-wtht-id">-</span> item 1
+    <span class="hljs-wtht-id">-</span> item 2
+    <span class="hljs-wtht-id">-</span> item 3<span class="hljs-wtht-id">
+  sub_tag_complex:</span><span class="hljs-wtht-id">
+    stc_tag1:</span> description of this<span class="hljs-wtht-id">
+    stc_tag2_more_sub:</span><span class="hljs-wtht-id">
+      stc_tag_sub1:</span> more description<span class="hljs-wtht-id">
+      stc_tag_sub2:</span>
+        <span class="hljs-wtht-id">-</span> list item 1
+        <span class="hljs-wtht-id">-</span> list item 2
+        <span class="hljs-wtht-id">-</span> ...<span class="hljs-wtht-id">
+      stc_tag_sub3:</span><span class="hljs-wtht-id">
+        stc_tag_sub_sub:</span>
+          ...   <span class="hljs-wtht-comment"># whatever more complex content
+</span></code></pre>
+<p>We only use two main syntaxes, one is <code>key:value</code> pair, and the other is list, <code>- list item</code>. And we also use the nesting structure by put <code>key:value</code> pair or list as the <code>value</code> part assigning to some <code>key</code>. Please note that when you are defining some list, at least one space must be added after the hyphen sign (<code>-</code>), if not, then the text would might be not recognized as list item, or causing parsing error. i.e. we need to write <code>- list item 1</code>, rather not <code>-list item 1</code>。</p>
+<p>Obviously previous pseudo code is not what our code is going to be like, it only tells the structure. We need to replace the keys (<code>TAG1</code> for instance) to our dedicated ones.</p>
+<p>Currently we designed two types of design file, one is normal <strong>Huatu</strong>, another is <strong>Huatu Component</strong>. They share almost the same parameters, but slightly a little different.</p>
+<h3 id="h1-3-2">Normal Huatu</h3>
+<p>Some full example of Huatu is like this:</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-comment"># The example of full-elements design
+</span>
+<span class="hljs-wtht-comment"># You can give some optional title for your huatu
+</span><span class="hljs-wtht-tag">title:</span> optional title, if you would like to set
+
+<span class="hljs-wtht-comment"># And any description if you like
+</span><span class="hljs-wtht-tag">desc:</span> Example Design file
+
+<span class="hljs-wtht-comment"># You can also specify the size of this huatu, please know that it is optional
+</span><span class="hljs-wtht-comment"># And it has no effect when previewing
+</span><span class="hljs-wtht-tag">size:</span> 400, 600
+
+<span class="hljs-wtht-comment"># you can specify some viewBox to crop the final rendered huaut to specific region you want
+</span><span class="hljs-wtht-comment"># And please know that if you didn't specify viewbox in all the "jobs", this viewbox setting
+</span><span class="hljs-wtht-comment"># will be copied to all the jobs, unless some of them has their own viewbox setting
+</span><span class="hljs-wtht-comment">#viewBox: -20, -100; 100; 100
+</span>
+<span class="hljs-wtht-comment"># vars
+</span><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">a:</span> <span class="hljs-wtht-number">60</span>
+  <span class="hljs-wtht-id">b:</span> <span class="hljs-wtht-number">80</span>
+
+<span class="hljs-wtht-comment"># points definition
+</span><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">pC1:</span> (<span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span>)
+  <span class="hljs-wtht-id">pC2:</span> (b<span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span>)
+
+<span class="hljs-wtht-comment"># shapes definition
+</span><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">c1:</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pC1<span class="hljs-wtht-emphasis">;</span> a
+  <span class="hljs-wtht-id">c2:</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> pC2<span class="hljs-wtht-emphasis">;</span> b
+  <span class="hljs-wtht-id">line1:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>)<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">30</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">lineseg1:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> line1<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">100</span>
+  <span class="hljs-wtht-id">c2moved1:</span> <span class="hljs-wtht-kw">movex</span><span class="hljs-wtht-emphasis">;</span> c1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">50</span>
+
+<span class="hljs-wtht-comment"># some 'calculated' points from defined shapes
+</span><span class="hljs-wtht-tag">cpoints:</span>
+  <span class="hljs-wtht-id">pcC1:</span> c1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">45</span>
+  <span class="hljs-wtht-id">pcC2:</span> c2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">90</span>
+
+<span class="hljs-wtht-comment"># come intersection point 
+</span><span class="hljs-wtht-tag">xpoints:</span>
+  <span class="hljs-wtht-id">pxC1C2_N:</span> c1<span class="hljs-wtht-emphasis">;</span> c2<span class="hljs-wtht-emphasis">;</span> n
+  <span class="hljs-wtht-id">pxC1C2_S:</span> c1<span class="hljs-wtht-emphasis">;</span> c2<span class="hljs-wtht-emphasis">;</span> s
+
+<span class="hljs-wtht-comment"># Point series
+</span><span class="hljs-wtht-tag">pointSeries:</span>
+  <span class="hljs-wtht-id">psPC:</span> pcC1<span class="hljs-wtht-emphasis">;</span> pcC2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">psL1:</span> lineseg1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">0: 0.1: 1</span>
+  <span class="hljs-wtht-comment"># With the 'x' mark, you include all the intersection points into one pointSeries
+</span>  <span class="hljs-wtht-id">psC1xC2:</span> c1<span class="hljs-wtht-emphasis">;</span> x<span class="hljs-wtht-emphasis">;</span> c2<span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-comment"># shape series
+</span><span class="hljs-wtht-tag">shapeSeries:</span>
+  <span class="hljs-wtht-id">ss1:</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> psL1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">2: 0.3: 120</span><span class="hljs-wtht-emphasis">;</span> cross
+
+<span class="hljs-wtht-comment"># after the "first" round of points/shapes/cpoints/xpoints/pointseries/shapeseries,
+</span><span class="hljs-wtht-comment"># you can make other groups of three, say points2/..., points3/..., points4/...
+</span><span class="hljs-wtht-tag">points2:</span>
+<span class="hljs-wtht-tag">shapes2:</span>
+  <span class="hljs-wtht-id">lineBetweenXpoints:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> pxC1C2_N<span class="hljs-wtht-emphasis">;</span> pxC1C2_S
+<span class="hljs-wtht-tag">cpoints2:</span>
+<span class="hljs-wtht-tag">xpoints2:</span>
+<span class="hljs-wtht-tag">pointseries2:</span>
+<span class="hljs-wtht-tag">shapeseries2:</span>
+
+<span class="hljs-wtht-tag">points3:</span>
+<span class="hljs-wtht-tag">shapes3:</span>
+<span class="hljs-wtht-tag">cpoints3:</span>
+<span class="hljs-wtht-tag">xpoints3:</span>
+<span class="hljs-wtht-tag">pointseries3:</span>
+<span class="hljs-wtht-tag">shapeseries3:</span>
+
+<span class="hljs-wtht-tag">points4:</span>
+<span class="hljs-wtht-tag">shapes4:</span>
+<span class="hljs-wtht-tag">cpoints4:</span>
+<span class="hljs-wtht-tag">xpoints4:</span>
+<span class="hljs-wtht-tag">pointseries4:</span>
+<span class="hljs-wtht-tag">shapeseries4:</span>
+
+<span class="hljs-wtht-comment"># You can import other componenets or make your own component
+</span><span class="hljs-wtht-tag">components:</span>
+  <span class="hljs-wtht-id">comp1:</span>
+    <span class="hljs-wtht-tag">vars:</span>
+      <span class="hljs-wtht-id">a:</span><span class="hljs-wtht-number">3</span>
+    <span class="hljs-wtht-tag">draw:</span>
+      <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>)<span class="hljs-wtht-emphasis">;</span> a <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">aqua</span>
+  <span class="hljs-wtht-id">comp2:</span> <span class="hljs-wtht-url">https://wt-huatu.org/component/some-component-defined.yml</span>
+
+<span class="hljs-wtht-comment"># after you imported/designed any components, you can place them into your huatu
+</span><span class="hljs-wtht-tag">placements:</span>
+  <span class="hljs-wtht-id">plcComp1:</span> comp1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">50</span><span class="hljs-wtht-emphasis">;</span> 
+  <span class="hljs-wtht-id">plcComp2:</span> comp2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">200</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-comment"># If basic shape defines are out of needs, you could design complex path by defining
+</span><span class="hljs-wtht-comment"># its segments and adding 'close' keyword where close-path action required
+</span><span class="hljs-wtht-tag">paths:</span>
+  <span class="hljs-wtht-id">complexPath1:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span>)<span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">50</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">50</span>)
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">50</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">50</span>)<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">30</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">40</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">cw</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">large</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">60</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">72</span>)
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">60</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">72</span>)<span class="hljs-wtht-emphasis">;</span> (-<span class="hljs-wtht-number">10</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">90</span>)
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-tag">close</span>
+
+<span class="hljs-wtht-comment"># If you need mark something, e.g. arrow head for some line, you can define markers
+</span><span class="hljs-wtht-tag">markers:</span>
+  <span class="hljs-wtht-id">arrow1:</span> <span class="hljs-wtht-marker">arrow</span>; <span class="hljs-wtht-kw">len</span>; <span class="hljs-wtht-number">8</span>; <span class="hljs-wtht-kw">color</span>; <span class="hljs-wtht-color">cc</span>;
+  <span class="hljs-wtht-id">arrow2:</span> <span class="hljs-wtht-marker">arrow-double</span>; <span class="hljs-wtht-kw">len</span>; <span class="hljs-wtht-number">12</span>; <span class="hljs-wtht-kw">color</span>; <span class="hljs-wtht-color">cc</span>; <span class="hljs-wtht-kw">k</span>;<span class="hljs-wtht-number">0.4</span>
+  <span class="hljs-wtht-id">arrow3:</span> <span class="hljs-wtht-marker">arrow-simple</span>; <span class="hljs-wtht-kw">len</span>;<span class="hljs-wtht-number">10</span>; <span class="hljs-wtht-color">cc</span>; <span class="hljs-wtht-kw">smooth</span>
+
+<span class="hljs-wtht-comment"># Fill fill some shape with pattern, you can define patterns to be used later
+</span><span class="hljs-wtht-tag">patterns:</span>
+  <span class="hljs-wtht-id">ptn1:</span> <span class="hljs-wtht-kw">type</span>;<span class="hljs-wtht-marker">lines</span>; <span class="hljs-wtht-kw">density</span>, <span class="hljs-wtht-number">12</span>; <span class="hljs-wtht-kw">color</span>; <span class="hljs-wtht-color">yellow</span>; <span class="hljs-wtht-kw">linewidth</span>, <span class="hljs-wtht-number">4</span>; <span class="hljs-wtht-kw">deg</span>; -<span class="hljs-wtht-number">45</span>;
+  <span class="hljs-wtht-id">ptnGrid1:</span>
+    <span class="hljs-wtht-id">type:</span> <span class="hljs-wtht-marker">grid</span>
+    <span class="hljs-wtht-id">size:</span> <span class="hljs-wtht-number">4</span>
+    <span class="hljs-wtht-id">color:</span> <span class="hljs-wtht-color">maroon</span>
+    <span class="hljs-wtht-id">linewidth:</span> <span class="hljs-wtht-number">1</span>
+    <span class="hljs-wtht-id">sparsek:</span> <span class="hljs-wtht-number">0.3</span>
+
+<span class="hljs-wtht-comment"># clip-path, when you want to clip out some drawings, you can define clips here
+</span><span class="hljs-wtht-tag">clips:</span>
+  <span class="hljs-wtht-id">clip1:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">50</span><span class="hljs-wtht-emphasis">,</span> -<span class="hljs-wtht-number">50</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">250</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">50</span>
+
+<span class="hljs-wtht-comment"># you can define styles here to reuse them in later drawings
+</span><span class="hljs-wtht-tag">styles:</span>
+  <span class="hljs-wtht-id">sty1Fillred:</span> <span class="hljs-wtht-kw">fill</span>, <span class="hljs-wtht-color">red</span>, <span class="hljs-wtht-number">0.6</span>;
+  <span class="hljs-wtht-id">sty2Stroke2black:</span> <span class="hljs-wtht-kw">stroke</span>,<span class="hljs-wtht-number">2</span>, <span class="hljs-wtht-color">black</span>;
+  <span class="hljs-wtht-id">sty3complicated:</span> <span class="hljs-wtht-kw">fill</span>, <span class="hljs-wtht-color">pink</span>, <span class="hljs-wtht-number">0.2</span>; <span class="hljs-wtht-kw">stroke</span>, <span class="hljs-wtht-number">1</span>, <span class="hljs-wtht-color">aqua</span>; <span class="hljs-wtht-kw">pattern</span>; ptnGrid1
+
+<span class="hljs-wtht-comment"># you can also specify pre-defined style for labels
+</span><span class="hljs-wtht-tag">labelStyles:</span>
+  <span class="hljs-wtht-id">lblSty1:</span> 
+    <span class="hljs-wtht-id">color:</span> <span class="hljs-wtht-color">red</span>
+    <span class="hljs-wtht-id">font:</span>  <span class="hljs-wtht-kv">times</span>
+    <span class="hljs-wtht-id">align:</span> <span class="hljs-wtht-kv">center</span>;
+    <span class="hljs-wtht-id">size:</span> <span class="hljs-wtht-number">8</span>
+
+<span class="hljs-wtht-comment"># you can make up a symbol to reuse it later, e.g make arrays of symbol
+</span><span class="hljs-wtht-tag">symbols:</span>
+  <span class="hljs-wtht-id">triangle1:</span> 
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">triangle</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> -<span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">4</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">green</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.5</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">white</span><span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-comment"># After symbols defined, you can create array form them
+</span><span class="hljs-wtht-tag">arrays:</span>
+  <span class="hljs-wtht-id">array1:</span> triangle1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">polar</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">center</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">c2.c</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">count</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">8</span><span class="hljs-wtht-emphasis">;</span> 
+          <span class="hljs-wtht-kw">startdeg</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">deltaDeg</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">30</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">r</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">c2.r</span> <span class="hljs-wtht-emphasis">;</span><span class="hljs-wtht-kw">scale</span><span class="hljs-wtht-emphasis">;</span><span class="hljs-wtht-number">3.5</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">aligncenter</span>
+
+<span class="hljs-wtht-comment"># you can define blocks to reuse them later, block is some kind of "drawing group"
+</span><span class="hljs-wtht-comment"># you can either add style or not when adding drawing elements, because you can add
+</span><span class="hljs-wtht-comment"># style later when drawing the block it self
+</span><span class="hljs-wtht-tag">blocks:</span>
+  <span class="hljs-wtht-id">blk1:</span>
+    <span class="hljs-wtht-id">-</span> c1<span class="hljs-wtht-emphasis">;</span> 
+    <span class="hljs-wtht-id">-</span> c2<span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-comment"># And you can hierarchy your design with layers, layer is almost same with blocks, except that
+</span><span class="hljs-wtht-comment"># - block can includde another block, while layer could not include layer, it can include block
+</span><span class="hljs-wtht-comment"># - you cannot apply rotating or translating to layers, it is a logically container, and not some
+</span><span class="hljs-wtht-comment">#   componenet you can re-use
+</span><span class="hljs-wtht-tag">layers:</span>
+  <span class="hljs-wtht-id">layerBackground:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">,</span> -<span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">220</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">150</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">aqua</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">#eee</span>
+
+<span class="hljs-wtht-comment"># You can pick only what you wanted to be included in the final output
+</span><span class="hljs-wtht-comment"># e.g. you can add some reference lines when designing, but don't include them in final output
+</span><span class="hljs-wtht-comment"># The default drawing job, you just add what you want under this item
+</span><span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> c1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.2</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">opaque</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.3</span>
+  <span class="hljs-wtht-id">-</span> c2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0.5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">-</span> lineBetweenXpoints<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">2</span> <span class="hljs-wtht-color">blue</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">marker</span><span class="hljs-wtht-emphasis">;</span> arrow1
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> psPC(<span class="hljs-wtht-number">1</span>)<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">yellow</span><span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-comment"># And you can add as many "jobs" as per your plan/design
+</span><span class="hljs-wtht-comment"># It could be some alternative outputs, or auxiliary/test jobs
+</span><span class="hljs-wtht-comment"># Please know that, you cannot make a "draw" job, is can only be presented under root
+</span><span class="hljs-wtht-tag">jobs:</span>
+  <span class="hljs-wtht-id">showPathSeries:</span>
+    <span class="hljs-wtht-id">-</span> ss1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">placementsTest:</span>
+    <span class="hljs-wtht-id">-</span> plcComp1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">pink</span>
+  <span class="hljs-wtht-id">complexPathTest:</span>
+    <span class="hljs-wtht-id">-</span> complexPath1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">aqua</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">pink</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.3</span>
+  <span class="hljs-wtht-id">drawWithPattern:</span>
+    <span class="hljs-wtht-id">-</span> c1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">pattern</span><span class="hljs-wtht-emphasis">;</span> ptnGrid1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> c2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">pattern</span><span class="hljs-wtht-emphasis">;</span> ptn1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">clip</span><span class="hljs-wtht-emphasis">;</span> clip1
+  <span class="hljs-wtht-id">testStyles:</span>
+    <span class="hljs-wtht-id">-</span> c1<span class="hljs-wtht-emphasis">;</span> sty2Stroke2black
+    <span class="hljs-wtht-id">-</span> c2<span class="hljs-wtht-emphasis">;</span> sty3complicated
+    <span class="hljs-wtht-id">-</span> c2moved1<span class="hljs-wtht-emphasis">;</span> sty1Fillred
+  <span class="hljs-wtht-id">arrayTest:</span>
+    <span class="hljs-wtht-id">-</span> layerBackground
+    <span class="hljs-wtht-id">-</span> c2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">pink</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> array1
+    <span class="hljs-wtht-id">-</span> plcComp1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">labelTest:</span>
+    <span class="hljs-wtht-id">-</span> plcComp1<span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> lblSty1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">w</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">90</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">h</span><span class="hljs-wtht-emphasis">;</span><span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">at</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">25</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span><span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">middleleft</span><span class="hljs-wtht-emphasis">;</span><span class="hljs-wtht-kw">background</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">lightgrey</span><span class="hljs-wtht-emphasis">;</span><span class="hljs-wtht-kv">left</span> <span class="hljs-wtht-ivref">|||</span> This some label style test
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">25</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">blue</span>
+  <span class="hljs-wtht-id">blockTest:</span>
+    <span class="hljs-wtht-id">-</span> blk1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">magenta</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<h3 id="h1-3-3">Huatu Component</h3>
+<p>Huatu Component is actually a tailored Normal Huatu, it could have almost all the structures and elements except:</p>
+<ul>
+<li><strong>jobs</strong>, component cannot have jobs, all the to-be-drawn elements must be presented under the <code>draw</code> tag under root</li>
+<li><strong>clips</strong>, component cannot have clip paths</li>
+<li><strong>components</strong> and <strong>placements</strong>, component cannot include another component, i.e. nesting/cascading is not allowed with component</li>
+<li><strong>symbols</strong> and <strong>arrays</strong>, component cannot have symbol defined and symbol arrays neither</li>
+<li><strong>blocks</strong>, component cannot have blocks</li>
+<li><strong>layers</strong>, component cannot have layers</li>
+</ul>
+<p>And some two features are added to component:</p>
+<ol>
+<li><strong>Input Var</strong>, by adding <code>inputVars</code>, you make some configuring parameters of building the component, e.g. you can make a component of rectangle box with width and height changeable by defining its width and height as <strong>input vars</strong>, then when placing the component, you can give new (and different) values to those vars.</li>
+<li><strong>Port</strong>, you can define some ports to a component, then when multiple components placed, you can add wires to connect ports between each component. One example would be that, you can define a component as electronic resistor with two ports (terminals), then you place multiple of them, and then you connect the terminals to build/draw a resistor network.</li>
+</ol>
+<p>When using Huatu Component, we can treat it as a black box, with only the <strong>input vars</strong> as parameters and <strong>ports</strong> as interfaces.</p>
+<p>Following would be an full example of Huatu Component:</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-comment"># You can explicitly define a "type" tag to indicate that this design file is Component
+</span><span class="hljs-wtht-tag">type:</span> component
+
+<span class="hljs-wtht-comment"># Define Input Vars
+</span><span class="hljs-wtht-comment"># All the values given here are "default" ones, if certain values are not given 
+</span><span class="hljs-wtht-comment"># when placing the component, the var will pick this default one as value
+</span><span class="hljs-wtht-tag">inputVars:</span>
+  <span class="hljs-wtht-id">lineWidth:</span> <span class="hljs-wtht-number">3</span>
+  <span class="hljs-wtht-id">color:</span> <span class="hljs-wtht-color">red</span>
+  <span class="hljs-wtht-id">fill:</span> <span class="hljs-wtht-color">lightgrey</span>
+  <span class="hljs-wtht-id">border:</span> <span class="hljs-wtht-color">blue</span>
+  <span class="hljs-wtht-id">borderWidth:</span> <span class="hljs-wtht-number">2</span>
+  <span class="hljs-wtht-id">width:</span> <span class="hljs-wtht-number">300</span>
+  <span class="hljs-wtht-id">height:</span> <span class="hljs-wtht-number">200</span>
+  <span class="hljs-wtht-id">content:</span> block text
+  <span class="hljs-wtht-id">corner:</span> <span class="hljs-wtht-number">15</span>
+
+<span class="hljs-wtht-comment"># Define Vars
+</span><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">bw:</span> <span class="hljs-wtht-ivref">$width</span>        <span class="hljs-wtht-comment"># Here when referring input var, use $inputVarName to call it
+</span>  <span class="hljs-wtht-id">bh:</span> <span class="hljs-wtht-ivref">$height</span>       <span class="hljs-wtht-comment"># The input var referring use a method of *full replacing**
+</span>  <span class="hljs-wtht-id">lportW:</span> bw/<span class="hljs-wtht-number">10</span>
+  <span class="hljs-wtht-id">lportH:</span> bh/<span class="hljs-wtht-number">10</span>
+  <span class="hljs-wtht-id">lportDiag:</span> <span class="hljs-wtht-marker">sqrt</span>(lportW * lportW + lportH * lportH) * <span class="hljs-wtht-number">1.1</span>
+
+  <span class="hljs-wtht-id">cornerShrink:</span> <span class="hljs-wtht-ivref">$corner</span> *(<span class="hljs-wtht-number">1</span> - <span class="hljs-wtht-marker">sqrt</span>(<span class="hljs-wtht-number">0.5</span>))
+
+<span class="hljs-wtht-comment"># Define points
+</span><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">pCenter:</span> (<span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span>)
+  <span class="hljs-wtht-id">pne:</span> <span class="hljs-wtht-ref">pCenter.x</span> + bw/<span class="hljs-wtht-number">2</span> - cornerShrink<span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ref">pCenter.y</span> - bh/<span class="hljs-wtht-number">2</span> + cornerShrink
+  <span class="hljs-wtht-id">pse:</span> <span class="hljs-wtht-ref">pCenter.x</span> + bw/<span class="hljs-wtht-number">2</span> - cornerShrink<span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ref">pCenter.y</span> + bh/<span class="hljs-wtht-number">2</span> - cornerShrink
+  <span class="hljs-wtht-id">pnw:</span> <span class="hljs-wtht-ref">pCenter.x</span> - bw/<span class="hljs-wtht-number">2</span> + cornerShrink<span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ref">pCenter.y</span> - bh/<span class="hljs-wtht-number">2</span> + cornerShrink
+  <span class="hljs-wtht-id">psw:</span> <span class="hljs-wtht-ref">pCenter.x</span> - bw/<span class="hljs-wtht-number">2</span> + cornerShrink<span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ref">pCenter.y</span> + bh/<span class="hljs-wtht-number">2</span> - cornerShrink
+  
+<span class="hljs-wtht-comment"># Define shapes
+</span><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">container:</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">bycenter</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> bw<span class="hljs-wtht-emphasis">;</span> bh<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">lne:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> pne
+  <span class="hljs-wtht-id">lse:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> pse
+  <span class="hljs-wtht-id">lnw:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> pnw
+  <span class="hljs-wtht-id">lsw:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> psw
+
+<span class="hljs-wtht-comment"># All the elements that need to be drawn must be listed here
+</span><span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> container<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$border</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ivref">$borderWidth</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">radius</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">$corner</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">label;</span> <span class="hljs-wtht-kw">at</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">anchor</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kv">center</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">w</span><span class="hljs-wtht-emphasis">;</span> bh<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">h</span><span class="hljs-wtht-emphasis">;</span> bh <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-ivref">$content</span>
+
+<span class="hljs-wtht-comment"># we define 8 ports n/e/s/w/ne/se/nw/sw
+</span><span class="hljs-wtht-tag">ports:</span>
+  <span class="hljs-wtht-id">-</span> w<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">container.w</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">180</span><span class="hljs-wtht-emphasis">;</span> lportW
+  <span class="hljs-wtht-id">-</span> e<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">container.e</span><span class="hljs-wtht-emphasis">;</span>   <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> lportW
+  <span class="hljs-wtht-id">-</span> n<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">container.n</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">270</span><span class="hljs-wtht-emphasis">;</span> lportH
+  <span class="hljs-wtht-id">-</span> s<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">container.s</span><span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-number">90</span><span class="hljs-wtht-emphasis">;</span> lportH
+  <span class="hljs-wtht-id">-</span> ne<span class="hljs-wtht-emphasis">;</span> pne<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">lne.deg</span><span class="hljs-wtht-emphasis">;</span> lportDiag
+  <span class="hljs-wtht-id">-</span> nw<span class="hljs-wtht-emphasis">;</span> pnw<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">lnw.deg</span><span class="hljs-wtht-emphasis">;</span> lportDiag
+  <span class="hljs-wtht-id">-</span> se<span class="hljs-wtht-emphasis">;</span> pse<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">lse.deg</span><span class="hljs-wtht-emphasis">;</span> lportDiag
+  <span class="hljs-wtht-id">-</span> sw<span class="hljs-wtht-emphasis">;</span> psw<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">lsw.deg</span><span class="hljs-wtht-emphasis">;</span> lportDiag
+</code></pre>
+<h3 id="h1-3-4">Minimum Design</h3>
+<p>If complex design is not what you want, you can make things a lot simpler. For example, by only just two lines, you get some Huatu of drawing one line segment here.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cc</span><span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+</div></div></div></div><div data-v-9ee0c63b="" class="toc"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-9ee0c63b="" class="lang-list"><span data-v-9ee0c63b="" class="lang-link">中文</span><!----></div><div data-v-9ee0c63b="" class="clickable go-top"><a data-v-9ee0c63b="" style="display: block;"><i data-v-9ee0c63b="" class="f7-icons" style="font-size: 1rem;">arrow_up_to_line_alt</i> GO TOP</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Editor</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Design input/source code</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Design file</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">File layout</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Normal Huatu</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Huatu Component</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Minimum Design</a></div></div></div><!----><!----></main></div><header><div class="header-content no-select"><div class="flex"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-5.45 -5.6 10.9 11.2" width="32.7" height="33.599999999999994"><polyline points="-2.250,5.0 -4.850,5.0 -4.850,-5.0 -2.250,-5.0 -2.250,-1.180 2.250,-1.180 2.250,-5.0 4.850,-5.0 4.850,5.0 2.250,5.0 2.250,1.180 -2.250,1.180 -2.250,3.180" fill="#0b4d4233" stroke="currentColor" stroke-width="0.4"></polyline><circle cx="-2.250" cy="5.0" r="0.40" fill="black"></circle><circle cx="-2.250" cy="1.180" r="0.40" fill="black"></circle><circle cx="-2.250" cy="3.180" r="0.40" fill="red"></circle></svg></div><div class="title">wt-huatu</div><div class="flex-filler"><nav><div><a href="/wt-huatu-doc/" class="">Home</a><a href="/wt-huatu-doc/doc" class="rl-exact-active">Docs</a><a class="clickable">Editor</a></div><div class="flex-filler"></div><div><span class="wtht-ver">V1.4.1</span><a href="https://github.com/littlefattie/wt-huatu" class="social-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" height="24" width="24"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" fill="currentColor"></path></svg></a><a href="https://www.npmjs.com/package/wt-huatu" class="social-link" target="_blank"><svg viewBox="0 0 27.23 27.23" aria-hidden="true" width="24" height="24"><rect width="27.23" height="27.23" rx="2" fill="currentColor" stroke-width="0"></rect><polygon fill="#0b4d42" points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"></polygon></svg></a></div></nav></div></div><!----></header><footer><div><strong>wt-huatu:</strong> A library to draw something mathematically, logically, hierarchically and programmatically. </div><div> contact: <a href="mailto:little-fattie@outlook.com">little-fattie@outlook.com</a></div></footer><!----><!----></div>
+
+  
+
+</body></html>

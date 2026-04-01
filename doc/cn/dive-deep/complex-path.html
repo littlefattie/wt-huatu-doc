@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="msvalidate.01" content="0FD15710100E02F18E35B3D3908A133F">
+    <link rel="icon" href="/wt-huatu-doc/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wt-huatu</title>
+    <link rel="stylesheet" crossorigin="" href="/wt-huatu-doc/assets/index-CnPvVuaR.css">
+  <style></style></head>
+  <body>
+    <div id="app" data-v-app=""><div class="main"><main data-v-9ee0c63b=""><div data-v-9ee0c63b="" class="index-tree"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-88a02bb8="" data-v-9ee0c63b=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/introduction.html" class="">介绍</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/quick-start.html" class="">快速上手</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><span data-v-88a02bb8="" class="tree-dir">深入了解</span></div><div data-v-88a02bb8="" class="ctn-tree-sub"><div data-v-88a02bb8=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/basics.html" class="">基本知识</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/shapes.html" class="">基本图形</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/get-point.html" class="">获取点</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/point-series.html" class="">序列</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/x-points.html" class="">交点</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/shape-series.html" class="">图形序列</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/shape-transform.html" class="">图形变换</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/angle-mark.html" class="">角度标记</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/dim-mark.html" class="">长度标记</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/label.html" class="">文本标签</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" aria-current="page" href="/wt-huatu-doc/doc/cn/dive-deep/complex-path.html" class="router-link-active router-link-exact-active is-current">复合图形</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/component.html" class="">组件</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/wire.html" class="">连线</a></div><!----></div></div></div></div></div></div></div><!----><!----><div data-v-9ee0c63b="" class="doc-page"><div data-v-9ee0c63b="" class="doc-body"><div data-v-9ee0c63b="" class="wtmd"><div data-v-9ee0c63b=""><h1>复合图形</h1>
+<p>除了<a href="./shapes.html">基本图形</a>以外，我们还可以定义复杂的<strong>复合图形</strong>(complex path，一般也称复合路径)，比如我们可以定义一个扇形，上面挖出三个洞，这样它就看起来有点像奶酪的样子，但它不是一个扇形+三个圆，而是一个具有复杂边界的图形，它最外侧是扇形，但是中间还有三个圆形的边界，当我们给他填色的时候，中间的三个洞将不会被填充。</p>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200.1615506024416" height="157" viewBox="-198.5615506024416 -1.6 200.1615506024416 156.4088886237956">
+<title>复合图形示例</title>
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-02edba01 { fill: none; }
+.huatu-label-container-02edba01 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-02edba01 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<g>
+<path d="M0.000000,0.000000 L-128.557522,153.208889 A 200.000000,200.000000 0.000 0,1 -196.961551,34.729636  L0.000000,0.000000 z M-56.666667,40.000000 A 10.000000,10.000000 0.000 0,0 -66.666667,30.000000 A 10.000000,10.000000 0.000 0,0 -76.666667,40.000000 A 10.000000,10.000000 0.000 0,0 -66.666667,50.000000 A 10.000000,10.000000 0.000 0,0 -56.666667,40.000000 z M-94.444444,92.000000 A 16.666667,16.666667 0.000 0,0 -111.111111,75.333333 A 16.666667,16.666667 0.000 0,0 -127.777778,92.000000 A 16.666667,16.666667 0.000 0,0 -111.111111,108.666667 A 16.666667,16.666667 0.000 0,0 -94.444444,92.000000 z M-145.512821,52.000000 A 8.333333,8.333333 0.000 0,0 -153.846154,43.666667 A 8.333333,8.333333 0.000 0,0 -162.179487,52.000000 A 8.333333,8.333333 0.000 0,0 -153.846154,60.333333 A 8.333333,8.333333 0.000 0,0 -145.512821,52.000000 z" fill="orange" stroke="black" stroke-width="2.000000"></path>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">复合图形示例</span>
+    </span>
+  </div>
+</div></div></div>
+<h2 id="h1-1">如何创建</h2>
+<p>创建复合图形的方式为在根级的<code>paths</code>标签下添加，像创建基本图形那样，先给出一个名字，然后开始定义。复合图形的定义有两种形式，第一种是单行的定义，此时跟基本图形的定义相同，定义出的结果也是基本图形，而并无<strong>复合</strong>，第二种方式是列表式，此时我们可以按照顺序添加复合图形的每一个<strong>小段</strong>，比如一个扇形有两条线段和一段圆弧组成，我们按照顺序依次添加即可。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">arc1:</span> <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> ...
+  <span class="hljs-wtht-id">line2:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span>...
+<span class="hljs-wtht-tag">paths:</span>
+  <span class="hljs-wtht-id">cp1:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">5</span>    <span class="hljs-wtht-comment"># 单行式定义，类同于基本图形
+</span>  <span class="hljs-wtht-id">cp2:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> p1<span class="hljs-wtht-emphasis">;</span>   <span class="hljs-wtht-comment"># 现场定义一个段 (线段)
+</span>    <span class="hljs-wtht-id">-</span> arc1    <span class="hljs-wtht-comment"># 引用已定义的段 (圆弧)
+</span>    <span class="hljs-wtht-id">-</span> line2   <span class="hljs-wtht-comment"># 引用已定义的段 (线段)
+</span>    <span class="hljs-wtht-id">-</span> close   <span class="hljs-wtht-comment"># close 关键字，表示封闭当前的路径
+</span></code></pre>
+<p>复合图形的段可以现场定义，也可以引用已经定义的基本图形，但只能是下面这4种基本图形：</p>
+<ul>
+<li>线段（注意，不是直线）</li>
+<li>圆弧</li>
+<li>Bezier2 曲线</li>
+<li>Bezier3 曲线</li>
+</ul>
+<p>添加其他种类的基本路径，将被忽略。</p>
+<h2 id="h1-2">扩展符</h2>
+<p>为了添加其他基本图形，比如圆，矩形，我们设计了<strong>扩展符</strong>，可以将其他基本图形或者复合图形<strong>扩展</strong>为段的列表，在对应位置插入。比如，我们想在扇形上面挖洞，但圆形是无法作为段来添加的，我们可通过扩展符来将它扩展后添加，实际添加的是首位相连的四个圆弧段。扩展符是三个连续的圆点<code>...</code>（注意，是英文的句号圆点，不是中文的句号，或者居中的圆点），后面跟待扩展的基本图形的名字。</p>
+<p>考虑到封闭的基本图形，比如圆，矩形，等，扩展时会有行走方向的关系，所以扩展时我们可以指定第二个行走方向的参数，<code>cw</code>（顺时针）或<code>ccw</code>（逆时针）。对于矩形，三角形，多边形，多线段，我们还可以指定一个<strong>圆角半径</strong>的参数<code>radius</code>，这样在扩展时会在原来顶点位置自动添加（替换为）圆弧，以实现圆角目的。<code>radius</code>参数可以是一个数字，也可以是数字序列（不可包含变量）,若为数字序列，则按多边形的第N个角依次对应数字序列的第N个数作为圆角半径。</p>
+<p>我们可扩展的基本图形有：</p>
+<ul>
+<li>三角形</li>
+<li>矩形</li>
+<li>多线段</li>
+<li>多边形</li>
+<li>圆</li>
+<li>椭圆</li>
+</ul>
+<p>另外，已定义的复合图形也可以被扩展，进而重新添加到新的复合路径中，此时，我们可以指定一个关键字<code>reverse</code>来决定是否将复合路径<strong>倒序</strong>添加。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">paths:</span>
+  <span class="hljs-wtht-id">complexPath1:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> pM<span class="hljs-wtht-emphasis">;</span> pN<span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> pN<span class="hljs-wtht-emphasis">;</span> pQ<span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> pQ<span class="hljs-wtht-emphasis">;</span> R1<span class="hljs-wtht-emphasis">;</span> R2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">large</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span> PR<span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">Bezier2</span><span class="hljs-wtht-emphasis">;</span> PR<span class="hljs-wtht-emphasis">;</span> pRm<span class="hljs-wtht-emphasis">;</span> pS<span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">Bezier3</span><span class="hljs-wtht-emphasis">;</span> pS<span class="hljs-wtht-emphasis">;</span> pSm1<span class="hljs-wtht-emphasis">;</span> pSm2<span class="hljs-wtht-emphasis">;</span> pT<span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> close<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">expandedPath:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...circ1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">cw</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...rect1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...complexPath1</span><span class="hljs-wtht-emphasis">;</span>      <span class="hljs-wtht-comment"># 可以扩展
+</span>  <span class="hljs-wtht-id">expandedPath2:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...rect1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">radius</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">5</span>      <span class="hljs-wtht-comment"># 扩展的同时添加圆角
+</span>    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...expandedPath</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">reverse</span>      <span class="hljs-wtht-comment"># 扩展已定义的复合图形，但倒序添加
+</span></code></pre>
+<h2 id="h1-3">示例分解</h2>
+<p>下面我们将分步骤将上图的奶酪使用复合图形画出来。</p>
+<ol>
+<li>定义关键变量扇形大小，圆心位置，扇形起始边和结束边的角度等。</li>
+</ol>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">d:</span> <span class="hljs-wtht-number">200</span>          <span class="hljs-wtht-comment"># 扇形的半径
+</span>  <span class="hljs-wtht-id">deg1:</span> <span class="hljs-wtht-number">130</span>       <span class="hljs-wtht-comment"># 扇形的起始角
+</span>  <span class="hljs-wtht-id">deg2:</span> <span class="hljs-wtht-number">170</span>       <span class="hljs-wtht-comment"># 扇形的结束角
+</span><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">p0:</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>
+</code></pre>
+<ol start="2">
+<li>定义基本图形，圆，圆弧，线段，获取圆弧的起始点结束点。</li>
+</ol>
+<pre><code class="hljs language-wtht">
+<span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># 扇形所在的圆
+</span>  <span class="hljs-wtht-id">cCheese:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> d<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># 扇形的圆弧
+</span>  <span class="hljs-wtht-id">arcCheese:</span> <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> cCheese<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">130</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">170</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">cw</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># 三个待挖的洞
+</span>  <span class="hljs-wtht-id">cHole1:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">p0.x</span> - d/<span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span>   <span class="hljs-wtht-ref">p0.y</span> + d * <span class="hljs-wtht-number">0.2</span><span class="hljs-wtht-emphasis">;</span>  d/<span class="hljs-wtht-number">20</span>
+  <span class="hljs-wtht-id">cHole2:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">p0.x</span> - d/<span class="hljs-wtht-number">1.8</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ref">p0.y</span> + d * <span class="hljs-wtht-number">0.46</span><span class="hljs-wtht-emphasis">;</span> d/<span class="hljs-wtht-number">12</span>
+  <span class="hljs-wtht-id">cHole3:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">p0.x</span> - d/<span class="hljs-wtht-number">1.3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ref">p0.y</span> + d * <span class="hljs-wtht-number">0.26</span><span class="hljs-wtht-emphasis">;</span> d/<span class="hljs-wtht-number">24</span>
+
+<span class="hljs-wtht-tag">cpoints:</span>
+  <span class="hljs-wtht-comment"># 定义扇形圆弧的起始点和结束点，便于后面使用
+</span>  <span class="hljs-wtht-id">cpFan1:</span> cCheese<span class="hljs-wtht-emphasis">;</span> deg1
+  <span class="hljs-wtht-id">cpFan2:</span> cCheese<span class="hljs-wtht-emphasis">;</span> deg2
+</code></pre>
+<ol start="3">
+<li>定义复合路径，我们可以为他取个名字，就叫奶酪(cheese)。</li>
+</ol>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-comment"># 复合路径定义
+</span><span class="hljs-wtht-tag">paths:</span>
+  <span class="hljs-wtht-id">cheese:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span>  cpFan1     <span class="hljs-wtht-comment"># 扇形起始边
+</span>    <span class="hljs-wtht-id">-</span> arcCheese             <span class="hljs-wtht-comment"># 扇形圆弧
+</span>    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> cpFan2<span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span>     <span class="hljs-wtht-comment"># 扇形结束边
+</span>    <span class="hljs-wtht-id">-</span> close                 <span class="hljs-wtht-comment"># 封闭这个扇形
+</span>    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...cHole1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span>       <span class="hljs-wtht-comment"># 挖第一个洞
+</span>    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...cHole2</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span>       <span class="hljs-wtht-comment"># 挖第二个洞
+</span>    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...cHole3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span>       <span class="hljs-wtht-comment"># 挖第三个洞
+</span></code></pre>
+<ol start="4">
+<li>最后，画出我们的奶酪即可。</li>
+</ol>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> cheese<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">orange</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<h2 id="h1-4">扩展符参数示例</h2>
+<p>我们可以使用下面的代码画一个圆，内部挖一个圆角矩形的洞。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">r1:</span> <span class="hljs-wtht-number">300</span>
+  <span class="hljs-wtht-id">w1:</span> r1 * <span class="hljs-wtht-number">1.2</span>
+  <span class="hljs-wtht-id">h1:</span> w1 * <span class="hljs-wtht-number">0.6</span>
+
+<span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">p0:</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>
+
+<span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">rect1:</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">bycenter</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> w1<span class="hljs-wtht-emphasis">;</span> h1
+  <span class="hljs-wtht-id">circ1:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> r1
+
+<span class="hljs-wtht-tag">paths:</span>
+  <span class="hljs-wtht-id">sign1:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...circ1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">cw</span><span class="hljs-wtht-emphasis">;</span>                           <span class="hljs-wtht-comment"># 外圆
+</span>    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...rect1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">radius</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">35</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">10</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">60</span>   <span class="hljs-wtht-comment"># 挖洞，圆角矩形，圆角半径有4个，且不同
+</span>  <span class="hljs-wtht-id">sign2:</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-kv">...sign1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">reverse</span>
+<span class="hljs-wtht-tag">blocks:</span>
+  <span class="hljs-wtht-id">blk1:</span>
+    <span class="hljs-wtht-id">-</span> sign1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">orange</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">marker</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">mid</span><span class="hljs-wtht-emphasis">;</span> arrow2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">blk2:</span>
+    <span class="hljs-wtht-id">-</span> sign2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">marker</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">mid</span><span class="hljs-wtht-emphasis">;</span> arrow2<span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> blk1
+  <span class="hljs-wtht-id">-</span> blk2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">700</span><span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="632" height="632" viewBox="-316 -316 632 632">
+<title>sign1，扩展时添加圆角</title>
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-09956df2 { fill: none; }
+.huatu-label-container-09956df2 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-09956df2 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-beebd2ce" viewBox="-8 -2.7546209063173217 8 5.509241812634643" refX="-1.4521054388379115" refY="0" markerWidth="8" markerHeight="5.509241812634643" orient="auto-start-reverse">
+<path d="M-8.000000,2.754621 L0.000000,0.000000 L-8.000000,-2.754621 z" fill="context-stroke"></path>
+</marker>
+</defs>
+<g>
+<path d="M300.000000,0.000000 A 300.000000,300.000000 0.000 0,1 0.000000,300.000000 A 300.000000,300.000000 0.000 0,1 -300.000000,0.000000 A 300.000000,300.000000 0.000 0,1 -0.000000,-300.000000 A 300.000000,300.000000 0.000 0,1 300.000000,0.000000 z M0.000000,-108.000000 L-145.000000,-108.000000 A 35.000000,35.000000 0.000 0,0 -180.000000,-73.000000  L-180.000000,88.000000 A 20.000000,20.000000 0.000 0,0 -160.000000,108.000000  L170.000000,108.000000 A 10.000000,10.000000 0.000 0,0 180.000000,98.000000  L180.000000,-48.000000 A 60.000000,60.000000 0.000 0,0 120.000000,-108.000000  L0.000000,-108.000000 z" fill="orange" stroke="black" stroke-width="2.000000" marker-mid="url(#mkr-beebd2ce)"></path>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">sign1，扩展时添加圆角</span>
+    </span>
+  </div>
+</div></div></div>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="632" height="632" viewBox="-316 -316.00000000000006 632 632">
+<title>sign1，扩展时添加圆角</title>
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-7a2cec52 { fill: none; }
+.huatu-label-container-7a2cec52 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-7a2cec52 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-beebd2ce" viewBox="-8 -2.7546209063173217 8 5.509241812634643" refX="-1.4521054388379115" refY="0" markerWidth="8" markerHeight="5.509241812634643" orient="auto-start-reverse">
+<path d="M-8.000000,2.754621 L0.000000,0.000000 L-8.000000,-2.754621 z" fill="context-stroke"></path>
+</marker>
+</defs>
+<g>
+<path d="M0.000000,-108.000000 L120.000000,-108.000000 A 60.000000,60.000000 0.000 0,1 180.000000,-48.000000  L180.000000,98.000000 A 10.000000,10.000000 0.000 0,1 170.000000,108.000000  L-160.000000,108.000000 A 20.000000,20.000000 0.000 0,1 -180.000000,88.000000  L-180.000000,-73.000000 A 35.000000,35.000000 0.000 0,1 -145.000000,-108.000000  L0.000000,-108.000000 z M300.000000,0.000000 A 300.000000,300.000000 0.000 0,0 -0.000000,-300.000000 A 300.000000,300.000000 0.000 0,0 -300.000000,0.000000 A 300.000000,300.000000 0.000 0,0 0.000000,300.000000 A 300.000000,300.000000 0.000 0,0 300.000000,0.000000 z" fill="red" stroke="black" stroke-width="2.000000" marker-mid="url(#mkr-beebd2ce)"></path>
+</g>
+</svg>
+    </div>
+  </div>
+  <div class="wtht-fig-title">
+    <span>
+      <span class="wtht-fig-title-tag"></span>
+      &nbsp;
+      <span class="wtht-fig-title-text">sign2，复合图形扩展，reverse</span>
+    </span>
+  </div>
+</div></div></div>
+</div></div></div></div><div data-v-9ee0c63b="" class="toc"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-9ee0c63b="" class="lang-list"><!----><span data-v-9ee0c63b="" class="lang-link">EN</span></div><div data-v-9ee0c63b="" class="clickable go-top"><a data-v-9ee0c63b="" style="display: block;"><i data-v-9ee0c63b="" class="f7-icons" style="font-size: 1rem;">arrow_up_to_line_alt</i> GO TOP</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">如何创建</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">扩展符</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">示例分解</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">扩展符参数示例</a></div></div></div><!----><!----></main></div><header><div class="header-content no-select"><div class="flex"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-5.45 -5.6 10.9 11.2" width="32.7" height="33.599999999999994"><polyline points="-2.250,5.0 -4.850,5.0 -4.850,-5.0 -2.250,-5.0 -2.250,-1.180 2.250,-1.180 2.250,-5.0 4.850,-5.0 4.850,5.0 2.250,5.0 2.250,1.180 -2.250,1.180 -2.250,3.180" fill="#0b4d4233" stroke="currentColor" stroke-width="0.4"></polyline><circle cx="-2.250" cy="5.0" r="0.40" fill="black"></circle><circle cx="-2.250" cy="1.180" r="0.40" fill="black"></circle><circle cx="-2.250" cy="3.180" r="0.40" fill="red"></circle></svg></div><div class="title">wt-huatu</div><div class="flex-filler"><nav><div><a href="/wt-huatu-doc/" class="">Home</a><a href="/wt-huatu-doc/doc" class="rl-exact-active">Docs</a><a class="clickable">Editor</a></div><div class="flex-filler"></div><div><span class="wtht-ver">V1.4.1</span><a href="https://github.com/littlefattie/wt-huatu" class="social-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" height="24" width="24"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" fill="currentColor"></path></svg></a><a href="https://www.npmjs.com/package/wt-huatu" class="social-link" target="_blank"><svg viewBox="0 0 27.23 27.23" aria-hidden="true" width="24" height="24"><rect width="27.23" height="27.23" rx="2" fill="currentColor" stroke-width="0"></rect><polygon fill="#0b4d42" points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"></polygon></svg></a></div></nav></div></div><!----></header><footer><div><strong>wt-huatu:</strong> A library to draw something mathematically, logically, hierarchically and programmatically. </div><div> contact: <a href="mailto:little-fattie@outlook.com">little-fattie@outlook.com</a></div></footer><!----><!----></div>
+
+  
+
+</body></html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="msvalidate.01" content="0FD15710100E02F18E35B3D3908A133F">
+    <link rel="icon" href="/wt-huatu-doc/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wt-huatu</title>
+    <link rel="stylesheet" crossorigin="" href="/wt-huatu-doc/assets/index-CnPvVuaR.css">
+  <style></style></head>
+  <body>
+    <div id="app" data-v-app=""><div class="main"><main data-v-9ee0c63b=""><div data-v-9ee0c63b="" class="index-tree"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-88a02bb8="" data-v-9ee0c63b=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/introduction.html" class="">介绍</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/quick-start.html" class="">快速上手</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><span data-v-88a02bb8="" class="tree-dir">深入了解</span></div><div data-v-88a02bb8="" class="ctn-tree-sub"><div data-v-88a02bb8=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/basics.html" class="">基本知识</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/shapes.html" class="">基本图形</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/get-point.html" class="">获取点</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/point-series.html" class="">序列</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/x-points.html" class="">交点</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/shape-series.html" class="">图形序列</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" aria-current="page" href="/wt-huatu-doc/doc/cn/dive-deep/shape-transform.html" class="router-link-active router-link-exact-active is-current">图形变换</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/angle-mark.html" class="">角度标记</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/dim-mark.html" class="">长度标记</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/label.html" class="">文本标签</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/complex-path.html" class="">复合图形</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/component.html" class="">组件</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/cn/dive-deep/wire.html" class="">连线</a></div><!----></div></div></div></div></div></div></div><!----><!----><div data-v-9ee0c63b="" class="doc-page"><div data-v-9ee0c63b="" class="doc-body"><div data-v-9ee0c63b="" class="wtmd"><div data-v-9ee0c63b=""><h1>图形变换</h1>
+<p>当我们设计或定义好一个图形以后，我们会很自然地产生这样的需求，即把它移到另外一个地方(<strong>平移</strong>)或者绕着某个点进行一个角度的旋转(<strong>旋转</strong>)。比如我想设计一幅图案，其中有6个五角星，均匀分布在一个圆周上，然后他们的顶角都是指向这个圆周的圆心，那么我们可以只定义出一个五角星，然后通过平移和旋转来复制创建出其他的五角星。</p>
+<div class="info-box">
+<p>在这里，我们讨论的平移和旋转是通过平移和旋转操作对目标图形进行<strong>复制</strong>从而产生新的图形。它和我们通常定义图形的方法类似，区别是我们不指定图形的类型，而是使用特定的关键字来说明<strong>如何操作</strong>。</p>
+
+</div><h2 id="h1-1">平移</h2>
+<p>关于平移，我们定义了三种平移方式，即<strong>沿X轴平移</strong>，<strong>沿Y轴平移</strong>，<strong>给定XY偏移的平移</strong>，区别在于定义平移时所使用的关键字和给定的参数不同。具体的使用方式参考如下的示例代码。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">shape1:</span> <span class="hljs-wtht-marker">polygon</span><span class="hljs-wtht-emphasis">;</span> ... <span class="hljs-wtht-comment"># 其他你定义图形需要的参数
+</span>  <span class="hljs-wtht-comment"># 使用 moveX 关键字来定义 沿X轴平移， 给出你要平移的目标图形和偏移量
+</span>  <span class="hljs-wtht-id">shape1MoveX:</span>   <span class="hljs-wtht-kw">moveX</span><span class="hljs-wtht-emphasis">;</span> shape1<span class="hljs-wtht-emphasis">;</span> xOffset
+  <span class="hljs-wtht-comment"># 使用 moveY 关键字来定义 沿Y轴平移， 给出你要平移的目标图形和偏移量
+</span>  <span class="hljs-wtht-id">shape1MoveY:</span>   <span class="hljs-wtht-kw">moveY</span><span class="hljs-wtht-emphasis">;</span> shape1<span class="hljs-wtht-emphasis">;</span> yOffset
+  <span class="hljs-wtht-comment"># 使用 moveby 关键字(或 move) 来定义 给定XY偏移的平移，给出你要平移的目标
+</span>  <span class="hljs-wtht-comment"># 和x，y方向的偏移量，他们可以按照通常定义点的方式给出。
+</span>  <span class="hljs-wtht-id">shape1MoveBy:</span>  <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span>   shape1<span class="hljs-wtht-emphasis">;</span> offsetX<span class="hljs-wtht-emphasis">,</span> offsetY
+  <span class="hljs-wtht-id">shape1MoveBy2:</span> <span class="hljs-wtht-kw">moveby</span><span class="hljs-wtht-emphasis">;</span> shape1<span class="hljs-wtht-emphasis">;</span> offsetX<span class="hljs-wtht-emphasis">,</span> offsetY
+</code></pre>
+<h2 id="h1-2">旋转</h2>
+<p>当通过旋转的方式产生新图形时，我们使用<code>rotateby</code>(或<code>rotate</code>)关键字来标示，需要给定被旋转的目标图形，旋转的角度，以及一个可选的旋转中心，如果旋转中心没有指定的话将默认绕着坐标系原点<code>(0, 0)</code>来旋转。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">pRotateCenter:</span> ...   <span class="hljs-wtht-comment"># 旋转中心
+</span><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">shape1:</span> <span class="hljs-wtht-marker">polygon</span><span class="hljs-wtht-emphasis">;</span> ... <span class="hljs-wtht-comment"># 其他你定义图形需要的参数
+</span>  <span class="hljs-wtht-comment"># 使用 rotateby 关键字来定义 旋转， 给出你要旋转的角度，和旋转中心
+</span>  <span class="hljs-wtht-id">shape1rotate:</span>  <span class="hljs-wtht-kw">rotateby</span><span class="hljs-wtht-emphasis">;</span> shape1<span class="hljs-wtht-emphasis">;</span> degOfRotate<span class="hljs-wtht-emphasis">;</span> pRotateCenter
+  <span class="hljs-wtht-comment"># 使用 rotate 关键字也是一样的， 若未指定旋转中心，将围绕(0,0)旋转
+</span>  <span class="hljs-wtht-id">shape1rotate2:</span> <span class="hljs-wtht-kw">rotate</span><span class="hljs-wtht-emphasis">;</span> shape1<span class="hljs-wtht-emphasis">;</span> degOfRotate
+</code></pre>
+<div class="info-box">
+<p>请注意，旋转操作会改变图形的类别，比如矩形经过旋转以后，虽然还是矩形的样子，但它会变成一个多边形，当我们使用<code>rectXXX.nw</code>等来进行快捷取点时就会失效，我们需要使用<code>rectXXXrotated[1]</code>等来进行取点。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">rect1:</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>)<span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">100</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">100</span>)<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">rect1rotated:</span> <span class="hljs-wtht-kw">rotate</span><span class="hljs-wtht-emphasis">;</span> rect1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">45</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">30</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">30</span>)
+  <span class="hljs-wtht-id">circ1:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">rect1.nw</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">5</span>
+  <span class="hljs-wtht-comment"># 这样写不行
+</span>  <span class="hljs-wtht-id">circ2:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ref">rect1rotated.nw</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">5</span>
+  <span class="hljs-wtht-comment"># 这样写可以
+</span>  <span class="hljs-wtht-id">circ2:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> rect1rotated[<span class="hljs-wtht-number">1</span>]<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">5</span>
+</code></pre>
+
+</div><h2 id="h1-3">实例</h2>
+<p>下面是一个例子，我们可以通过平移和旋转来实现开头所描述的6个五角星。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-comment"># 五角星外接圆的半径
+</span>  <span class="hljs-wtht-id">rStar:</span> <span class="hljs-wtht-number">80</span> 
+  <span class="hljs-wtht-comment"># 计算出五角星内凹五个点所在圆的半径
+</span>  <span class="hljs-wtht-id">rStar2:</span> rStar * <span class="hljs-wtht-marker">dcos</span>(<span class="hljs-wtht-number">72</span>) / <span class="hljs-wtht-marker">dcos</span>(<span class="hljs-wtht-number">36</span>)   
+  <span class="hljs-wtht-id">rCenters:</span> <span class="hljs-wtht-number">4</span> * rStar
+<span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">p0:</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span>
+
+<span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># 定义参考圆
+</span>  <span class="hljs-wtht-id">cStar:</span>  <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> rStar<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">cStar2:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> rStar2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">cCenters:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> rCenters<span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">pointSeries:</span>
+  <span class="hljs-wtht-comment"># 五角星外顶点
+</span>  <span class="hljs-wtht-id">psStar:</span>  cStar<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">270 : -72 : 270 - 4 * 72</span>
+  <span class="hljs-wtht-comment"># 五角星内顶点
+</span>  <span class="hljs-wtht-id">psStar2:</span> cStar2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">270 - 36 : -72 : 270 - 4 * 72 -36</span>
+  <span class="hljs-wtht-comment"># 圆周上分布的五角星的中心点
+</span>  <span class="hljs-wtht-id">psCenters:</span> cCenters<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">0: 360 / 6 : 360</span>
+
+<span class="hljs-wtht-tag">shapes2:</span>
+  <span class="hljs-wtht-comment"># 制作五角星，是个多边形，外顶点和内顶点交替
+</span>  <span class="hljs-wtht-id">star:</span> <span class="hljs-wtht-marker">plg</span><span class="hljs-wtht-emphasis">;</span> psStar[<span class="hljs-wtht-number">1</span>]<span class="hljs-wtht-emphasis">;</span> psStar2[<span class="hljs-wtht-number">1</span>]<span class="hljs-wtht-emphasis">;</span> psStar[<span class="hljs-wtht-number">2</span>]<span class="hljs-wtht-emphasis">;</span> psStar2[<span class="hljs-wtht-number">2</span>]<span class="hljs-wtht-emphasis">;</span>
+        psStar[<span class="hljs-wtht-number">3</span>]<span class="hljs-wtht-emphasis">;</span> psStar2[<span class="hljs-wtht-number">3</span>]<span class="hljs-wtht-emphasis">;</span> psStar[<span class="hljs-wtht-number">4</span>]<span class="hljs-wtht-emphasis">;</span> psStar2[<span class="hljs-wtht-number">4</span>]<span class="hljs-wtht-emphasis">;</span>
+        psStar[<span class="hljs-wtht-number">5</span>]<span class="hljs-wtht-emphasis">;</span> psStar2[<span class="hljs-wtht-number">5</span>]<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># X方向平移
+</span>  <span class="hljs-wtht-id">starMoveX:</span> <span class="hljs-wtht-kw">movex</span><span class="hljs-wtht-emphasis">;</span> star<span class="hljs-wtht-emphasis">;</span> rCenters / <span class="hljs-wtht-number">2</span>
+  <span class="hljs-wtht-comment"># Y方向平移
+</span>  <span class="hljs-wtht-id">starMoveY:</span> <span class="hljs-wtht-kw">movey</span><span class="hljs-wtht-emphasis">;</span> star<span class="hljs-wtht-emphasis">;</span> -rCenters * <span class="hljs-wtht-number">1.2</span>
+  <span class="hljs-wtht-comment"># moveby: XY都有提供的平移
+</span>  <span class="hljs-wtht-comment"># 请注意，这里的 psCenters[n] 是以点的形式标识，但它实际上应为偏移值，
+</span>  <span class="hljs-wtht-comment"># 因为我们的中心参考点是(0,0), 位移就等于坐标值
+</span>  <span class="hljs-wtht-id">starMove1:</span> <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span> star<span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">1</span>]
+  <span class="hljs-wtht-id">starMove2:</span> <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span> star<span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">2</span>]
+  <span class="hljs-wtht-id">starMove3:</span> <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span> star<span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">3</span>]
+  <span class="hljs-wtht-id">starMove4:</span> <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span> star<span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">4</span>]
+  <span class="hljs-wtht-id">starMove5:</span> <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span> star<span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">5</span>]
+  <span class="hljs-wtht-id">starMove6:</span> <span class="hljs-wtht-kw">move</span><span class="hljs-wtht-emphasis">;</span> star<span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">6</span>]
+  <span class="hljs-wtht-comment"># rotate: 平移之后，以新的中心点为中心 旋转
+</span>  <span class="hljs-wtht-comment"># 请注意这里的旋转中心，是各个五角星的中心点
+</span>  <span class="hljs-wtht-id">starRot1:</span> <span class="hljs-wtht-kw">rotate</span><span class="hljs-wtht-emphasis">;</span> starMove1<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">90</span> + <span class="hljs-wtht-number">60</span> * <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span>  psCenters[<span class="hljs-wtht-number">1</span>]<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">starRot2:</span> <span class="hljs-wtht-kw">rotate</span><span class="hljs-wtht-emphasis">;</span> starMove2<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">90</span> + <span class="hljs-wtht-number">60</span> * <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>  psCenters[<span class="hljs-wtht-number">2</span>]<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">starRot3:</span> <span class="hljs-wtht-kw">rotate</span><span class="hljs-wtht-emphasis">;</span> starMove3<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">90</span> + <span class="hljs-wtht-number">60</span> * <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span>  psCenters[<span class="hljs-wtht-number">3</span>]<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">starRot4:</span> <span class="hljs-wtht-kw">rotate</span><span class="hljs-wtht-emphasis">;</span> starMove4<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">90</span> + <span class="hljs-wtht-number">60</span> * <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span>  psCenters[<span class="hljs-wtht-number">4</span>]<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">starRot5:</span> <span class="hljs-wtht-kw">rotate</span><span class="hljs-wtht-emphasis">;</span> starMove5<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">90</span> + <span class="hljs-wtht-number">60</span> * <span class="hljs-wtht-number">4</span><span class="hljs-wtht-emphasis">;</span>  psCenters[<span class="hljs-wtht-number">5</span>]<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">starRot6:</span> <span class="hljs-wtht-kw">rotate</span><span class="hljs-wtht-emphasis">;</span> starMove6<span class="hljs-wtht-emphasis">;</span> -<span class="hljs-wtht-number">90</span> + <span class="hljs-wtht-number">60</span> * <span class="hljs-wtht-number">5</span><span class="hljs-wtht-emphasis">;</span>  psCenters[<span class="hljs-wtht-number">6</span>]<span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">jobs:</span>
+  <span class="hljs-wtht-id">moveby:</span>
+    <span class="hljs-wtht-id">-</span> cCenters<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">grey</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">dash</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> star<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">grey</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">dash</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starMove1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starMove2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starMove3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starMove4<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starMove5<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starMove6<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psCenters<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">3</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">magenta</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">rotate:</span>
+    <span class="hljs-wtht-id">-</span> cCenters<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">grey</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">dash</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> star<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">grey</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">dash</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starRot1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starRot2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starRot3<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starRot4<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starRot5<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> starRot6<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.4</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> psCenters<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">3</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">magenta</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">1</span>]<span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0.5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cyan</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">2</span>]<span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0.5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cyan</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">3</span>]<span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0.5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cyan</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">4</span>]<span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0.5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cyan</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">5</span>]<span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0.5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cyan</span><span class="hljs-wtht-emphasis">;</span>
+    <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> psCenters[<span class="hljs-wtht-number">6</span>]<span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0.5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">cyan</span><span class="hljs-wtht-emphasis">;</span>
+
+<span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> cCenters<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">none</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">grey</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">dash</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">-</span> star<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">grey</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">dash</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">-</span> starMoveX<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">-</span> starMoveY<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">fill</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">green</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0.3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+
+<p>画出来大概是如下的样子：</p>
+<ol>
+<li>单个五角星和分别沿X方向和Y方向平移的结果。外圆供参考。</li>
+</ol>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="641.6" height="786" viewBox="-320.8 -464.8 641.6 785.6">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-6e33f914 { fill: none; }
+.huatu-label-container-6e33f914 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-6e33f914 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="0.000000" cy="0.000000" r="320.000000" fill="none" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3"></circle>
+<path d="M-0.000000,-80.000000 L-17.961119,-24.721360 L-76.084521,-24.721360 L-29.061701,9.442719 L-47.022820,64.721360 L0.000000,30.557281 L47.022820,64.721360 L29.061701,9.442719 L76.084521,-24.721360 L17.961119,-24.721360 z" fill="grey" fill-opacity="0.30" stroke="black" stroke-width="1.000000" stroke-dasharray="2 2"></path>
+<path d="M160.000000,-80.000000 L142.038881,-24.721360 L83.915479,-24.721360 L130.938299,9.442719 L112.977180,64.721360 L160.000000,30.557281 L207.022820,64.721360 L189.061701,9.442719 L236.084521,-24.721360 L177.961119,-24.721360 z" fill="red" fill-opacity="0.30" stroke="black" stroke-width="1.000000"></path>
+<path d="M-0.000000,-464.000000 L-17.961119,-408.721360 L-76.084521,-408.721360 L-29.061701,-374.557281 L-47.022820,-319.278640 L0.000000,-353.442719 L47.022820,-319.278640 L29.061701,-374.557281 L76.084521,-408.721360 L17.961119,-408.721360 z" fill="green" fill-opacity="0.30" stroke="black" stroke-width="1.000000"></path>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<ol start="2">
+<li>XY方向都有偏移的平移，将五角星移动到圆周上均分的6个点。请注意这里没有平移。</li>
+</ol>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="793.7690426072245" height="701" viewBox="-396.8845213036123 -357.92812921102035 793.7690426072245 700.5776179720365">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-9e663d2a { fill: none; }
+.huatu-label-container-9e663d2a { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-9e663d2a { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="0.000000" cy="0.000000" r="320.000000" fill="none" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3"></circle>
+<path d="M-0.000000,-80.000000 L-17.961119,-24.721360 L-76.084521,-24.721360 L-29.061701,9.442719 L-47.022820,64.721360 L0.000000,30.557281 L47.022820,64.721360 L29.061701,9.442719 L76.084521,-24.721360 L17.961119,-24.721360 z" fill="grey" fill-opacity="0.30" stroke="black" stroke-width="1.000000" stroke-dasharray="2 2"></path>
+<path d="M320.000000,-80.000000 L302.038881,-24.721360 L243.915479,-24.721360 L290.938299,9.442719 L272.977180,64.721360 L320.000000,30.557281 L367.022820,64.721360 L349.061701,9.442719 L396.084521,-24.721360 L337.961119,-24.721360 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M160.000000,197.128129 L142.038881,252.406770 L83.915479,252.406770 L130.938299,286.570848 L112.977180,341.849489 L160.000000,307.685410 L207.022820,341.849489 L189.061701,286.570848 L236.084521,252.406770 L177.961119,252.406770 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M-160.000000,197.128129 L-177.961119,252.406770 L-236.084521,252.406770 L-189.061701,286.570848 L-207.022820,341.849489 L-160.000000,307.685410 L-112.977180,341.849489 L-130.938299,286.570848 L-83.915479,252.406770 L-142.038881,252.406770 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M-320.000000,-80.000000 L-337.961119,-24.721360 L-396.084521,-24.721360 L-349.061701,9.442719 L-367.022820,64.721360 L-320.000000,30.557281 L-272.977180,64.721360 L-290.938299,9.442719 L-243.915479,-24.721360 L-302.038881,-24.721360 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M-160.000000,-357.128129 L-177.961119,-301.849489 L-236.084521,-301.849489 L-189.061701,-267.685410 L-207.022820,-212.406770 L-160.000000,-246.570848 L-112.977180,-212.406770 L-130.938299,-267.685410 L-83.915479,-301.849489 L-142.038881,-301.849489 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M160.000000,-357.128129 L142.038881,-301.849489 L83.915479,-301.849489 L130.938299,-267.685410 L112.977180,-212.406770 L160.000000,-246.570848 L207.022820,-212.406770 L189.061701,-267.685410 L236.084521,-301.849489 L177.961119,-301.849489 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<g fill="black">
+<circle cx="320.000000" cy="0.000000" r="3.000000"></circle>
+<circle cx="160.000000" cy="277.128129" r="3.000000"></circle>
+<circle cx="-160.000000" cy="277.128129" r="3.000000"></circle>
+<circle cx="-320.000000" cy="0.000000" r="3.000000"></circle>
+<circle cx="-160.000000" cy="-277.128129" r="3.000000"></circle>
+<circle cx="160.000000" cy="-277.128129" r="3.000000"></circle>
+<circle cx="320.000000" cy="-0.000000" r="3.000000"></circle>
+</g>
+<circle cx="0.000000" cy="0.000000" r="3.000000" fill="magenta"></circle>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<ol start="3">
+<li>在圆周上特定位置绕着各自中心旋转，使五角星的正北顶点指向圆心。</li>
+</ol>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="771.0427190999916" height="715" viewBox="-385.5213595499958 -357.4898808404822 771.0427190999916 714.9797616809644">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-c28d7d6b { fill: none; }
+.huatu-label-container-c28d7d6b { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-c28d7d6b { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="0.000000" cy="0.000000" r="320.000000" fill="none" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3"></circle>
+<path d="M-0.000000,-80.000000 L-17.961119,-24.721360 L-76.084521,-24.721360 L-29.061701,9.442719 L-47.022820,64.721360 L0.000000,30.557281 L47.022820,64.721360 L29.061701,9.442719 L76.084521,-24.721360 L17.961119,-24.721360 z" fill="grey" fill-opacity="0.30" stroke="black" stroke-width="1.000000" stroke-dasharray="2 2"></path>
+<path d="M240.000000,-0.000000 L295.278640,17.961119 L295.278640,76.084521 L329.442719,29.061701 L384.721360,47.022820 L350.557281,0.000000 L384.721360,-47.022820 L329.442719,-29.061701 L295.278640,-76.084521 L295.278640,-17.961119 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M120.000000,207.846097 L132.084535,264.699363 L81.748192,293.761064 L139.553188,299.836614 L151.637723,356.689881 L175.278640,303.591511 L233.083637,309.667061 L189.889531,270.774913 L213.530449,217.676543 L163.194106,246.738244 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M-120.000000,207.846097 L-163.194106,246.738244 L-213.530449,217.676543 L-189.889531,270.774913 L-233.083637,309.667061 L-175.278640,303.591511 L-151.637723,356.689881 L-139.553188,299.836614 L-81.748192,293.761064 L-132.084535,264.699363 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M-240.000000,0.000000 L-295.278640,-17.961119 L-295.278640,-76.084521 L-329.442719,-29.061701 L-384.721360,-47.022820 L-350.557281,0.000000 L-384.721360,47.022820 L-329.442719,29.061701 L-295.278640,76.084521 L-295.278640,17.961119 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M-120.000000,-207.846097 L-132.084535,-264.699363 L-81.748192,-293.761064 L-139.553188,-299.836614 L-151.637723,-356.689881 L-175.278640,-303.591511 L-233.083637,-309.667061 L-189.889531,-270.774913 L-213.530449,-217.676543 L-163.194106,-246.738244 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<path d="M120.000000,-207.846097 L163.194106,-246.738244 L213.530449,-217.676543 L189.889531,-270.774913 L233.083637,-309.667061 L175.278640,-303.591511 L151.637723,-356.689881 L139.553188,-299.836614 L81.748192,-293.761064 L132.084535,-264.699363 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="1.000000"></path>
+<g fill="black">
+<circle cx="320.000000" cy="0.000000" r="3.000000"></circle>
+<circle cx="160.000000" cy="277.128129" r="3.000000"></circle>
+<circle cx="-160.000000" cy="277.128129" r="3.000000"></circle>
+<circle cx="-320.000000" cy="0.000000" r="3.000000"></circle>
+<circle cx="-160.000000" cy="-277.128129" r="3.000000"></circle>
+<circle cx="160.000000" cy="-277.128129" r="3.000000"></circle>
+<circle cx="320.000000" cy="-0.000000" r="3.000000"></circle>
+</g>
+<circle cx="0.000000" cy="0.000000" r="3.000000" fill="magenta"></circle>
+<line x1="320.000000" y1="0.000000" x2="0.000000" y2="0.000000" stroke="cyan" stroke-width="0.500000"></line>
+<line x1="160.000000" y1="277.128129" x2="0.000000" y2="0.000000" stroke="cyan" stroke-width="0.500000"></line>
+<line x1="-160.000000" y1="277.128129" x2="0.000000" y2="0.000000" stroke="cyan" stroke-width="0.500000"></line>
+<line x1="-320.000000" y1="0.000000" x2="0.000000" y2="0.000000" stroke="cyan" stroke-width="0.500000"></line>
+<line x1="-160.000000" y1="-277.128129" x2="0.000000" y2="0.000000" stroke="cyan" stroke-width="0.500000"></line>
+<line x1="160.000000" y1="-277.128129" x2="0.000000" y2="0.000000" stroke="cyan" stroke-width="0.500000"></line>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<div class="info-box">
+<p>你可能还会想这个五角星是不是可以放大或缩小。请别担心，我们有方法可以实现这个目标，但将会是其他章节或功能模块所讨论的问题，这里只介绍有关平移和旋转相关的部分。</p>
+
+</div><div class="info-box">
+<p>关于正五角星如何计算及绘制的，可以参考如下的图示。</p>
+
+</div><div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="601.6" height="604" viewBox="-300.8 -302.4 601.6 603.2">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-f7417b5f { fill: none; }
+.huatu-label-container-f7417b5f { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-f7417b5f { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="0.000000" cy="0.000000" r="300.000000" fill="none" stroke="grey" stroke-width="1.000000"></circle>
+<circle cx="0.000000" cy="0.000000" r="114.589803" fill="none" stroke="grey" stroke-width="1.000000"></circle>
+<path d="M-0.000000,-300.000000 L-67.354196,-92.705098 L-285.316955,-92.705098 L-108.981379,35.410197 L-176.335576,242.705098 L0.000000,114.589803 L176.335576,242.705098 L108.981379,35.410197 L285.316955,-92.705098 L67.354196,-92.705098 z" fill="red" fill-opacity="0.40" stroke="black" stroke-width="3.000000"></path>
+<line x1="0.000000" y1="0.000000" x2="-0.000000" y2="-300.000000" stroke="black" stroke-width="1.000000"></line>
+<line x1="0.000000" y1="0.000000" x2="-285.316955" y2="-92.705098" stroke="magenta" stroke-width="4.000000"></line>
+<line x1="0.000000" y1="0.000000" x2="-67.354196" y2="-92.705098" stroke="magenta" stroke-width="4.000000"></line>
+<line x1="0.000000" y1="0.000000" x2="-0.000000" y2="-92.705098" stroke="cyan" stroke-width="4.000000"></line>
+<line x1="-67.354196" y1="-92.705098" x2="67.354196" y2="-92.705098" stroke="yellow" stroke-width="1.000000" stroke-dasharray="3 3"></line>
+<g transform="translate(0.000000,-40.000000)">
+
+<foreignObject x="-8.514825143476839e-15" y="-46.35254915624212" width="160" height="80">
+
+<div class="huatu-label-container-f7417b5f">
+<div class="huatu-label-text-f7417b5f">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">72°</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">36°</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-40.000000)">
+
+<foreignObject x="-182.65847744427302" y="-62.35254915624216" width="100" height="80">
+
+<div class="huatu-label-container-f7417b5f">
+<div class="huatu-label-text-f7417b5f">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-40.000000)">
+
+<foreignObject x="-49.67709824346891" y="-74.3525491562421" width="100" height="80">
+
+<div class="huatu-label-container-f7417b5f">
+<div class="huatu-label-text-f7417b5f" style="text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+<path d="M0.000000,0.000000 L-0.000000,-60.000000 A 60.000000,60.000000 0.000 0,0 -35.267115,-48.541020  L0.000000,0.000000 z" fill="yellow" fill-opacity="0.6"></path>
+<path d="M-0.000000,-60.000000 A 60.000000,60.000000 0.000 0,0 -35.267115,-48.541020" stroke="black" stroke-width="2" fill="none"></path>
+<path d="M-30.880669,-54.993857 L-35.267115,-48.541020 L-27.873519,-49.638573 z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="black"></path>
+<g>
+
+<foreignObject x="-22.08747316108067" y="-55.78658915329509" width="20" height="18">
+
+<div class="huatu-label-container-f7417b5f">
+<div class="huatu-label-text-f7417b5f" style="font-size:12px;text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">36°</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+
+</g>
+<g>
+<path d="M0.000000,0.000000 L-0.000000,-40.000000 A 40.000000,40.000000 0.000 0,0 -38.042261,-12.360680  L0.000000,0.000000 z" fill="yellow" fill-opacity="0.6"></path>
+<path d="M-0.000000,-40.000000 A 40.000000,40.000000 0.000 0,0 -38.042261,-12.360680" stroke="black" stroke-width="2" fill="none"></path>
+<path d="M-38.019910,-20.238329 L-38.042261,-12.360680 L-32.598348,-17.352384 z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="black"></path>
+<g>
+
+<foreignObject x="-27.38188423714756" y="-29.158745096856453" width="20" height="18">
+
+<div class="huatu-label-container-f7417b5f">
+<div class="huatu-label-text-f7417b5f" style="font-size:12px;text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">72°</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+
+</g>
+<g transform="translate(-200.000000,-120.000000)">
+
+<foreignObject x="-67.35419648693782" y="-92.70509831248422" width="200" height="120">
+
+<div class="huatu-label-container-f7417b5f">
+<div class="huatu-label-text-f7417b5f" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">cos</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">36°</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">72°</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+</div></div></div></div><div data-v-9ee0c63b="" class="toc"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-9ee0c63b="" class="lang-list"><!----><span data-v-9ee0c63b="" class="lang-link">EN</span></div><div data-v-9ee0c63b="" class="clickable go-top"><a data-v-9ee0c63b="" style="display: block;"><i data-v-9ee0c63b="" class="f7-icons" style="font-size: 1rem;">arrow_up_to_line_alt</i> GO TOP</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">平移</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">旋转</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">实例</a></div></div></div><!----><!----></main></div><header><div class="header-content no-select"><div class="flex"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-5.45 -5.6 10.9 11.2" width="32.7" height="33.599999999999994"><polyline points="-2.250,5.0 -4.850,5.0 -4.850,-5.0 -2.250,-5.0 -2.250,-1.180 2.250,-1.180 2.250,-5.0 4.850,-5.0 4.850,5.0 2.250,5.0 2.250,1.180 -2.250,1.180 -2.250,3.180" fill="#0b4d4233" stroke="currentColor" stroke-width="0.4"></polyline><circle cx="-2.250" cy="5.0" r="0.40" fill="black"></circle><circle cx="-2.250" cy="1.180" r="0.40" fill="black"></circle><circle cx="-2.250" cy="3.180" r="0.40" fill="red"></circle></svg></div><div class="title">wt-huatu</div><div class="flex-filler"><nav><div><a href="/wt-huatu-doc/" class="">Home</a><a href="/wt-huatu-doc/doc" class="rl-exact-active">Docs</a><a class="clickable">Editor</a></div><div class="flex-filler"></div><div><span class="wtht-ver">V1.4.1</span><a href="https://github.com/littlefattie/wt-huatu" class="social-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" height="24" width="24"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" fill="currentColor"></path></svg></a><a href="https://www.npmjs.com/package/wt-huatu" class="social-link" target="_blank"><svg viewBox="0 0 27.23 27.23" aria-hidden="true" width="24" height="24"><rect width="27.23" height="27.23" rx="2" fill="currentColor" stroke-width="0"></rect><polygon fill="#0b4d42" points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"></polygon></svg></a></div></nav></div></div><!----></header><footer><div><strong>wt-huatu:</strong> A library to draw something mathematically, logically, hierarchically and programmatically. </div><div> contact: <a href="mailto:little-fattie@outlook.com">little-fattie@outlook.com</a></div></footer><!----><!----></div>
+
+  
+
+</body></html>

@@ -1,0 +1,1934 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="msvalidate.01" content="0FD15710100E02F18E35B3D3908A133F">
+    <link rel="icon" href="/wt-huatu-doc/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wt-huatu</title>
+    <link rel="stylesheet" crossorigin="" href="/wt-huatu-doc/assets/index-CnPvVuaR.css">
+  <style></style></head>
+  <body>
+    <div id="app" data-v-app=""><div class="main"><main data-v-9ee0c63b=""><div data-v-9ee0c63b="" class="index-tree"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-88a02bb8="" data-v-9ee0c63b=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/introduction.html" class="">Introduction</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/quick-start.html" class="">Quick Start</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><span data-v-88a02bb8="" class="tree-dir">Dive Deep</span></div><div data-v-88a02bb8="" class="ctn-tree-sub"><div data-v-88a02bb8=""><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/basics.html" class="">Basics</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" aria-current="page" href="/wt-huatu-doc/doc/en/dive-deep/shapes.html" class="router-link-active router-link-exact-active is-current">Basic Shapes</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/get-point.html" class="">Get Point</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/point-series.html" class="">Series</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/x-points.html" class="">Intersection Points</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shape-series.html" class="">Shape Series</a></div><!----></div><div data-v-88a02bb8=""><div data-v-88a02bb8="" class="ctn-tree-item"><a data-v-88a02bb8="" href="/wt-huatu-doc/doc/en/dive-deep/shape-transform.html" class="">Shape Transform</a></div><!----></div></div></div></div></div></div></div><!----><!----><div data-v-9ee0c63b="" class="doc-page"><div data-v-9ee0c63b="" class="doc-body"><div data-v-9ee0c63b="" class="wtmd"><div data-v-9ee0c63b=""><h1>Basic Shapes</h1>
+<h2 id="h1-1">Points</h2>
+<p>Point normally is a location, a coordinate, showing as a pair of numbers <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span>, in the design file, we can explicitly define the points under the root tag of <code>points</code>, <code>points2</code>, <code>points3</code>, <code>points4</code>, etc. We need to separate the <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> part and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> part of the coordinate with coma (,), and we can optionally using a pair of parenthesis to surround the coordinates, both are OK。</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">pt1:</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">4</span>
+  <span class="hljs-wtht-id">pt2:</span> (<span class="hljs-wtht-number">5</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">6</span>)
+</code></pre>
+<p>Point can be directly defined (with a name), or it can be temporarily defined/referenced (without a name). Meanwhile, point can be composed by giving complicated calculated result of expression, for both <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> part and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> part. It is like that we temporarily defined two vars <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>, which are presented by some definitions, and then we make a new point <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0361em;vertical-align:-0.2861em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.2222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>. In following example, the point <code>pt1</code> is explicitly defined with pure numbers, and <code>pt2</code> is based on <code>pt1</code>, in geometric, it is like that <code>pt2</code> is moving <code>pt1</code> by a offset of <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span> to make a new point. <code>pt3</code> is offsetting <code>pt2</code> by <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2061em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9561em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">6</span></span></span><span style="top:-2.9161em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0839em;"><span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9561em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">6</span></span></span><span style="top:-2.9161em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0839em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span>. Here we don’t need to exactly know how large <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.0839em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9561em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">6</span></span></span><span style="top:-2.9161em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.0839em;"><span></span></span></span></span></span></span></span></span> is, we just use the result, we want the point be moved <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">45°</span></span></span></span> (southeast) with length of 6, and it is.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">pt1:</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">4</span>
+  <span class="hljs-wtht-id">pt2:</span> <span class="hljs-wtht-ref">pt1.x</span> + <span class="hljs-wtht-number">5</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ref">pt1.y</span>
+  <span class="hljs-wtht-id">pt3:</span> <span class="hljs-wtht-ref">pt2.x</span> + <span class="hljs-wtht-marker">sqrt</span>(<span class="hljs-wtht-number">6</span>)<span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-ref">pt2.y</span> + <span class="hljs-wtht-marker">sqrt</span>(<span class="hljs-wtht-number">6</span>)
+</code></pre>
+<h2 id="h1-2">Basic Shapes</h2>
+<p>We can build complex graphs by basic graph/shapes, like, Lines, Line Segments, Circles, Ellipses, Arcs, or Bezier Curves. In a hierarchical design, the first things are building the basic shapes. In the design file, all the basic shapes are presented under the root tag of <code>shapes</code>.</p>
+<p>In some cases, we want a very simple and compact design file, or the shapes that need to be drawn will not be referred, we can directly define them in the <strong>final draw</strong> section without a name. we can call this way as ad-hoc define.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">circ1:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> ... <span class="hljs-wtht-comment"># we define a circle named as circ1
+</span>
+<span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> circ1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">black</span><span class="hljs-wtht-emphasis">;</span>       <span class="hljs-wtht-comment"># draw circ1 out, stroke it black
+</span>  <span class="hljs-wtht-id">-</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> ... <span class="hljs-wtht-ivref">|||</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-comment"># we draw some other circle, stroke it red
+</span></code></pre>
+<p>The normal form of defining a shape is <code>SHAPE_TYPE; ...</code>, here the <code>SHAPE_TYPE</code> keyword will indicate which shape it will define, the following are parameters of the shape. Following sections will introduce the parameters and usages for each type of shape.</p>
+<h3 id="h1-2-1">Line</h3>
+<p>By using the key word of <code>line</code> (short as <code>ln</code>), we can define a Line. It needs a point (we can call it the anchor point) and an angle. For example, by giving a point <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, and angle <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">45°</span></span></span></span>, we get a line going through point <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and having the direction of 45<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord">°</span></span></span></span>. i.e.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">points:</span>
+  <span class="hljs-wtht-id">p0:</span> <span class="hljs-wtht-number">20</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">30</span>
+<span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">line1:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">45</span>
+</code></pre>
+<p>Please be aware that, here we are defining a mathematical line , which is going to infinite on both ends, thus we cannot draw it out, we can only draw a little portion of it, i.e. a segment. So Line is only for reference and calculation usage, we can not draw it. If you present it in the <strong>final draw</strong> section, it will also be ignored.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">draw:</span>
+  <span class="hljs-wtht-id">-</span> line1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">stroke</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">1</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-color">red</span><span class="hljs-wtht-emphasis">;</span>     <span class="hljs-wtht-comment"># this will be ignored
+</span></code></pre>
+<h3 id="h1-2-2">Line Segment</h3>
+<p>Using <code>line</code> keyword, by providing different parameters, we can define <strong>Line Segment</strong>, and <a href="#Polyline"><strong>Polyline</strong></a>. Though it is not strict here to use the same keyword, it is a little intuitive. By giving two points, you get a line segment, and giving three and more, you get a polyline.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># providing anchor point and angle, we define a line
+</span>  <span class="hljs-wtht-id">line1:</span> <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span>    deg1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># providing two (end) points, we define a line segment
+</span>  <span class="hljs-wtht-id">ls1:</span>   <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span>    p1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># based on a defined line, we can define a line segment by giving a length of l,
+</span>  <span class="hljs-wtht-comment"># starting point is the anchor point of the line,
+</span>  <span class="hljs-wtht-comment"># ending point is the point going from anchor point by length of l
+</span>  <span class="hljs-wtht-id">ls2:</span>   <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> line1<span class="hljs-wtht-emphasis">;</span> l<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># based on a defined line, we can define a line segment by giving two lengths of l1 and l2
+</span>  <span class="hljs-wtht-comment"># starting and ending points are the points going from anchor point by lengths of l1 and l2
+</span>  <span class="hljs-wtht-id">ls3:</span>   <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> line1<span class="hljs-wtht-emphasis">;</span> l1<span class="hljs-wtht-emphasis">;</span> l2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># When providing three points and more, we get a polyline
+</span>  <span class="hljs-wtht-id">pln1:</span>  <span class="hljs-wtht-marker">line</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span>    p1<span class="hljs-wtht-emphasis">;</span>   p2<span class="hljs-wtht-emphasis">;</span>  p3<span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<p>The way how line segments are made from lines are shown as follows:</p>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="766.0606012778167" height="275" viewBox="-132.8517126540211 -176.45227741068456 766.0606012778167 274.4425427668001">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-b8f36aef { fill: none; }
+.huatu-label-container-b8f36aef { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-b8f36aef { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-3fe3e322" viewBox="-5.8 -2.922374081048024 6.6 5.844748162096048" refX="0.10172614971184957" refY="0" markerWidth="6.6" markerHeight="5.844748162096048" orient="auto-start-reverse">
+<polyline points="-5.000000,2.122374 0.000000,0.000000 -5.000000,-2.122374" stroke="context-stroke" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+</marker>
+</defs>
+<g>
+<g>
+<circle cx="0.000000" cy="0.000000" r="5.000000" fill="red"></circle>
+<line x1="-107.246222" y1="89.990265" x2="183.850666" y2="-154.269026" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3" marker-end="url(#mkr-3fe3e322)"></line>
+<g>
+<path d="M0.000000,0.000000 L80.000000,0.000000 A 80.000000,80.000000 0.000 0,0 61.283555,-51.423009  L0.000000,0.000000 z" fill="yellow"></path>
+<path d="M80.000000,0.000000 A 80.000000,80.000000 0.000 0,0 61.283555,-51.423009" stroke="green" stroke-width="2" fill="none"></path>
+<path d="M68.058833,-47.631625 L61.283555,-51.423009 L63.026923,-44.109994 z" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="green"></path>
+<g transform="translate(0.000000,-20.000000)">
+
+<foreignObject x="82.75688004628368" y="-18.811369048207226" width="40" height="20">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:left;">
+<span>deg1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+
+</g>
+<line x1="-50.000000" y1="0.000000" x2="150.000000" y2="0.000000" stroke="black" stroke-width="1.000000" marker-end="url(#mkr-3fe3e322)"></line>
+<g transform="translate(0.000000,-8.000000)">
+
+<foreignObject x="150" y="0" width="60" height="16">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-54.740113,-35.839703) rotate(-40) translate(-60.000000,-16.000000)">
+
+<foreignObject x="-76.60444431189778" y="57.278760968653955" width="60" height="16">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:left;">
+<span>line1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<line x1="0.000000" y1="0.000000" x2="122.567111" y2="-102.846018" stroke="black" stroke-width="4.000000"></line>
+<g>
+<line x1="-19.283628" y1="-22.981333" x2="103.283483" y2="-125.827351" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<polyline points="99.501408,-124.525078 103.283483,-125.827351 101.344244,-122.328872" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<line x1="-1.285575" y1="-1.532089" x2="-26.997080" y2="-32.173867" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<line x1="121.281536" y1="-104.378106" x2="95.570031" y2="-135.019884" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<g transform="translate(-60.000000,-20.000000)">
+
+<foreignObject x="41.99992715892204" y="-74.4043420684925" width="60" height="20">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+</g>
+<g transform="translate(340.000000,0.000000)">
+<g>
+<circle cx="0.000000" cy="0.000000" r="5.000000" fill="red"></circle>
+<line x1="-107.246222" y1="89.990265" x2="183.850666" y2="-154.269026" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3" marker-end="url(#mkr-3fe3e322)"></line>
+<g>
+<path d="M0.000000,0.000000 L80.000000,0.000000 A 80.000000,80.000000 0.000 0,0 61.283555,-51.423009  L0.000000,0.000000 z" fill="yellow"></path>
+<path d="M80.000000,0.000000 A 80.000000,80.000000 0.000 0,0 61.283555,-51.423009" stroke="green" stroke-width="2" fill="none"></path>
+<path d="M68.058833,-47.631625 L61.283555,-51.423009 L63.026923,-44.109994 z" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="green"></path>
+<g transform="translate(0.000000,-20.000000)">
+
+<foreignObject x="82.75688004628368" y="-18.811369048207226" width="40" height="20">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:left;">
+<span>deg1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+
+</g>
+<line x1="-50.000000" y1="0.000000" x2="150.000000" y2="0.000000" stroke="black" stroke-width="1.000000" marker-end="url(#mkr-3fe3e322)"></line>
+<g transform="translate(0.000000,-8.000000)">
+
+<foreignObject x="150" y="0" width="60" height="16">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-54.740113,-35.839703) rotate(-40) translate(-60.000000,-16.000000)">
+
+<foreignObject x="-76.60444431189778" y="57.278760968653955" width="60" height="16">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:left;">
+<span>line1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<line x1="-76.604444" y1="64.278761" x2="153.208889" y2="-128.557522" stroke="black" stroke-width="4.000000"></line>
+<g>
+<line x1="-104.887099" y1="30.572805" x2="-28.282655" y2="-33.705955" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<polyline points="-101.105025,29.270533 -104.887099,30.572805 -102.947861,27.074327" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<line x1="-77.890020" y1="62.746672" x2="-116.457276" y2="16.784005" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<line x1="-1.285575" y1="-1.532089" x2="-39.852832" y2="-47.494755" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<g transform="translate(-60.000000,-20.000000)">
+
+<foreignObject x="-66.58487698215663" y="-1.5665750129080465" width="60" height="20">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<line x1="-24.425929" y1="-29.109689" x2="128.782959" y2="-157.667211" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<polyline points="125.000885,-156.364938 128.782959,-157.667211 126.843721,-154.168732" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<line x1="151.923313" y1="-130.089611" x2="113.356057" y2="-176.052277" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<g transform="translate(-60.000000,-20.000000)">
+
+<foreignObject x="52.17851514380927" y="-93.3884498071751" width="60" height="20">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<circle cx="-76.604444" cy="64.278761" r="4.000000" fill="blue" fill-opacity="0.60"></circle>
+<g>
+
+<foreignObject x="-72.60444431189778" y="64.27876096865396" width="320" height="24">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="font-family:times, 'Times New Roman', Times, Georgia, 'Source Han Serif', 'Source Han Serif SC', 'Source Han Serif CN', NSimsun, 宋体;text-align:left;">
+<span>point at [</span><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord">−</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span>] of line1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="153.208889" cy="-128.557522" r="4.000000" fill="blue" fill-opacity="0.60"></circle>
+<g>
+
+<foreignObject x="153.20888862379556" y="-128.5575219373079" width="140" height="30">
+
+<div class="huatu-label-container-b8f36aef">
+<div class="huatu-label-text-b8f36aef" style="font-family:times, 'Times New Roman', Times, Georgia, 'Source Han Serif', 'Source Han Serif SC', 'Source Han Serif CN', NSimsun, 宋体;text-align:left;">
+<span>point at [</span><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0197em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span>] of line1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<p>We can also use keyword <code>lineseg</code>(short as <code>ls</code>) to define a Line Segment, and we can only define Line Segments. We have three ways:</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># On the basis of Line, giving two lengths l1 and l2
+</span>  <span class="hljs-wtht-id">ls4:</span> <span class="hljs-wtht-marker">lineseg</span><span class="hljs-wtht-emphasis">;</span> line1<span class="hljs-wtht-emphasis">;</span> l1<span class="hljs-wtht-emphasis">;</span> l2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># Providing two end points, starting and ending
+</span>  <span class="hljs-wtht-id">ls5:</span> <span class="hljs-wtht-marker">lineseg</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> p1<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># Temporarily define a line and then two lengths to make a Line Segment
+</span>  <span class="hljs-wtht-id">ls6:</span> <span class="hljs-wtht-marker">lineseg</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> deg1<span class="hljs-wtht-emphasis">;</span> l1<span class="hljs-wtht-emphasis">;</span> l2<span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<h3 id="h1-2-3">Polyline</h3>
+<p>As explained in previous section, we use <code>line</code> keyword to define Polyline. Besides this, we can use the keyword <code>polyline</code> (short as <code>pln</code> or <code>pline</code>) to define. There are two ways, either providing discrete points or providing a previously defined <strong>Point Series</strong>.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># provide discrete points to make a polyline
+</span>  <span class="hljs-wtht-id">pln1:</span> <span class="hljs-wtht-marker">polyline</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> p1<span class="hljs-wtht-emphasis">;</span> p2<span class="hljs-wtht-emphasis">;</span> p3<span class="hljs-wtht-emphasis">;</span> ... pN
+<span class="hljs-wtht-tag">pointSeries:</span>
+  <span class="hljs-wtht-id">ps1:</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">4</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">5</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">6</span><span class="hljs-wtht-emphasis">;</span> p1<span class="hljs-wtht-emphasis">;</span> p2<span class="hljs-wtht-emphasis">;</span> ... pX<span class="hljs-wtht-emphasis">;</span>
+<span class="hljs-wtht-tag">shapes2:</span>
+  <span class="hljs-wtht-comment"># use the previously defined Point Series to make a polyline
+</span>  <span class="hljs-wtht-id">pln2:</span> <span class="hljs-wtht-marker">polyline</span><span class="hljs-wtht-emphasis">;</span> ps1<span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="735" height="290" viewBox="-4 -190 735 290">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-be269e5c { fill: none; }
+.huatu-label-container-be269e5c { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-be269e5c { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<polyline points="0.000000,0.000000 120.000000,-170.000000 170.000000,-50.000000 290.000000,70.000000 420.000000,-150.000000 536.000000,-30.000000 716.000000,-30.000000" fill="none" stroke="black" stroke-width="2.000000" stroke-linejoin="round"></polyline>
+<g>
+
+<foreignObject x="0" y="0" width="30" height="16">
+
+<div class="huatu-label-container-be269e5c">
+<div class="huatu-label-text-be269e5c" style="text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-15.000000,-20.000000)">
+
+<foreignObject x="120" y="-170" width="30" height="20">
+
+<div class="huatu-label-container-be269e5c">
+<div class="huatu-label-text-be269e5c">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-20.000000)">
+
+<foreignObject x="170" y="-50" width="30" height="20">
+
+<div class="huatu-label-container-be269e5c">
+<div class="huatu-label-text-be269e5c">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-15.000000,0.000000)">
+
+<foreignObject x="290" y="70" width="30" height="30">
+
+<div class="huatu-label-container-be269e5c">
+<div class="huatu-label-text-be269e5c">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-15.000000,-20.000000)">
+
+<foreignObject x="420" y="-150" width="30" height="20">
+
+<div class="huatu-label-container-be269e5c">
+<div class="huatu-label-text-be269e5c">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-30.000000,0.000000)">
+
+<foreignObject x="536" y="-30" width="30" height="20">
+
+<div class="huatu-label-container-be269e5c">
+<div class="huatu-label-text-be269e5c">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-15.000000,-30.000000)">
+
+<foreignObject x="716" y="-30" width="30" height="30">
+
+<div class="huatu-label-container-be269e5c">
+<div class="huatu-label-text-be269e5c">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g fill="red">
+<circle cx="0.000000" cy="0.000000" r="4.000000"></circle>
+<circle cx="120.000000" cy="-170.000000" r="4.000000"></circle>
+<circle cx="170.000000" cy="-50.000000" r="4.000000"></circle>
+<circle cx="290.000000" cy="70.000000" r="4.000000"></circle>
+<circle cx="420.000000" cy="-150.000000" r="4.000000"></circle>
+<circle cx="536.000000" cy="-30.000000" r="4.000000"></circle>
+<circle cx="716.000000" cy="-30.000000" r="4.000000"></circle>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h3 id="h1-2-4">Circle</h3>
+<p>Using the keyword <code>circle</code>(short as <code>circ</code>), we can define a circle. We have two parameters, the first is center (a point) of the circle, and the second is the radius.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">r:</span> <span class="hljs-wtht-number">5</span>
+<span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">c1:</span> <span class="hljs-wtht-marker">circle</span><span class="hljs-wtht-emphasis">;</span> (<span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">0</span>)<span class="hljs-wtht-emphasis">;</span> r
+  <span class="hljs-wtht-id">c2:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span>  <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">5</span><span class="hljs-wtht-emphasis">;</span> r + <span class="hljs-wtht-number">5</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="204.8" height="205" viewBox="-102.4 -102.4 204.8 204.8">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-e1d237e1 { fill: none; }
+.huatu-label-container-e1d237e1 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-e1d237e1 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<circle cx="0.000000" cy="0.000000" r="100.000000" fill="none" stroke="black" stroke-width="3.000000"></circle>
+<g>
+<line x1="0.000000" y1="0.000000" x2="76.604444" y2="-64.278761" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="61.476147,-59.069670 76.604444,-64.278761 68.847490,-50.284846" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-60.000000,-20.000000)">
+
+<foreignObject x="38.30222215594889" y="-32.13938048432698" width="60" height="20">
+
+<div class="huatu-label-container-e1d237e1">
+<div class="huatu-label-text-e1d237e1" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<circle cx="0.000000" cy="0.000000" r="3.000000" fill="red"></circle>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h3 id="h1-2-5">Ring</h3>
+<p>Using the keyword <code>ring</code>, we can define a ring, three parameters are needed, the first is center of the ring (center of the two circles), the second and the third are the radius of the two circles, smaller value would be the inner, and the larger is the outer.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">vars:</span>
+  <span class="hljs-wtht-id">rIn:</span> <span class="hljs-wtht-number">80</span>
+  <span class="hljs-wtht-id">thickness:</span> <span class="hljs-wtht-number">40</span>
+<span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">ring1:</span> <span class="hljs-wtht-marker">ring</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">0</span><span class="hljs-wtht-emphasis">;</span> rIn<span class="hljs-wtht-emphasis">;</span> thickness + rIn
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="277.20000000000005" height="245" viewBox="-122.4 -122.4 277.20000000000005 244.8">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-74e9dc42 { fill: none; }
+.huatu-label-container-74e9dc42 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-74e9dc42 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<path d="M120.000000,0.000000 C120.000000,66.274170 66.274170,120.000000 0.000000,120.000000 C-66.274170,120.000000 -120.000000,66.274170 -120.000000,0.000000 C-120.000000,-66.274170 -66.274170,-120.000000 -0.000000,-120.000000 C66.274170,-120.000000 120.000000,-66.274170 120.000000,0.000000 z M80.000000,0.000000 C80.000000,-44.182780 44.182780,-80.000000 -0.000000,-80.000000 C-44.182780,-80.000000 -80.000000,-44.182780 -80.000000,0.000000 C-80.000000,44.182780 -44.182780,80.000000 0.000000,80.000000 C44.182780,80.000000 80.000000,44.182780 80.000000,0.000000 z" fill="yellow" fill-opacity="0.30" stroke="black" stroke-width="3.000000"></path>
+<g>
+<line x1="0.000000" y1="0.000000" x2="69.282032" y2="-40.000000" stroke="currentColor" stroke-width="1" fill="none"></line>
+<polyline points="61.380526,-38.748524 69.282032,-40.000000 64.247469,-33.782832" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g>
+
+<foreignObject x="34.641016151377535" y="-20.000000000000018" width="60" height="20">
+
+<div class="huatu-label-container-74e9dc42">
+<div class="huatu-label-text-74e9dc42" style="text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">in</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<line x1="0.000000" y1="0.000000" x2="60.000000" y2="-103.923048" stroke="currentColor" stroke-width="1" fill="none"></line>
+<polyline points="53.782832,-98.888485 60.000000,-103.923048 58.748524,-96.021542" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-60.000000,-20.000000)">
+
+<foreignObject x="30.000000000000007" y="-51.96152422706631" width="60" height="20">
+
+<div class="huatu-label-container-74e9dc42">
+<div class="huatu-label-text-74e9dc42" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">o</span><span class="mord mathnormal mtight">u</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<line x1="69.282032" y1="-40.000000" x2="103.923048" y2="-60.000000" stroke="currentColor" stroke-width="1" fill="none"></line>
+<polyline points="86.602540,-50.000000 100.000000,-100.000000 154.000000,-100.000000" stroke="currentColor" stroke-width="1" fill="none"></polyline>
+<polyline points="77.183539,-41.251476 69.282032,-40.000000 74.316595,-46.217168" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<polyline points="96.021542,-58.748524 103.923048,-60.000000 98.888485,-53.782832" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(0.000000,-14.000000)">
+
+<foreignObject x="100" y="-100" width="54" height="14">
+
+<div class="huatu-label-container-74e9dc42">
+<div class="huatu-label-text-74e9dc42" style="font-size:12px;">
+<span>thickness</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<circle cx="0.000000" cy="0.000000" r="3.000000" fill="red"></circle>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h3 id="h1-2-6">Rectangle</h3>
+<p>Using the keyword <code>rectangle</code>(short as <code>rect</code>), we can define a rectangle. We have three ways, providing two points (in diagonal), top-left point, width, or height, or center point, width and height.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># Providing two cortex points in diagonal
+</span>  <span class="hljs-wtht-id">rect1:</span> <span class="hljs-wtht-marker">rectangle</span><span class="hljs-wtht-emphasis">;</span> x1<span class="hljs-wtht-emphasis">,</span> y1<span class="hljs-wtht-emphasis">;</span> x2<span class="hljs-wtht-emphasis">,</span> y2<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-comment"># Top-Left point and width/height
+</span>  <span class="hljs-wtht-id">rect2:</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span>      x1<span class="hljs-wtht-emphasis">,</span> y1<span class="hljs-wtht-emphasis">;</span> width<span class="hljs-wtht-emphasis">;</span> height
+  <span class="hljs-wtht-comment"># Center Point and width/height
+</span>  <span class="hljs-wtht-id">rect3:</span> <span class="hljs-wtht-marker">rect</span><span class="hljs-wtht-emphasis">;</span>      <span class="hljs-wtht-kw">bycenter</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> width<span class="hljs-wtht-emphasis">;</span> height<span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="606.8000000000001" height="127" viewBox="-80 -64 606.8000000000001 126.80000000000001">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-8adb6a05 { fill: none; }
+.huatu-label-container-8adb6a05 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-8adb6a05 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<g>
+<rect x="-50.000000" y="-40.000000" width="110.000000" height="70.000000" fill="none" stroke="black" stroke-width="2.000000"></rect>
+<circle cx="-50.000000" cy="-40.000000" r="4.000000" fill="red"></circle>
+<circle cx="60.000000" cy="30.000000" r="4.000000" fill="red"></circle>
+<g transform="translate(-30.000000,-24.000000)">
+
+<foreignObject x="-50" y="-40" width="60" height="24">
+
+<div class="huatu-label-container-8adb6a05">
+<div class="huatu-label-text-8adb6a05">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-30.000000,0.000000)">
+
+<foreignObject x="60" y="30" width="60" height="24">
+
+<div class="huatu-label-container-8adb6a05">
+<div class="huatu-label-text-8adb6a05">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<g transform="translate(240.000000,0.000000)">
+<rect x="-50.000000" y="-40.000000" width="80.000000" height="60.000000" fill="none" stroke="black" stroke-width="2.000000"></rect>
+<circle cx="-50.000000" cy="-40.000000" r="4.000000" fill="red"></circle>
+<g transform="translate(-30.000000,-24.000000)">
+
+<foreignObject x="-50" y="-40" width="60" height="24">
+
+<div class="huatu-label-container-8adb6a05">
+<div class="huatu-label-text-8adb6a05">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+<line x1="-50.000000" y1="32.800000" x2="30.000000" y2="32.800000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<polyline points="-46.265678,34.233472 -50.000000,32.800000 -46.265678,31.366528" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<polyline points="26.265678,31.366528 30.000000,32.800000 26.265678,34.233472" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<line x1="-50.000000" y1="22.000000" x2="-50.000000" y2="46.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<line x1="30.000000" y1="22.000000" x2="30.000000" y2="46.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<g transform="translate(-10.000000,0.000000)">
+
+<foreignObject x="-10" y="32.8" width="20" height="20">
+
+<div class="huatu-label-container-8adb6a05">
+<div class="huatu-label-text-8adb6a05">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<line x1="42.800000" y1="20.000000" x2="42.800000" y2="-40.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<polyline points="44.233472,16.265678 42.800000,20.000000 41.366528,16.265678" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<polyline points="41.366528,-36.265678 42.800000,-40.000000 44.233472,-36.265678" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<line x1="32.000000" y1="20.000000" x2="56.000000" y2="20.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<line x1="32.000000" y1="-40.000000" x2="56.000000" y2="-40.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<g transform="translate(0.000000,-10.000000)">
+
+<foreignObject x="46.8" y="-10" width="40" height="20">
+
+<div class="huatu-label-container-8adb6a05">
+<div class="huatu-label-text-8adb6a05" style="text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+</g>
+<g transform="translate(450.000000,0.000000)">
+<rect x="-40.000000" y="-30.000000" width="80.000000" height="60.000000" fill="none" stroke="black" stroke-width="2.000000"></rect>
+<circle cx="0.000000" cy="0.000000" r="4.000000" fill="red"></circle>
+<g transform="translate(-30.000000,0.000000)">
+
+<foreignObject x="0" y="0" width="60" height="16">
+
+<div class="huatu-label-container-8adb6a05">
+<div class="huatu-label-text-8adb6a05">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ce</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">er</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+<line x1="-40.000000" y1="42.800000" x2="40.000000" y2="42.800000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<polyline points="-36.265678,44.233472 -40.000000,42.800000 -36.265678,41.366528" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<polyline points="36.265678,41.366528 40.000000,42.800000 36.265678,44.233472" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<line x1="-40.000000" y1="32.000000" x2="-40.000000" y2="56.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<line x1="40.000000" y1="32.000000" x2="40.000000" y2="56.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<g transform="translate(-10.000000,0.000000)">
+
+<foreignObject x="0" y="42.8" width="20" height="20">
+
+<div class="huatu-label-container-8adb6a05">
+<div class="huatu-label-text-8adb6a05">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<line x1="52.800000" y1="30.000000" x2="52.800000" y2="-30.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<polyline points="54.233472,26.265678 52.800000,30.000000 51.366528,26.265678" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<polyline points="51.366528,-26.265678 52.800000,-30.000000 54.233472,-26.265678" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<line x1="42.000000" y1="30.000000" x2="66.000000" y2="30.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<line x1="42.000000" y1="-30.000000" x2="66.000000" y2="-30.000000" stroke="currentColor" stroke-width="0.5" fill="none"></line>
+<g transform="translate(0.000000,-10.000000)">
+
+<foreignObject x="56.8" y="0" width="20" height="20">
+
+<div class="huatu-label-container-8adb6a05">
+<div class="huatu-label-text-8adb6a05" style="text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h3 id="h1-2-7">Triangle</h3>
+<p>Using the keyword <code>triangle</code>(short as <code>tri</code>) we can define triangles, the parameters are the three points of the triangle.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># Providing the three points, we get a triangle
+</span>  <span class="hljs-wtht-id">tri1:</span> <span class="hljs-wtht-marker">triangle</span><span class="hljs-wtht-emphasis">;</span> pA<span class="hljs-wtht-emphasis">;</span> pB<span class="hljs-wtht-emphasis">;</span> pC<span class="hljs-wtht-emphasis">;</span>
+
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="156" viewBox="-110 -106 240 156">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-8735a29d { fill: none; }
+.huatu-label-container-8735a29d { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-8735a29d { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<path d="M100.000000,30.000000 L0.000000,-90.000000 L-80.000000,15.000000 z" fill="none" stroke="black" stroke-width="2.000000" stroke-linejoin="round"></path>
+<g>
+
+<foreignObject x="100" y="30" width="30" height="20">
+
+<div class="huatu-label-container-8735a29d">
+<div class="huatu-label-text-8735a29d" style="text-align:left;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-15.000000,-16.000000)">
+
+<foreignObject x="0" y="-90" width="30" height="16">
+
+<div class="huatu-label-container-8735a29d">
+<div class="huatu-label-text-8735a29d" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-30.000000,-8.000000)">
+
+<foreignObject x="-80" y="15" width="30" height="16">
+
+<div class="huatu-label-container-8735a29d">
+<div class="huatu-label-text-8735a29d" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h3 id="h1-2-8">Polygon</h3>
+<p>Using keyword <code>polygon</code> (short as <code>plg</code>) we can define a Polygon, like the <a href="#Polyline"><strong>Polyline</strong></a>, we can use Point Series or Discrete Points to define a polygon.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># Providing discrete points to make a polygon
+</span>  <span class="hljs-wtht-id">plg1:</span> <span class="hljs-wtht-marker">polygon</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> p1<span class="hljs-wtht-emphasis">;</span> p2<span class="hljs-wtht-emphasis">;</span> p3<span class="hljs-wtht-emphasis">;</span> ... pN
+<span class="hljs-wtht-tag">pointSeries:</span>
+  <span class="hljs-wtht-id">ps1:</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">3</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">4</span><span class="hljs-wtht-emphasis">,</span> <span class="hljs-wtht-number">2</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-number">5</span><span class="hljs-wtht-emphasis">,</span><span class="hljs-wtht-number">6</span><span class="hljs-wtht-emphasis">;</span> p1<span class="hljs-wtht-emphasis">;</span> p2<span class="hljs-wtht-emphasis">;</span> ... pX<span class="hljs-wtht-emphasis">;</span>
+<span class="hljs-wtht-tag">shapes2:</span>
+  <span class="hljs-wtht-comment"># Providing previous defined point series to define a polygon
+</span>  <span class="hljs-wtht-id">plg2:</span> <span class="hljs-wtht-marker">polygon</span><span class="hljs-wtht-emphasis">;</span> ps1<span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="590" height="691" viewBox="-330 -425 590 691">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-5e44c37e { fill: none; }
+.huatu-label-container-5e44c37e { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-5e44c37e { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<path d="M160.000000,200.000000 L-200.000000,250.000000 L-300.000000,-200.000000 L-20.000000,-400.000000 L200.000000,-220.000000 L230.000000,0.000000 z" fill="yellow" fill-opacity="0.30" stroke="black" stroke-width="3.000000"></path>
+<g>
+
+<foreignObject x="160" y="200" width="30" height="16">
+
+<div class="huatu-label-container-5e44c37e">
+<div class="huatu-label-text-5e44c37e">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-30.000000,0.000000)">
+
+<foreignObject x="-200" y="250" width="30" height="16">
+
+<div class="huatu-label-container-5e44c37e">
+<div class="huatu-label-text-5e44c37e">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-30.000000,-8.000000)">
+
+<foreignObject x="-300" y="-200" width="30" height="16">
+
+<div class="huatu-label-container-5e44c37e">
+<div class="huatu-label-text-5e44c37e">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-15.000000,-25.000000)">
+
+<foreignObject x="-20" y="-400" width="30" height="25">
+
+<div class="huatu-label-container-5e44c37e">
+<div class="huatu-label-text-5e44c37e">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="200" y="-220" width="30" height="16">
+
+<div class="huatu-label-container-5e44c37e">
+<div class="huatu-label-text-5e44c37e">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-8.000000)">
+
+<foreignObject x="230" y="0" width="30" height="16">
+
+<div class="huatu-label-container-5e44c37e">
+<div class="huatu-label-text-5e44c37e">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<div class="info-box">
+<p>Obviously, we can define Rectangles or Triangles by defining Polygons.</p>
+
+</div><h3 id="h1-2-9">Regular Polygon</h3>
+<p>Using the keyword <code>npolygon</code>(short as <code>plgn</code>), we can define Regular Polygon. We need 4 parameters, the first is count of edges (N), the second is center of the Polygon, the third is <strong>radius</strong> of the outer circle of the polygon, the fourth is the offset angle (with respect to x-axis positive) of the first point of the polygon.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># Here we define a regular polygon with N edges, centered at pCenter, 
+</span>  <span class="hljs-wtht-comment"># distance from center to vertices is R, and angle of start point is deg_of_start
+</span>  <span class="hljs-wtht-id">nplg1:</span> <span class="hljs-wtht-marker">npolygon</span><span class="hljs-wtht-emphasis">;</span> N<span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> R<span class="hljs-wtht-emphasis">;</span> deg_of_start
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512.0061550730803" height="425" viewBox="-224.0061550730803 -205.58546923342638 512.0061550730803 424.03331055346075">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-22469813 { fill: none; }
+.huatu-label-container-22469813 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-22469813 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-0db48420" viewBox="-10 -4.244748162096047 10 8.489496324192094" refX="-1.1779261829118766" refY="0" markerWidth="10" markerHeight="8.489496324192094" orient="auto-start-reverse">
+<path d="M-10.000000,4.244748 L0.000000,0.000000 L-10.000000,-4.244748 z" fill="context-stroke"></path>
+</marker>
+</defs>
+<path d="M187.938524,-68.404029 L170.658176,104.287041 L24.868741,198.447841 L-139.647364,143.173370 L-199.006155,-19.913569 L-108.509253,-168.005185 L63.697330,-189.585469 z" fill="none" stroke="black" stroke-width="3.000000"></path>
+<line x1="0.000000" y1="0.000000" x2="280.000000" y2="0.000000" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3" marker-end="url(#mkr-0db48420)"></line>
+<g>
+<line x1="0.000000" y1="0.000000" x2="187.938524" y2="-68.404029" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="171.940961,-68.683267 187.938524,-68.404029 175.863171,-57.907084" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-60.000000,-20.000000)">
+
+<foreignObject x="93.96926207859084" y="-34.20201433256686" width="60" height="20">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g transform="translate(-20.000000,-25.000000)">
+
+<foreignObject x="280" y="0" width="20" height="25">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="0" y="0" width="60" height="25">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">ce</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">er</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-110.000000,-10.000000)">
+
+<foreignObject x="0" y="-100" width="220" height="20">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span></span></span></span><span> Regular Polygon (</span><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">7</span></span></span></span><span>)</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+
+<path d="M70.000000,0.000000 A 70.000000,70.000000 0.000 0,0 65.778483,-23.941410" stroke="currentColor" stroke-width="2" fill="none"></path>
+<path d="M70.816171,-18.011888 L65.778483,-23.941410 L64.863864,-16.497936 z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"></path>
+<g transform="translate(0.000000,-20.000000)">
+
+<foreignObject x="74.61653267577913" y="-7.316992428735722" width="150" height="20">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813" style="text-align:left;">
+<span>deg_of_start</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+
+</g>
+<circle cx="0.000000" cy="0.000000" r="4.000000" fill="red"></circle>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="187.9385241571817" y="-68.40402866513372" width="25" height="16">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+
+<foreignObject x="170.65817632643115" y="104.2870406758996" width="20" height="20">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-10.000000,0.000000)">
+
+<foreignObject x="24.868740929497054" y="198.4478413200344" width="20" height="20">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-20.000000,0.000000)">
+
+<foreignObject x="-139.64736361721455" y="143.1733698519437" width="20" height="20">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-25.000000,-10.000000)">
+
+<foreignObject x="-199.0061550730803" y="-19.913569319163297" width="25" height="20">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-25.000000,-16.000000)">
+
+<foreignObject x="-108.50925277315184" y="-168.0051846301543" width="25" height="16">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="63.69733005033675" y="-189.58546923342638" width="30" height="16">
+
+<div class="huatu-label-container-22469813">
+<div class="huatu-label-text-22469813">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h3 id="h1-2-10">Ellipse</h3>
+<p>Using the keyword <code>ellipse</code>(short as <code>ell</code>), we can define Ellipse. We need four parameters, center of the ellipse, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>, and the rotation angle.</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">ell1:</span> <span class="hljs-wtht-marker">ellipse</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> rx<span class="hljs-wtht-emphasis">;</span> ry<span class="hljs-wtht-emphasis">;</span> rotDeg
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="543.1760008176466" height="373" viewBox="-249.17600081764664 -199.84454610494615 543.1760008176466 372.2827284806143">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-56cc0771 { fill: none; }
+.huatu-label-container-56cc0771 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-56cc0771 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-343de5b7" viewBox="-12 -5.093697794515256 12 10.187395589030512" refX="-1.1779261829118766" refY="0" markerWidth="12" markerHeight="10.187395589030512" orient="auto-start-reverse">
+<path d="M-12.000000,5.093698 L0.000000,0.000000 L-12.000000,-5.093698 z" fill="context-stroke"></path>
+</marker>
+</defs>
+<ellipse rx="220.000000" ry="150.000000" transform="rotate(24.000)" fill="none" stroke="black" stroke-width="3.000000"></ellipse>
+<line x1="-241.176001" y1="-107.378474" x2="261.274001" y2="116.326680" stroke="silver" stroke-width="1.000000" stroke-dasharray="2 2" marker-end="url(#mkr-343de5b7)"></line>
+<line x1="-73.212596" y1="164.438182" x2="85.414695" y2="-191.844546" stroke="silver" stroke-width="1.000000" stroke-dasharray="3 3" marker-end="url(#mkr-343de5b7)"></line>
+<line x1="0.000000" y1="0.000000" x2="286.000000" y2="0.000000" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3" marker-end="url(#mkr-343de5b7)"></line>
+<g>
+<line x1="0.000000" y1="0.000000" x2="200.980001" y2="89.482061" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="189.666292,78.168353 200.980001,89.482061 185.001928,88.644686" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="100.4900003406861" y="44.74103073833802" width="60" height="20">
+
+<div class="huatu-label-container-56cc0771">
+<div class="huatu-label-text-56cc0771" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<line x1="0.000000" y1="0.000000" x2="61.010496" y2="-137.031819" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="49.696788,-125.718110 61.010496,-137.031819 60.173121,-121.053746" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-60.000000,-20.000000)">
+
+<foreignObject x="30.505248230684995" y="-68.51590932319507" width="60" height="20">
+
+<div class="huatu-label-container-56cc0771">
+<div class="huatu-label-text-56cc0771" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+
+<path d="M130.000000,0.000000 A 130.000000,130.000000 0.000 0,1 118.760909,52.875764" stroke="currentColor" stroke-width="2" fill="none"></path>
+<path d="M124.303140,47.503654 L118.760909,52.875764 L118.565988,45.311145 z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="currentColor"></path>
+<g transform="translate(0.000000,-10.000000)">
+
+<foreignObject x="134.5941854763463" y="24.89425300401169" width="60" height="20">
+
+<div class="huatu-label-container-56cc0771">
+<div class="huatu-label-text-56cc0771" style="text-align:left;">
+<span>rotDeg</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+
+</g>
+<circle cx="0.000000" cy="0.000000" r="4.000000" fill="red"></circle>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h3 id="h1-2-11">Bezier 2</h3>
+<p>Using keyword <code>bezier2</code>(short as <code>b2</code>), we can define a 2-nd order Bezier Curve. We need three parameters, the first is the starting point, second is the control point, the third is the ending point. 2-nd order Bezier is actually some parabolic curve, the lines from starting/ending point to the control point are the tangent lines of the parabolic curve at starting/ending points. You can refer the SVG specification regarding QuadraticBezier to check the details. (<a href="https://www.w3.org/TR/SVG2/paths.html#PathDataQuadraticBezierCommands">https://www.w3.org/TR/SVG2/paths.html#PathDataQuadraticBezierCommands</a>)</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">bez1:</span> <span class="hljs-wtht-marker">bezier2</span><span class="hljs-wtht-emphasis">;</span> pStart<span class="hljs-wtht-emphasis">;</span> pCtrl<span class="hljs-wtht-emphasis">;</span> pEnd<span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="372" viewBox="-90 -176 480 372">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-65da2c77 { fill: none; }
+.huatu-label-container-65da2c77 { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-65da2c77 { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<g>
+<g stroke="aqua" stroke-width="1.000000">
+<line x1="-20.000000" y1="-20.000000" x2="300.000000" y2="-160.000000"></line>
+<line x1="300.000000" y1="-160.000000" x2="320.000000" y2="180.000000"></line>
+</g>
+<circle cx="-20.000000" cy="-20.000000" r="6.000000" fill="aqua"></circle>
+<circle cx="320.000000" cy="180.000000" r="6.000000" fill="aqua"></circle>
+<circle cx="300.000000" cy="-160.000000" r="6.000000" fill="magenta"></circle>
+</g>
+<path d="M-20.000000,-20.000000 Q300.000000,-160.000000 320.000000,180.000000" fill="none" fill-opacity="0.20" stroke="black" stroke-width="6.000000" stroke-opacity="0.2"></path>
+<g transform="translate(-70.000000,0.000000)">
+
+<foreignObject x="-20" y="-20" width="70" height="16">
+
+<div class="huatu-label-container-65da2c77">
+<div class="huatu-label-text-65da2c77">
+<span>pStart</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+
+<foreignObject x="320" y="180" width="70" height="16">
+
+<div class="huatu-label-container-65da2c77">
+<div class="huatu-label-text-65da2c77">
+<span>pEnd</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="300" y="-160" width="70" height="16">
+
+<div class="huatu-label-container-65da2c77">
+<div class="huatu-label-text-65da2c77" style="color:magenta;">
+<span>pCtrl</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<h3 id="h1-2-12">Bezier 3</h3>
+<p>Using the keyword <code>bezier3</code>(short as <code>b3</code>), we can define 3-rd order Bezier Curves, four parameters are required, starting point, control point 1, control point 2, and ending point. Please refer to the SVG specification regarding CubicBezier to check the details. (<a href="https://www.w3.org/TR/SVG2/paths.html#PathDataCubicBezierCommands">https://www.w3.org/TR/SVG2/paths.html#PathDataCubicBezierCommands</a>)</p>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">bez1:</span> <span class="hljs-wtht-marker">bezier3</span><span class="hljs-wtht-emphasis">;</span> pStart<span class="hljs-wtht-emphasis">;</span> pCtrl1<span class="hljs-wtht-emphasis">;</span> pCtrl2<span class="hljs-wtht-emphasis">;</span> pEnd<span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="412" viewBox="-90 -176 480 412">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-36577c4e { fill: none; }
+.huatu-label-container-36577c4e { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-36577c4e { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+
+</defs>
+<g>
+<g stroke="aqua" stroke-width="1.000000">
+<line x1="-20.000000" y1="-20.000000" x2="300.000000" y2="-160.000000"></line>
+<line x1="220.000000" y1="220.000000" x2="320.000000" y2="180.000000"></line>
+</g>
+<circle cx="-20.000000" cy="-20.000000" r="6.000000" fill="aqua"></circle>
+<circle cx="320.000000" cy="180.000000" r="6.000000" fill="aqua"></circle>
+<circle cx="300.000000" cy="-160.000000" r="6.000000" fill="magenta"></circle>
+<circle cx="220.000000" cy="220.000000" r="6.000000" fill="magenta"></circle>
+</g>
+<path d="M-20.000000,-20.000000 C300.000000,-160.000000 220.000000,220.000000 320.000000,180.000000" fill="none" fill-opacity="0.20" stroke="black" stroke-width="6.000000" stroke-opacity="0.2"></path>
+<g transform="translate(-70.000000,0.000000)">
+
+<foreignObject x="-20" y="-20" width="70" height="16">
+
+<div class="huatu-label-container-36577c4e">
+<div class="huatu-label-text-36577c4e">
+<span>pStart</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-8.000000)">
+
+<foreignObject x="320" y="180" width="70" height="16">
+
+<div class="huatu-label-container-36577c4e">
+<div class="huatu-label-text-36577c4e">
+<span>pEnd</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="300" y="-160" width="70" height="16">
+
+<div class="huatu-label-container-36577c4e">
+<div class="huatu-label-text-36577c4e" style="color:magenta;">
+<span>pCtrl1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-70.000000,0.000000)">
+
+<foreignObject x="220" y="220" width="70" height="16">
+
+<div class="huatu-label-container-36577c4e">
+<div class="huatu-label-text-36577c4e" style="color:magenta;">
+<span>pCtrl2</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<div class="info-box">
+<p>Generally, we can define N-th Bezier Curve, using the formula:</p>
+<div class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2806em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">s</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight">a</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mord mathnormal">t</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">c</span><span class="mord mathnormal mtight">t</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span><span class="mord mathnormal mtight" style="margin-right:0.01968em;">l</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord mathnormal">t</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">n</span><span class="mord mathnormal mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7144em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mpunct">,</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.6542em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></span></div>
+<p>In normally usage, 2-nd and 3-rd could handle almost using cases, so here we only introduce the 2-nd and 3-rd order curves.</p>
+
+</div><h3 id="h1-2-13">Arc</h3>
+<p>Using the keyword <code>arc</code>, we can define Elliptical Arcs, both  circular and elliptical arcs are included. We can define the arc based on Circle or Ellipse (the arc is a portion of the circle/ellipse), or we can define using the unique form.</p>
+<ol>
+<li>Define from Circle or Ellipse. The parameters are the basis (circle or ellipse), starting angle position, ending angle position, and rotating direction, i.e. clockwise(<code>cw</code>) or counter-clockwise(<code>ccw</code>).</li>
+</ol>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-id">circ1:</span> <span class="hljs-wtht-marker">circ</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> R
+  <span class="hljs-wtht-id">arc1:</span>  <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> circ1<span class="hljs-wtht-emphasis">;</span> deg1<span class="hljs-wtht-emphasis">;</span> deg2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">cw</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">ell1:</span>  <span class="hljs-wtht-marker">ell</span><span class="hljs-wtht-emphasis">;</span> p0<span class="hljs-wtht-emphasis">;</span> Rx<span class="hljs-wtht-emphasis">;</span> Ry<span class="hljs-wtht-emphasis">;</span> rotDeg<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">arc2:</span>  <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> ell1<span class="hljs-wtht-emphasis">;</span> deg3<span class="hljs-wtht-emphasis">;</span> deg4<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="773.2" height="307" viewBox="-141.6 -144.8 773.2 306.04355652982144">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-ec454c3a { fill: none; }
+.huatu-label-container-ec454c3a { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-ec454c3a { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-75154c82" viewBox="-4.8 -2.497899264838419 5.6 4.995798529676838" refX="0.10172614971184957" refY="0" markerWidth="5.6" markerHeight="4.995798529676838" orient="auto-start-reverse">
+<polyline points="-4.000000,1.697899 0.000000,0.000000 -4.000000,-1.697899" stroke="context-stroke" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+</marker>
+</defs>
+<g>
+<circle cx="0.000000" cy="0.000000" r="4.000000" fill="red"></circle>
+<circle cx="0.000000" cy="0.000000" r="140.000000" fill="none" stroke="grey" stroke-width="2.000000" stroke-dasharray="3 3"></circle>
+<path d="M121.243557,70.000000 A 140.000000,140.000000 0.000 0,1 -70.000000,121.243557" fill="none" fill-opacity="0.40" stroke="red" stroke-width="6.000000" stroke-opacity="0.4"></path>
+<path d="M79.195959,79.195959 A 112.000000,112.000000 0.000 0,1 -38.306256,105.245574" fill="none" stroke="silver" stroke-width="2.000000" marker-end="url(#mkr-75154c82)"></path>
+<g transform="translate(-30.000000,-20.000000)">
+
+<foreignObject x="24.241236761067526" y="89.34515279743253" width="30" height="20">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a">
+<span>cw</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="121.243557" cy="70.000000" r="6.000000" fill="blue"></circle>
+<g>
+
+<foreignObject x="121.24355652982142" y="69.99999999999999" width="60" height="40">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a">
+<span>point at deg1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="-70.000000" cy="121.243557" r="6.000000" fill="blue"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="-69.99999999999997" y="121.24355652982142" width="60" height="40">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a">
+<span>point at deg2</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+<line x1="0.000000" y1="0.000000" x2="140.000000" y2="0.000000" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="125.062713,-5.733887 140.000000,0.000000 125.062713,5.733887" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-30.000000,-20.000000)">
+
+<foreignObject x="70" y="0" width="60" height="20">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+</g>
+<g transform="translate(420.000000,0.000000)">
+<circle cx="0.000000" cy="0.000000" r="4.000000" fill="red"></circle>
+<ellipse rx="210.000000" ry="140.000000" fill="none" stroke="grey" stroke-width="2.000000" stroke-dasharray="3 3"></ellipse>
+<path d="M181.865335,-70.000000 A 210.000000,140.000000 0.000 0,0 -197.335450,47.882820" fill="none" fill-opacity="0.50" stroke="royalblue" stroke-width="6.000000" stroke-opacity="0.5"></path>
+<path d="M84.000000,-96.994845 A 168.000000,112.000000 0.000 0,0 -128.695466,-71.992212" fill="none" stroke="silver" stroke-width="2.000000" marker-end="url(#mkr-75154c82)"></path>
+<g>
+
+<foreignObject x="-29.172893848044296" y="-95.2984683373673" width="30" height="20">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a">
+<span>ccw</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="181.865335" cy="-70.000000" r="6.000000" fill="blue"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="181.86533479473206" y="-70.00000000000006" width="60" height="40">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a">
+<span>point at deg3</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="-197.335450" cy="47.882820" r="6.000000" fill="blue"></circle>
+<g transform="translate(0.000000,-40.000000)">
+
+<foreignObject x="-197.33545036504074" y="47.88282006559364" width="60" height="40">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a">
+<span>point at deg4</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+<line x1="0.000000" y1="0.000000" x2="210.000000" y2="0.000000" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="195.062713,-5.733887 210.000000,0.000000 195.062713,5.733887" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-30.000000,-20.000000)">
+
+<foreignObject x="105" y="0" width="60" height="20">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<line x1="0.000000" y1="0.000000" x2="0.000000" y2="140.000000" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="5.733887,125.062713 0.000000,140.000000 -5.733887,125.062713" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-60.000000,-10.000000)">
+
+<foreignObject x="-4" y="70" width="60" height="20">
+
+<div class="huatu-label-container-ec454c3a">
+<div class="huatu-label-text-ec454c3a" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<ol start="2">
+<li>Using the unique way to define an arc. Parameters are starting point, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>, rotating angle, clockwise/counter-clockwise, large/small arc, and ending point.</li>
+</ol>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># cw is clockwise，ccw is counter-clockwise，large/small means the arc will be either the larger or smaller portion of the circle/ellipse
+</span>  <span class="hljs-wtht-id">arc1:</span> <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> pStart<span class="hljs-wtht-emphasis">;</span> Rx1<span class="hljs-wtht-emphasis">;</span> Ry1<span class="hljs-wtht-emphasis">;</span> rotDeg1<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">cw</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">large</span><span class="hljs-wtht-emphasis">;</span> pEnd<span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">arc2:</span> <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> pStart<span class="hljs-wtht-emphasis">;</span> Rx2<span class="hljs-wtht-emphasis">;</span> Ry2<span class="hljs-wtht-emphasis">;</span> rotDeg2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">small</span><span class="hljs-wtht-emphasis">;</span> pEnd<span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="772.8671398004955" height="476" viewBox="-162.7725591311399 -82.90049224850702 772.8671398004955 475.80098449701404">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-bea872dc { fill: none; }
+.huatu-label-container-bea872dc { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-bea872dc { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-18780ba1" viewBox="-8.8 -4.195798529676837 9.6 8.391597059353675" refX="0.10172614971184957" refY="0" markerWidth="9.6" markerHeight="8.391597059353675" orient="auto-start-reverse">
+<polyline points="-8.000000,3.395799 0.000000,0.000000 -8.000000,-3.395799" stroke="context-stroke" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+</marker>
+</defs>
+<g>
+<g>
+<g fill="none" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3">
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,1 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,1 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,0 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,0 80.000000,0.000000"></path>
+</g>
+<circle cx="0.000000" cy="60.000000" r="6.000000" fill="red"></circle>
+<circle cx="80.000000" cy="0.000000" r="6.000000" fill="orange"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="-4" y="72" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>pStart</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="82" y="-12" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>pEnd</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,1 80.000000,0.000000" fill="none" fill-opacity="0.50" stroke="royalblue" stroke-width="6.000000" stroke-opacity="0.5"></path>
+<path d="M-20.000000,40.000000 A 73.500000,49.000000 0.000 1,1 40.000000,-30.000000" fill="none" stroke="black" stroke-width="1.000000" marker-end="url(#mkr-18780ba1)"></path>
+<g>
+
+<foreignObject x="-90.09555375368322" y="-33.131639525212634" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc" style="text-align:right;">
+<span>cw</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-60.000000,-25.000000)">
+
+<foreignObject x="-102.7725591311399" y="-54.605960966601394" width="60" height="25">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>large</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<g transform="translate(400.000000,0.000000)">
+<g>
+<g fill="none" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3">
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,1 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,1 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,0 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,0 80.000000,0.000000"></path>
+</g>
+<circle cx="0.000000" cy="60.000000" r="6.000000" fill="red"></circle>
+<circle cx="80.000000" cy="0.000000" r="6.000000" fill="orange"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="-4" y="72" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>pStart</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="82" y="-12" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>pEnd</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,1 80.000000,0.000000" fill="none" fill-opacity="0.50" stroke="royalblue" stroke-width="6.000000" stroke-opacity="0.5"></path>
+<path d="M11.000000,54.000000 A 84.000000,56.000000 0.000 0,1 69.000000,12.000000" fill="none" stroke="black" stroke-width="1.000000" marker-end="url(#mkr-18780ba1)"></path>
+<g>
+
+<foreignObject x="33.36922708966121" y="22.702806044448145" width="20" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc" style="text-align:right;">
+<span>cw</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(-60.000000,-25.000000)">
+
+<foreignObject x="25.81660220757132" y="21.59502353041264" width="60" height="25">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>small</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<g transform="translate(0.000000,250.000000)">
+<g>
+<g fill="none" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3">
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,1 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,1 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,0 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,0 80.000000,0.000000"></path>
+</g>
+<circle cx="0.000000" cy="60.000000" r="6.000000" fill="red"></circle>
+<circle cx="80.000000" cy="0.000000" r="6.000000" fill="orange"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="-4" y="72" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>pStart</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="82" y="-12" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>pEnd</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,0 80.000000,0.000000" fill="none" fill-opacity="0.50" stroke="royalblue" stroke-width="6.000000" stroke-opacity="0.5"></path>
+<path d="M25.000000,76.000000 A 73.500000,49.000000 0.000 1,0 92.000000,22.000000" fill="none" stroke="black" stroke-width="1.000000" marker-end="url(#mkr-18780ba1)"></path>
+<g transform="translate(-30.000000,-16.000000)">
+
+<foreignObject x="144.72580311612714" y="102.06278854963388" width="30" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc" style="text-align:right;">
+<span>ccw</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+
+<foreignObject x="182.77255913113987" y="114.60596096660139" width="60" height="25">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>large</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<g transform="translate(400.000000,250.000000)">
+<g>
+<g fill="none" stroke="grey" stroke-width="1.000000" stroke-dasharray="3 3">
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,1 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,1 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 1,0 80.000000,0.000000"></path>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,0 80.000000,0.000000"></path>
+</g>
+<circle cx="0.000000" cy="60.000000" r="6.000000" fill="red"></circle>
+<circle cx="80.000000" cy="0.000000" r="6.000000" fill="orange"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="-4" y="72" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>pStart</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g transform="translate(0.000000,-16.000000)">
+
+<foreignObject x="82" y="-12" width="60" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>pEnd</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+<path d="M0.000000,60.000000 A 105.000000,70.000000 0.000 0,0 80.000000,0.000000" fill="none" fill-opacity="0.50" stroke="royalblue" stroke-width="6.000000" stroke-opacity="0.5"></path>
+<path d="M12.000000,44.000000 A 94.500000,77.000000 0.000 0,0 68.000000,-22.000000" fill="none" stroke="black" stroke-width="1.000000" marker-end="url(#mkr-18780ba1)"></path>
+<g transform="translate(-30.000000,-16.000000)">
+
+<foreignObject x="41.38437875038464" y="17.413147974610816" width="30" height="16">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc" style="text-align:right;">
+<span>ccw</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+
+<foreignObject x="54.18339779242866" y="38.40497646958735" width="60" height="25">
+
+<div class="huatu-label-container-bea872dc">
+<div class="huatu-label-text-bea872dc">
+<span>small</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+<ol start="3">
+<li>We can temporarily define a circle/ellipse, then give starting/ending angle position and cw/ccw to define an arc.</li>
+</ol>
+<pre><code class="hljs language-wtht"><span class="hljs-wtht-tag">shapes:</span>
+  <span class="hljs-wtht-comment"># The first parameters define an ellipse, then starting/ending angles, and rotating direction, cw/ccw
+</span>  <span class="hljs-wtht-id">arc1:</span> <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> R<span class="hljs-wtht-emphasis">;</span>  R<span class="hljs-wtht-emphasis">;</span>  rotDeg<span class="hljs-wtht-emphasis">;</span> deg1<span class="hljs-wtht-emphasis">;</span> deg2<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">cw</span><span class="hljs-wtht-emphasis">;</span>
+  <span class="hljs-wtht-id">arc2:</span> <span class="hljs-wtht-marker">arc</span><span class="hljs-wtht-emphasis">;</span> pCenter<span class="hljs-wtht-emphasis">;</span> Rx<span class="hljs-wtht-emphasis">;</span> Ry<span class="hljs-wtht-emphasis">;</span> rotDeg<span class="hljs-wtht-emphasis">;</span> deg3<span class="hljs-wtht-emphasis">;</span> deg4<span class="hljs-wtht-emphasis">;</span> <span class="hljs-wtht-kw">ccw</span><span class="hljs-wtht-emphasis">;</span>
+</code></pre>
+<div><div class="wtht-fig-container"><div class="wtht-fig">
+  <div class="wtht-fig-svg">
+    <div class="wtht-fig-svg-div">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="791.465334794732" height="376" viewBox="-141.6 -188 791.465334794732 376">
+<defs>
+<style type="text/css">
+foreignObject > body { margin: 0; width: 100%; height: 100%; }
+.wthuatu-label-box-190b1c9e { fill: none; }
+.huatu-label-container-190b1c9e { width: 100%; height: 100%; padding: 0; display: flex; }
+.huatu-label-text-190b1c9e { margin: auto 0; text-align: center; max-height: 100%; width: 100%; line-height: 1.0; }
+
+</style>
+<marker id="mkr-1239d7e2" viewBox="-4.8 -2.497899264838419 5.6 4.995798529676838" refX="0.10172614971184957" refY="0" markerWidth="5.6" markerHeight="4.995798529676838" orient="auto-start-reverse">
+<polyline points="-4.000000,1.697899 0.000000,0.000000 -4.000000,-1.697899" stroke="context-stroke" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+</marker>
+</defs>
+<g>
+<circle cx="0.000000" cy="0.000000" r="4.000000" fill="red"></circle>
+<circle cx="0.000000" cy="0.000000" r="140.000000" fill="none" stroke="grey" stroke-width="2.000000" stroke-dasharray="3 3"></circle>
+<path d="M121.243557,70.000000 A 140.000000,140.000000 0.000 0,1 -70.000000,121.243557" fill="none" fill-opacity="0.40" stroke="red" stroke-width="6.000000" stroke-opacity="0.4" marker-end="url(#mkr-1239d7e2)"></path>
+<g transform="translate(-30.000000,-20.000000)">
+
+<foreignObject x="36.234666314352936" y="115.22961568046955" width="30" height="20">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e">
+<span>cw</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="121.243557" cy="70.000000" r="6.000000" fill="blue"></circle>
+<g transform="translate(-60.000000,-40.000000)">
+
+<foreignObject x="121.24355652982142" y="69.99999999999999" width="60" height="40">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e">
+<span>point at deg1</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="-70.000000" cy="121.243557" r="6.000000" fill="blue"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="-69.99999999999997" y="121.24355652982142" width="60" height="40">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e">
+<span>point at deg2</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+<line x1="0.000000" y1="0.000000" x2="140.000000" y2="0.000000" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="125.062713,-5.733887 140.000000,0.000000 125.062713,5.733887" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-30.000000,-20.000000)">
+
+<foreignObject x="70" y="0" width="60" height="20">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+</g>
+<g transform="translate(420.000000,0.000000)">
+<circle cx="0.000000" cy="0.000000" r="4.000000" fill="red"></circle>
+<ellipse rx="210.000000" ry="140.000000" fill="none" stroke="grey" stroke-width="2.000000" stroke-dasharray="3 3"></ellipse>
+<path d="M181.865335,-70.000000 A 210.000000,140.000000 0.000 0,0 -197.335450,47.882820" fill="none" fill-opacity="0.50" stroke="royalblue" stroke-width="6.000000" stroke-opacity="0.5" marker-end="url(#mkr-1239d7e2)"></path>
+<g>
+
+<foreignObject x="-88.74983496554698" y="-111.88309018513095" width="30" height="20">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e">
+<span>ccw</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="181.865335" cy="-70.000000" r="6.000000" fill="blue"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="181.86533479473206" y="-70.00000000000006" width="60" height="40">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e">
+<span>point at deg3</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<circle cx="-197.335450" cy="47.882820" r="6.000000" fill="blue"></circle>
+<g transform="translate(-60.000000,0.000000)">
+
+<foreignObject x="-197.33545036504074" y="47.88282006559364" width="60" height="40">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e">
+<span>point at deg4</span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+<g>
+<line x1="0.000000" y1="0.000000" x2="210.000000" y2="0.000000" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="195.062713,-5.733887 210.000000,0.000000 195.062713,5.733887" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-30.000000,-20.000000)">
+
+<foreignObject x="105" y="0" width="60" height="20">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+<g>
+<line x1="0.000000" y1="0.000000" x2="0.000000" y2="140.000000" stroke="currentColor" stroke-width="2" fill="none"></line>
+<polyline points="5.733887,125.062713 0.000000,140.000000 -5.733887,125.062713" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></polyline>
+<g transform="translate(-60.000000,-10.000000)">
+
+<foreignObject x="-4" y="70" width="60" height="20">
+
+<div class="huatu-label-container-190b1c9e">
+<div class="huatu-label-text-190b1c9e" style="text-align:right;">
+<span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>
+</div>
+</div>
+
+</foreignObject>
+</g>
+
+</g>
+</g>
+</svg>
+    </div>
+  </div>
+</div></div></div>
+</div></div></div></div><div data-v-9ee0c63b="" class="toc"><div data-v-9ee0c63b="" style="top: 0px;"><div data-v-9ee0c63b="" class="lang-list"><span data-v-9ee0c63b="" class="lang-link">中文</span><!----></div><div data-v-9ee0c63b="" class="clickable go-top"><a data-v-9ee0c63b="" style="display: block;"><i data-v-9ee0c63b="" class="f7-icons" style="font-size: 1rem;">arrow_up_to_line_alt</i> GO TOP</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Points</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Basic Shapes</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Line</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Line Segment</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Polyline</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Circle</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Ring</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Rectangle</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Triangle</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Polygon</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Regular Polygon</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Ellipse</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Bezier 2</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Bezier 3</a></div><div data-v-9ee0c63b=""><a data-v-9ee0c63b="" class="clickable">Arc</a></div></div></div><!----><!----></main></div><header><div class="header-content no-select"><div class="flex"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-5.45 -5.6 10.9 11.2" width="32.7" height="33.599999999999994"><polyline points="-2.250,5.0 -4.850,5.0 -4.850,-5.0 -2.250,-5.0 -2.250,-1.180 2.250,-1.180 2.250,-5.0 4.850,-5.0 4.850,5.0 2.250,5.0 2.250,1.180 -2.250,1.180 -2.250,3.180" fill="#0b4d4233" stroke="currentColor" stroke-width="0.4"></polyline><circle cx="-2.250" cy="5.0" r="0.40" fill="black"></circle><circle cx="-2.250" cy="1.180" r="0.40" fill="black"></circle><circle cx="-2.250" cy="3.180" r="0.40" fill="red"></circle></svg></div><div class="title">wt-huatu</div><div class="flex-filler"><nav><div><a href="/wt-huatu-doc/" class="">Home</a><a href="/wt-huatu-doc/doc" class="rl-exact-active">Docs</a><a class="clickable">Editor</a></div><div class="flex-filler"></div><div><span class="wtht-ver">V1.4.1</span><a href="https://github.com/littlefattie/wt-huatu" class="social-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" height="24" width="24"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z" fill="currentColor"></path></svg></a><a href="https://www.npmjs.com/package/wt-huatu" class="social-link" target="_blank"><svg viewBox="0 0 27.23 27.23" aria-hidden="true" width="24" height="24"><rect width="27.23" height="27.23" rx="2" fill="currentColor" stroke-width="0"></rect><polygon fill="#0b4d42" points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"></polygon></svg></a></div></nav></div></div><!----></header><footer><div><strong>wt-huatu:</strong> A library to draw something mathematically, logically, hierarchically and programmatically. </div><div> contact: <a href="mailto:little-fattie@outlook.com">little-fattie@outlook.com</a></div></footer><!----><!----></div>
+
+  
+
+</body></html>
